@@ -1,5 +1,6 @@
 // App store — fluxo geral (onboarding -> eclosão -> casa) e personagem adotado.
 import { create } from "zustand";
+import { kvGet, kvSet, kvRemove } from "../repositories";
 
 export type AppPhase = "onboarding" | "home";
 
@@ -24,11 +25,15 @@ const LS_KEY = "luma.adoption";
 
 function loadAdoption(): Saved | null {
   try {
-    const raw = localStorage.getItem(LS_KEY);
+    const raw = kvGet(LS_KEY);
     if (!raw) return null;
     const p = JSON.parse(raw) as Partial<Saved>;
     if (!p.defId) return null;
-    return { defId: p.defId, name: p.name ?? "Luma", hatched: p.hatched ?? false };
+    return {
+      defId: p.defId,
+      name: p.name ?? "Luma",
+      hatched: p.hatched ?? false,
+    };
   } catch {
     return null;
   }
@@ -36,7 +41,7 @@ function loadAdoption(): Saved | null {
 
 function persist(s: Saved) {
   try {
-    localStorage.setItem(LS_KEY, JSON.stringify(s));
+    kvSet(LS_KEY, JSON.stringify(s));
   } catch {
     /* ignore */
   }
@@ -59,7 +64,8 @@ export const useAppStore = create<AppStore>((set, get) => ({
 
   hatch: () => {
     const { adoptedDefId, petName } = get();
-    if (adoptedDefId) persist({ defId: adoptedDefId, name: petName, hatched: true });
+    if (adoptedDefId)
+      persist({ defId: adoptedDefId, name: petName, hatched: true });
     set({ hatched: true });
   },
 
@@ -69,6 +75,11 @@ export const useAppStore = create<AppStore>((set, get) => ({
     } catch {
       /* ignore */
     }
-    set({ phase: "onboarding", adoptedDefId: null, petName: "", hatched: false });
+    set({
+      phase: "onboarding",
+      adoptedDefId: null,
+      petName: "",
+      hatched: false,
+    });
   },
 }));

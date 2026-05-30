@@ -2,6 +2,7 @@
 // Requisito do produto (docs/01 e briefing): dados são do usuário, sempre
 // exportáveis e apagáveis. Hoje os stores usam localStorage; este módulo é a
 // fonte única das chaves para um backup/restauro coerente.
+import { kvSet, kvRemove } from "../repositories";
 
 export const LUMA_KEYS = [
   "luma.adoption", // appStore — pet adotado + nome
@@ -32,7 +33,12 @@ export function exportData(): LumaBackup {
       }
     }
   }
-  return { app: "LUMA", version: 1, exportedAt: new Date().toISOString(), data };
+  return {
+    app: "LUMA",
+    version: 1,
+    exportedAt: new Date().toISOString(),
+    data,
+  };
 }
 
 /** Dispara o download de um arquivo .json com o backup. */
@@ -60,7 +66,7 @@ export function importBackup(json: string): boolean {
   if (parsed?.app !== "LUMA" || typeof parsed.data !== "object") return false;
   for (const key of LUMA_KEYS) {
     if (key in parsed.data) {
-      localStorage.setItem(key, JSON.stringify(parsed.data[key]));
+      kvSet(key, JSON.stringify(parsed.data[key]));
     }
   }
   return true;
@@ -68,5 +74,5 @@ export function importBackup(json: string): boolean {
 
 /** Apaga TODOS os dados do LUMA (irreversível). */
 export function eraseAllData(): void {
-  for (const key of LUMA_KEYS) localStorage.removeItem(key);
+  for (const key of LUMA_KEYS) kvRemove(key);
 }

@@ -2,3 +2,4 @@
 // SQLite via Tauri quando disponível; memória no dev/browser.
 export { db, isTauri } from "./db";
 export { vitalStateRepo } from "./vitalStateRepo";
+export { kvGet, kvSet, kvRemove, hydrateFromSqlite } from "./kv";

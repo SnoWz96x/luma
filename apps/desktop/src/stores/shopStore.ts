@@ -8,12 +8,13 @@ import {
 } from "@luma/core";
 import type { OwnedItems } from "@luma/shared";
 import { useHabitsStore } from "./habitsStore";
+import { kvGet, kvSet } from "../repositories";
 
 const LS_KEY = "luma.shop";
 
 function load(): OwnedItems {
   try {
-    const raw = localStorage.getItem(LS_KEY);
+    const raw = kvGet(LS_KEY);
     if (raw) return JSON.parse(raw) as OwnedItems;
   } catch {
     /* ignore */

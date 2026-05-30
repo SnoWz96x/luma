@@ -3,6 +3,7 @@
 import { create } from "zustand";
 import { DEFAULT_EMERGENCY_PREFS } from "@luma/core";
 import type { SupportContact, EmergencyPreferences } from "@luma/shared";
+import { kvGet, kvSet } from "../repositories";
 
 const LS_KEY = "luma.support";
 
@@ -14,7 +15,7 @@ interface Persisted {
 
 function load(): Persisted {
   try {
-    const raw = localStorage.getItem(LS_KEY);
+    const raw = kvGet(LS_KEY);
     if (raw) return JSON.parse(raw) as Persisted;
   } catch {
     /* ignore */
@@ -24,7 +25,7 @@ function load(): Persisted {
 
 function persist(p: Persisted) {
   try {
-    localStorage.setItem(LS_KEY, JSON.stringify(p));
+    kvSet(LS_KEY, JSON.stringify(p));
   } catch {
     /* ignore */
   }
@@ -42,7 +43,11 @@ export const useSupportStore = create<SupportStore>((set, get) => {
 
   function commit(patch: Partial<Persisted>) {
     const next = { ...get(), ...patch };
-    const data: Persisted = { contacts: next.contacts, prefs: next.prefs, country: next.country };
+    const data: Persisted = {
+      contacts: next.contacts,
+      prefs: next.prefs,
+      country: next.country,
+    };
     persist(data);
     set(data);
   }
@@ -51,7 +56,9 @@ export const useSupportStore = create<SupportStore>((set, get) => {
     ...initial,
 
     addContact: (c) =>
-      commit({ contacts: [...get().contacts, { ...c, id: `ct-${Date.now()}` }] }),
+      commit({
+        contacts: [...get().contacts, { ...c, id: `ct-${Date.now()}` }],
+      }),
 
     removeContact: (id) =>
       commit({ contacts: get().contacts.filter((c) => c.id !== id) }),

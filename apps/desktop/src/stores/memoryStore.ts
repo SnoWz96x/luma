@@ -3,12 +3,13 @@
 import { create } from "zustand";
 import { diaryMemory } from "@luma/core";
 import type { Memory } from "@luma/shared";
+import { kvGet, kvSet } from "../repositories";
 
 const LS_KEY = "luma.memories";
 
 function load(): Memory[] {
   try {
-    const raw = localStorage.getItem(LS_KEY);
+    const raw = kvGet(LS_KEY);
     if (raw) return JSON.parse(raw) as Memory[];
   } catch {
     /* ignore */
@@ -18,7 +19,7 @@ function load(): Memory[] {
 
 function persist(list: Memory[]) {
   try {
-    localStorage.setItem(LS_KEY, JSON.stringify(list));
+    kvSet(LS_KEY, JSON.stringify(list));
   } catch {
     /* ignore */
   }
