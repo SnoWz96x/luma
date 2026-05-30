@@ -14,12 +14,13 @@ import { BadgesPanel } from "./components/BadgesPanel";
 import { HabitsPanel } from "./components/HabitsPanel";
 import { Breathing } from "./components/Breathing";
 import { ShopPanel } from "./components/ShopPanel";
+import { WorldScene } from "./components/WorldScene";
 import { Celebration } from "./components/Celebration";
 import { useHabitsStore } from "./stores/habitsStore";
 import { useShopStore } from "./stores/shopStore";
 import { relationshipLabel } from "./lib/relationshipLabel";
 
-type Tab = "pet" | "chat" | "habits" | "calm" | "shop" | "badges";
+type Tab = "pet" | "chat" | "world" | "habits" | "calm" | "shop" | "badges";
 
 function petLine(animation: string, name: string): string {
   switch (animation) {
@@ -112,6 +113,9 @@ function Home() {
         <TabButton active={tab === "chat"} onClick={() => setTab("chat")}>
           💬 Conversar
         </TabButton>
+        <TabButton active={tab === "world"} onClick={() => setTab("world")}>
+          🌌 Mundo
+        </TabButton>
         <TabButton active={tab === "habits"} onClick={() => setTab("habits")}>
           🌿 Hábitos
         </TabButton>
@@ -157,6 +161,12 @@ function Home() {
               petName={petName}
               onEmotion={() => handleInteract("talk")}
             />
+          </div>
+        )}
+
+        {tab === "world" && (
+          <div className="min-h-0 flex-1">
+            <WorldScene />
           </div>
         )}
 
