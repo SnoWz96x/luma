@@ -42,7 +42,9 @@
       "Bash(xargs echo \"logsize:\")",
       "Bash(curl -s -o /dev/null -w \"vite_1420=%{http_code}\\\\n\" http://localhost:1420/)",
       "Bash(grep -nE \"Celebration|adoptedDefId, petName|useAppStore\\\\\\(\\\\\\)|import \\\\{ SettingsPanel\" apps/desktop/src/App.tsx)",
-      "Bash(echo \"push=$?\")"
+      "Bash(echo \"push=$?\")",
+      "Bash(pnpm exec *)",
+      "Bash(grep -vE \"^$\")"
     ]
   }
 }

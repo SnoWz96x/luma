@@ -6,7 +6,12 @@ import {
   ANIMATION_CLASS,
   PET_ANIMATION_CSS,
 } from "@luma/characters";
-import type { CharacterDef, SensorySignals } from "@luma/shared";
+import type {
+  CharacterDef,
+  SensorySignals,
+  LifeStage,
+  EvolutionBranch,
+} from "@luma/shared";
 
 let cssInjected = false;
 function usePetAnimationCSS() {
@@ -27,17 +32,21 @@ interface PetViewProps {
   scale?: number;
   /** cores [claro, escuro] da skin equipada (loja); null = padrão do personagem */
   skinColors?: [string, string] | null;
+  /** estágio de vida — muda a forma do pet (ovo, bebê, adulto...) */
+  stage?: LifeStage;
+  /** ramo de evolução — adiciona um detalhe ao adulto */
+  branch?: EvolutionBranch;
   onPet?: () => void;
 }
 
-export function PetView({ character, signals, size = 200, scale = 1, skinColors, onPet }: PetViewProps) {
+export function PetView({ character, signals, size = 200, scale = 1, skinColors, stage, branch, onPet }: PetViewProps) {
   usePetAnimationCSS();
-  const svg = renderFromSignals(
-    character,
-    signals,
-    Math.round(size * scale),
-    skinColors ?? undefined,
-  );
+  const svg = renderFromSignals(character, signals, {
+    size: Math.round(size * scale),
+    ...(skinColors ? { skinColors } : {}),
+    ...(stage ? { stage } : {}),
+    ...(branch ? { branch } : {}),
+  });
   const animClass = ANIMATION_CLASS[signals.animation];
 
   return (

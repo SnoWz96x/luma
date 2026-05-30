@@ -1,7 +1,12 @@
 // Renderizador de pet PURO (sem framework): gera SVG + classe de animação a
 // partir do estado sensorial. Reutilizado por Desktop (Tauri/React) e Web (Next).
 // Veja docs/09-ARTE.md. Estilo: kawaii vetorial (soft).
-import type { CharacterDef, SensorySignals } from "@luma/shared";
+import type {
+  CharacterDef,
+  SensorySignals,
+  LifeStage,
+  EvolutionBranch,
+} from "@luma/shared";
 
 export type PetAnimation = SensorySignals["animation"];
 
@@ -114,6 +119,60 @@ export interface RenderOptions {
   size?: number;
   /** sobrescreve as cores do corpo: [claro, escuro] (skin equipada da loja) */
   skinColors?: [string, string];
+  /** estágio de vida — muda a forma (ovo, olhos de bebê, corpo adulto) */
+  stage?: LifeStage;
+  /** ramo de evolução — adiciona um detalhe ao adulto (criativo, aventureiro...) */
+  branch?: EvolutionBranch;
+}
+
+/** SVG do OVO (estágio inicial). Casca com manchinhas, sem rosto ainda. */
+function eggSVG(size: number, stroke: string, c0: string, c1: string, light: number, name: string): string {
+  return `<svg width="${size}" height="${size}" viewBox="0 0 120 120" role="img" aria-label="ovo de ${name}">
+  <defs><radialGradient id="egg" cx="50%" cy="38%" r="70%">
+    <stop offset="0%" stop-color="${c0}"/><stop offset="100%" stop-color="${c1}"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="24" ry="5" fill="#000" opacity="${0.18 * light}"/>
+  <path d="M60 18 C86 18 96 54 96 74 C96 98 80 108 60 108 C40 108 24 98 24 74 C24 54 34 18 60 18 Z"
+        fill="url(#egg)" stroke="${stroke}" stroke-width="3"/>
+  <ellipse cx="50" cy="60" rx="6" ry="9" fill="#fff" opacity="0.25"/>
+  <circle cx="70" cy="80" r="4" fill="${stroke}" opacity="0.2"/>
+  <circle cx="48" cy="86" r="3" fill="${stroke}" opacity="0.2"/>
+</svg>`;
+}
+
+/** Detalhe visual por ramo de evolução (aparece em teen/adult/elder). */
+function branchDecor(branch: EvolutionBranch | undefined, light: number): string {
+  switch (branch) {
+    case "creative": // brilho de inspiração
+      return `<text x="86" y="34" font-size="16" fill="#ffe08a" opacity="${light}">✦</text>`;
+    case "adventurous": // cachecol aventureiro
+      return `<path d="M44 84 Q60 92 76 84 L74 92 Q60 98 46 92 Z" fill="#ff7a7a" opacity="${0.85 * light}"/>`;
+    case "serene": // folhinha serena
+      return `<path d="M60 14 Q70 6 76 16 Q66 22 60 18 Z" fill="#8fd65c" opacity="${light}"/>`;
+    case "social": // coração de vínculo
+      return `<text x="84" y="40" font-size="14" fill="#ff9ec7" opacity="${light}">♥</text>`;
+    default:
+      return "";
+  }
+}
+
+/** Estágios que já têm rosto/corpo (egg é tratado à parte). */
+function isHatched(stage: LifeStage | undefined): boolean {
+  return stage !== undefined && stage !== "egg";
+}
+
+/** Raio dos olhos por estágio: bebês têm olhos proporcionalmente maiores. */
+function eyeScale(stage: LifeStage | undefined): number {
+  switch (stage) {
+    case "baby":
+      return 1.35;
+    case "child":
+      return 1.18;
+    case "teen":
+      return 1.05;
+    default:
+      return 1; // adult/elder/undefined
+  }
 }
 
 /** Gera o markup SVG do pet. Determinístico e testável. */
@@ -124,9 +183,26 @@ export function renderPetSVG(def: CharacterDef, opts: RenderOptions = {}): strin
   const base = BODY_COLOR[def.category] ?? BODY_COLOR.star!;
   const [c0, c1] = opts.skinColors ?? [base[0], base[1]];
   const stroke = base[2];
+
+  // Estágio OVO: ainda não nasceu — desenha a casca.
+  if (opts.stage === "egg") {
+    return eggSVG(size, stroke, c0, c1, light, def.name);
+  }
+
   const face = faceFor(animation);
   const path = bodyPath(def.category);
   const gid = `g-${def.id}-${animation}`;
+
+  // olhos maiores em filhotes; detalhe do ramo de vida em estágios avançados
+  const es = eyeScale(opts.stage);
+  const eyes =
+    es === 1
+      ? face.eyes
+      : `<g transform="translate(60 58) scale(${es}) translate(-60 -58)">${face.eyes}</g>`;
+  const showBranch = isHatched(opts.stage)
+    ? opts.stage === "teen" || opts.stage === "adult" || opts.stage === "elder"
+    : false;
+  const decor = showBranch ? branchDecor(opts.branch, light) : "";
 
   return `<svg width="${size}" height="${size}" viewBox="0 0 120 120" role="img" aria-label="${def.name}">
   <defs><radialGradient id="${gid}" cx="50%" cy="40%" r="65%">
@@ -136,21 +212,31 @@ export function renderPetSVG(def: CharacterDef, opts: RenderOptions = {}): strin
   <path d="${path}" fill="url(#${gid})" stroke="${stroke}" stroke-width="3" stroke-linejoin="round" opacity="${0.55 + 0.45 * light}"/>
   <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="${0.6 * light}"/>
   <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="${0.6 * light}"/>
-  ${face.eyes}${face.mouth}${face.extra}
+  ${eyes}${face.mouth}${face.extra}${decor}
 </svg>`;
 }
 
 /** Conveniência: deriva animação a partir dos sinais sensoriais. */
+export interface FromSignalsOptions {
+  size?: number;
+  skinColors?: [string, string];
+  stage?: LifeStage;
+  branch?: EvolutionBranch;
+}
+
 export function renderFromSignals(
   def: CharacterDef,
   signals: SensorySignals,
-  size?: number,
-  skinColors?: [string, string],
+  opts: FromSignalsOptions | number = {},
 ): string {
+  // compat: aceita `size` numérico direto (chamadas antigas)
+  const o: FromSignalsOptions = typeof opts === "number" ? { size: opts } : opts;
   return renderPetSVG(def, {
     animation: signals.animation,
     light: signals.light,
-    ...(size !== undefined ? { size } : {}),
-    ...(skinColors !== undefined ? { skinColors } : {}),
+    ...(o.size !== undefined ? { size: o.size } : {}),
+    ...(o.skinColors !== undefined ? { skinColors: o.skinColors } : {}),
+    ...(o.stage !== undefined ? { stage: o.stage } : {}),
+    ...(o.branch !== undefined ? { branch: o.branch } : {}),
   });
 }
