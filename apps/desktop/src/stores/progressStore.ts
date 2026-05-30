@@ -35,7 +35,12 @@ function load(): Persisted {
   } catch {
     /* ignore */
   }
-  return { growth: DEFAULT_GROWTH, streak: DEFAULT_STREAK, badges: [], lastDay: null };
+  return {
+    growth: DEFAULT_GROWTH,
+    streak: DEFAULT_STREAK,
+    badges: [],
+    lastDay: null,
+  };
 }
 
 function persist(p: Persisted) {
@@ -58,6 +63,8 @@ interface ProgressStore extends Persisted {
   dailyCheckin: (traits?: UserTrait[]) => void;
   /** desbloqueia um badge manualmente (ex.: primeira conversa) */
   award: (badgeId: string) => void;
+  /** DEMO: injeta convívio/cuidado para avançar um estágio na hora */
+  demoGrow: (traits?: UserTrait[]) => void;
 }
 
 export const useProgressStore = create<ProgressStore>((set, get) => {
@@ -66,6 +73,26 @@ export const useProgressStore = create<ProgressStore>((set, get) => {
   function commit(next: Persisted, justUnlocked: string | null = null) {
     persist(next);
     set({ ...next, justUnlocked });
+  }
+
+  /** Aplica evolução e desbloqueia badges de marco; retorna o badge novo (se houver). */
+  function withEvolutionBadges(
+    growth: GrowthState,
+    badges: UnlockedBadge[],
+    evolved: boolean,
+  ): { badges: UnlockedBadge[]; unlocked: string | null } {
+    if (!evolved) return { badges, unlocked: null };
+    let next = badges;
+    let unlocked: string | null = null;
+    const r1 = unlockBadge(next, "first_evolution");
+    next = r1.list;
+    if (r1.isNew) unlocked = "first_evolution";
+    if (growth.stage === "adult") {
+      const r2 = unlockBadge(next, "grown_up");
+      next = r2.list;
+      if (r2.isNew) unlocked = "grown_up";
+    }
+    return { badges: next, unlocked };
   }
 
   return {
@@ -82,23 +109,28 @@ export const useProgressStore = create<ProgressStore>((set, get) => {
 
     care: (event, traits = []) => {
       const { streak, badges, lastDay } = get();
-      let growth = addCare(get().growth, event);
-      const adv = advanceGrowth(growth, traits);
-      growth = adv.state;
+      const adv = advanceGrowth(addCare(get().growth, event), traits);
+      const b = withEvolutionBadges(adv.state, badges, adv.evolved);
+      commit(
+        { growth: adv.state, streak, badges: b.badges, lastDay },
+        b.unlocked,
+      );
+    },
 
-      let nextBadges = badges;
-      let unlocked: string | null = null;
-      if (adv.evolved) {
-        const r1 = unlockBadge(nextBadges, "first_evolution");
-        nextBadges = r1.list;
-        if (r1.isNew) unlocked = "first_evolution";
-        if (growth.stage === "adult") {
-          const r2 = unlockBadge(nextBadges, "grown_up");
-          nextBadges = r2.list;
-          if (r2.isNew) unlocked = "grown_up";
-        }
-      }
-      commit({ growth, streak, badges: nextBadges, lastDay }, unlocked);
+    demoGrow: (traits = []) => {
+      const { streak, badges, lastDay } = get();
+      // injeta convívio e cuidado fartos para garantir o próximo estágio
+      let growth = {
+        ...get().growth,
+        daysTogether: get().growth.daysTogether + 14,
+      };
+      for (let i = 0; i < 80; i++) growth = addCare(growth, "interaction");
+      const adv = advanceGrowth(growth, traits);
+      const b = withEvolutionBadges(adv.state, badges, adv.evolved);
+      commit(
+        { growth: adv.state, streak, badges: b.badges, lastDay },
+        b.unlocked,
+      );
     },
 
     dailyCheckin: (traits = []) => {
@@ -127,13 +159,14 @@ export const useProgressStore = create<ProgressStore>((set, get) => {
         badges = r.list;
         if (r.isNew) unlocked = "first_week";
       }
-      if (adv.evolved) {
-        const r = unlockBadge(badges, "first_evolution");
-        badges = r.list;
-        if (r.isNew) unlocked = "first_evolution";
-      }
+      const ev = withEvolutionBadges(growth, badges, adv.evolved);
+      badges = ev.badges;
+      if (ev.unlocked) unlocked = ev.unlocked;
 
-      commit({ growth, streak: streakUpd.streak, badges, lastDay: t }, unlocked);
+      commit(
+        { growth, streak: streakUpd.streak, badges, lastDay: t },
+        unlocked,
+      );
     },
   };
 });

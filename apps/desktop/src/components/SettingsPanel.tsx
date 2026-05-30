@@ -1,7 +1,9 @@
 // Configurações — país (Help Hub), provider de IA (futuro) e PRIVACIDADE:
 // exportar / importar / apagar todos os dados. Tudo local, do usuário.
 import { useRef, useState } from "react";
+import { stageLabel } from "@luma/core";
 import { useSupportStore } from "../stores/supportStore";
+import { useProgressStore } from "../stores/progressStore";
 import { downloadBackup, importBackup, eraseAllData } from "../lib/dataPrivacy";
 
 const COUNTRIES = [
@@ -60,15 +62,37 @@ export function SettingsPanel() {
         </div>
       </section>
 
+      {/* demonstração de crescimento */}
+      <section>
+        <h3 className="mb-1.5 px-1 text-xs font-semibold text-luma-ink">
+          Crescimento (demonstração)
+        </h3>
+        <div className="rounded-xl border border-white/10 bg-white/[0.05] p-3">
+          <p className="mb-2 text-[12px] text-luma-muted">
+            Estágio atual:{" "}
+            <b className="text-luma-ink">{stageLabel(growth.stage)}</b>. Use o
+            botão para ver o pet evoluir na hora (no uso normal, ele cresce com o
+            tempo e o cuidado).
+          </p>
+          <button
+            type="button"
+            onClick={() => demoGrow()}
+            className="w-full rounded-xl bg-gradient-to-r from-luma-accent to-luma-accent2 px-3 py-2 text-sm font-bold text-luma-bg0 transition hover:brightness-110"
+          >
+            ✨ Crescer agora
+          </button>
+        </div>
+      </section>
+
       {/* IA (preparado) */}
       <section>
         <h3 className="mb-1.5 px-1 text-xs font-semibold text-luma-ink">
           Inteligência do pet
         </h3>
         <div className="rounded-xl border border-white/10 bg-white/[0.05] p-3 text-[12px] text-luma-muted">
-          Modo atual: <b className="text-luma-ink">Local (offline)</b>. Em breve:
-          conectar um modelo local (Ollama) para conversas mais ricas — 100% no seu
-          computador.
+          Modo atual: <b className="text-luma-ink">Local (offline)</b>. Em
+          breve: conectar um modelo local (Ollama) para conversas mais ricas —
+          100% no seu computador.
         </div>
       </section>
 
@@ -78,8 +102,8 @@ export function SettingsPanel() {
           Seus dados
         </h3>
         <p className="mb-2 px-1 text-[11px] leading-relaxed text-luma-muted">
-          Tudo fica no seu computador. Você pode levar seus dados embora ou apagá-los
-          quando quiser.
+          Tudo fica no seu computador. Você pode levar seus dados embora ou
+          apagá-los quando quiser.
         </p>
         <div className="flex flex-col gap-2">
           <button

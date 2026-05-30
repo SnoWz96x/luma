@@ -44,7 +44,9 @@
       "Bash(grep -nE \"Celebration|adoptedDefId, petName|useAppStore\\\\\\(\\\\\\)|import \\\\{ SettingsPanel\" apps/desktop/src/App.tsx)",
       "Bash(echo \"push=$?\")",
       "Bash(pnpm exec *)",
-      "Bash(grep -vE \"^$\")"
+      "Bash(grep -vE \"^$\")",
+      "Bash(npx prettier *)",
+      "Bash(pnpm add *)"
     ]
   }
 }
