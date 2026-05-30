@@ -13,11 +13,13 @@ import { TitleBar } from "./components/TitleBar";
 import { BadgesPanel } from "./components/BadgesPanel";
 import { HabitsPanel } from "./components/HabitsPanel";
 import { Breathing } from "./components/Breathing";
+import { ShopPanel } from "./components/ShopPanel";
 import { Celebration } from "./components/Celebration";
 import { useHabitsStore } from "./stores/habitsStore";
+import { useShopStore } from "./stores/shopStore";
 import { relationshipLabel } from "./lib/relationshipLabel";
 
-type Tab = "pet" | "chat" | "habits" | "calm" | "badges";
+type Tab = "pet" | "chat" | "habits" | "calm" | "shop" | "badges";
 
 function petLine(animation: string, name: string): string {
   switch (animation) {
@@ -43,6 +45,7 @@ function Home() {
   const care = useProgressStore((s) => s.care);
   const dailyCheckin = useProgressStore((s) => s.dailyCheckin);
   const sparks = useHabitsStore((s) => s.sparks);
+  const skinColors = useShopStore((s) => s.skinColors());
   const [tab, setTab] = useState<Tab>("pet");
 
   const character = findCharacter(adoptedDefId);
@@ -115,6 +118,9 @@ function Home() {
         <TabButton active={tab === "calm"} onClick={() => setTab("calm")}>
           🫧 Respirar
         </TabButton>
+        <TabButton active={tab === "shop"} onClick={() => setTab("shop")}>
+          🎀 Loja
+        </TabButton>
         <TabButton active={tab === "badges"} onClick={() => setTab("badges")}>
           🏆 Conquistas
         </TabButton>
@@ -131,6 +137,7 @@ function Home() {
                     signals={signals}
                     size={184}
                     scale={scale}
+                    skinColors={skinColors}
                     onPet={() => handleInteract("comfort")}
                   />
                   <p className="max-w-xs text-center text-sm text-luma-ink/90">
@@ -162,6 +169,12 @@ function Home() {
         {tab === "calm" && (
           <div className="min-h-0 flex-1">
             <Breathing />
+          </div>
+        )}
+
+        {tab === "shop" && (
+          <div className="min-h-0 flex-1">
+            <ShopPanel />
           </div>
         )}
 

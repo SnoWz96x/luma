@@ -112,6 +112,8 @@ export interface RenderOptions {
   /** brilho 0..1 (light do SensorySignals) */
   light?: number;
   size?: number;
+  /** sobrescreve as cores do corpo: [claro, escuro] (skin equipada da loja) */
+  skinColors?: [string, string];
 }
 
 /** Gera o markup SVG do pet. Determinístico e testável. */
@@ -119,7 +121,9 @@ export function renderPetSVG(def: CharacterDef, opts: RenderOptions = {}): strin
   const animation = opts.animation ?? "idle";
   const size = opts.size ?? 150;
   const light = opts.light ?? 1;
-  const [c0, c1, stroke] = BODY_COLOR[def.category] ?? BODY_COLOR.star!;
+  const base = BODY_COLOR[def.category] ?? BODY_COLOR.star!;
+  const [c0, c1] = opts.skinColors ?? [base[0], base[1]];
+  const stroke = base[2];
   const face = faceFor(animation);
   const path = bodyPath(def.category);
   const gid = `g-${def.id}-${animation}`;
@@ -137,6 +141,16 @@ export function renderPetSVG(def: CharacterDef, opts: RenderOptions = {}): strin
 }
 
 /** Conveniência: deriva animação a partir dos sinais sensoriais. */
-export function renderFromSignals(def: CharacterDef, signals: SensorySignals, size?: number): string {
-  return renderPetSVG(def, { animation: signals.animation, light: signals.light, ...(size !== undefined ? { size } : {}) });
+export function renderFromSignals(
+  def: CharacterDef,
+  signals: SensorySignals,
+  size?: number,
+  skinColors?: [string, string],
+): string {
+  return renderPetSVG(def, {
+    animation: signals.animation,
+    light: signals.light,
+    ...(size !== undefined ? { size } : {}),
+    ...(skinColors !== undefined ? { skinColors } : {}),
+  });
 }

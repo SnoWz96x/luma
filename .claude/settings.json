@@ -25,7 +25,8 @@
       "Bash(echo \"remote: $\\(git ls-remote origin refs/heads/main)",
       "Bash(echo \"build=$?\")",
       "Bash(echo \"tc=$?\")",
-      "Bash(xargs echo \"target files \\(deve ser 0\\):\")"
+      "Bash(xargs echo \"target files \\(deve ser 0\\):\")",
+      "Bash(echo \"commit=$?\")"
     ]
   }
 }

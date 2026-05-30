@@ -12,3 +12,4 @@ export * from "./growth/growth.js";
 export * from "./achievement/achievement.js";
 export * from "./habit/habit.js";
 export * from "./activity/breathing.js";
+export * from "./economy/shop.js";

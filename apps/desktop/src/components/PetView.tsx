@@ -25,12 +25,19 @@ interface PetViewProps {
   size?: number;
   /** multiplicador de tamanho por estágio de vida (crescimento é sentido) */
   scale?: number;
+  /** cores [claro, escuro] da skin equipada (loja); null = padrão do personagem */
+  skinColors?: [string, string] | null;
   onPet?: () => void;
 }
 
-export function PetView({ character, signals, size = 200, scale = 1, onPet }: PetViewProps) {
+export function PetView({ character, signals, size = 200, scale = 1, skinColors, onPet }: PetViewProps) {
   usePetAnimationCSS();
-  const svg = renderFromSignals(character, signals, Math.round(size * scale));
+  const svg = renderFromSignals(
+    character,
+    signals,
+    Math.round(size * scale),
+    skinColors ?? undefined,
+  );
   const animClass = ANIMATION_CLASS[signals.animation];
 
   return (
