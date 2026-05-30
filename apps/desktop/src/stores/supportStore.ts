@@ -34,6 +34,7 @@ interface SupportStore extends Persisted {
   addContact: (c: Omit<SupportContact, "id">) => void;
   removeContact: (id: string) => void;
   setPrefs: (prefs: EmergencyPreferences) => void;
+  setCountry: (country: string) => void;
 }
 
 export const useSupportStore = create<SupportStore>((set, get) => {
@@ -56,5 +57,7 @@ export const useSupportStore = create<SupportStore>((set, get) => {
       commit({ contacts: get().contacts.filter((c) => c.id !== id) }),
 
     setPrefs: (prefs) => commit({ prefs }),
+
+    setCountry: (country) => commit({ country }),
   };
 });

@@ -26,7 +26,14 @@
       "Bash(echo \"build=$?\")",
       "Bash(echo \"tc=$?\")",
       "Bash(xargs echo \"target files \\(deve ser 0\\):\")",
-      "Bash(echo \"commit=$?\")"
+      "Bash(echo \"commit=$?\")",
+      "PowerShell($p = Get-Process -Name \"luma-desktop\" -ErrorAction SilentlyContinue; if \\($p\\) { \"APP JA RODANDO \\(PID $\\($p.Id\\)\\) - vou trazer a janela\"; Add-Type -AssemblyName Microsoft.VisualBasic; [Microsoft.VisualBasic.Interaction]::AppActivate\\($p.Id\\) 2>$null } else { \"App nao esta rodando - vou iniciar\" })",
+      "PowerShell($p = Get-Process -Name \"luma-desktop\" -ErrorAction SilentlyContinue; if \\($p\\) { \"APP LUMA RODANDO \\(PID $\\($p.Id\\)\\)\" } else { \"app nao detectado\"; if \\(Test-Path \"$env:TEMP\\\\luma_run.log\"\\) { Get-Content \"$env:TEMP\\\\luma_run.log\" -Tail 8 } })",
+      "Bash(echo \"build_exit=$?\")",
+      "PowerShell($p = Get-Process -Name \"luma-desktop\" -ErrorAction SilentlyContinue; if \\($p\\) { \"RODANDO PID $\\($p.Id\\)\" } else { \"NAO RODANDO\" }; if \\(Test-Path \"$env:TEMP\\\\luma_run.log\"\\) { \"--- log tail ---\"; \\(Get-Content \"$env:TEMP\\\\luma_run.log\" -Tail 6\\) -join \"`n\" })",
+      "Bash(tasklist)",
+      "Bash(awk '/Test Files|Tests / {print}' /tmp/alltests.log)",
+      "Bash(xargs echo \"luma-desktop processos:\")"
     ]
   }
 }
