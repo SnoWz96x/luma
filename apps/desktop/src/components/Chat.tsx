@@ -1,8 +1,10 @@
 // Chat — conversa com o pet. Usa o chatStore (Safety + Memory + Relationship).
 import { useState, useRef, useEffect } from "react";
 import type { CharacterDef } from "@luma/shared";
+import { crisisResources } from "@luma/core";
 import { useChatStore } from "../stores/chatStore";
 import { useProgressStore } from "../stores/progressStore";
+import { useSupportStore } from "../stores/supportStore";
 
 interface ChatProps {
   character: CharacterDef;
@@ -11,8 +13,9 @@ interface ChatProps {
 }
 
 export function Chat({ character, petName, onEmotion }: ChatProps) {
-  const { messages, sending, send, greet } = useChatStore();
+  const { messages, sending, send, greet, offeredResources } = useChatStore();
   const award = useProgressStore((s) => s.award);
+  const country = useSupportStore((s) => s.country);
   const [text, setText] = useState("");
   const endRef = useRef<HTMLDivElement>(null);
 
@@ -68,6 +71,28 @@ export function Chat({ character, petName, onEmotion }: ChatProps) {
         )}
         <div ref={endRef} />
       </div>
+
+      {/* Safety Layer detectou sinal sensível → oferece recursos reais (não-clínico) */}
+      {offeredResources && (
+        <div className="space-y-1.5 rounded-2xl border border-luma-accent/30 bg-luma-accent/10 p-3 fade-up">
+          <p className="text-[12px] font-medium text-luma-ink">
+            Você não está sozinho. Se quiser falar com alguém agora:
+          </p>
+          {crisisResources(country).map((r) => (
+            <div key={r.id} className="flex items-center justify-between gap-2">
+              <span className="text-[11px] text-luma-muted">{r.name}</span>
+              {r.phone && (
+                <a
+                  href={`tel:${r.phone}`}
+                  className="shrink-0 rounded-lg bg-emerald-400/20 px-2 py-0.5 text-xs font-bold text-emerald-200"
+                >
+                  📞 {r.phone}
+                </a>
+              )}
+            </div>
+          ))}
+        </div>
+      )}
 
       <div className="flex gap-2">
         <input

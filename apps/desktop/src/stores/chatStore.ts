@@ -38,8 +38,11 @@ interface ChatStore {
   messages: ChatTurn[];
   relationship: Relationship;
   sending: boolean;
+  /** Safety Layer ofereceu recursos reais na última resposta (sinal sensível) */
+  offeredResources: boolean;
   send: (character: CharacterDef, text: string) => Promise<string>;
   greet: (character: CharacterDef) => void;
+  dismissResources: () => void;
 }
 
 function buildContext(
@@ -62,6 +65,9 @@ export const useChatStore = create<ChatStore>((set, get) => ({
   messages: [],
   relationship: freshRelationship(),
   sending: false,
+  offeredResources: false,
+
+  dismissResources: () => set({ offeredResources: false }),
 
   greet: (character) => {
     if (get().messages.length > 0) return;
@@ -114,6 +120,7 @@ export const useChatStore = create<ChatStore>((set, get) => ({
       ],
       relationship: nextRel,
       sending: false,
+      offeredResources: result.offeredResources,
     });
 
     return result.emotion;
