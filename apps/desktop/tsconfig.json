@@ -1,0 +1,15 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "jsx": "react-jsx",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "noEmit": true,
+    "types": ["vite/client"],
+    // UI interage com os tipos DOM do React, onde este flag gera atrito.
+    // Domínio (core/shared/characters) permanece com a strictness máxima.
+    "exactOptionalPropertyTypes": false
+  },
+  "include": ["src"]
+}

@@ -1,0 +1,34 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Builds
+dist/
+build/
+.next/
+out/
+# Rust (Tauri) — comentário em linha própria; padrão casa em qualquer nível
+target/
+**/target/
+
+# Env & segredos
+.env
+.env.*
+!.env.example
+
+# Banco local / dados do usuário (NUNCA versionar dados pessoais)
+*.sqlite
+*.sqlite3
+*.db
+data/local/
+
+# Logs e cache
+*.log
+.DS_Store
+.cache/
+coverage/
+
+# Editor
+.vscode/*
+!.vscode/extensions.json
+.idea/

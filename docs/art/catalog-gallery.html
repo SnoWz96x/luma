@@ -1,0 +1,1434 @@
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LUMA — Galeria do catálogo (100 personagens)</title>
+<style>
+:root{--bg:#1c1b29;--card:#262438;--ink:#efeaff;--muted:#a79fce}
+body{margin:0;font-family:system-ui,Segoe UI,sans-serif;background:var(--bg);color:var(--ink);padding:24px}
+h1{margin:0 0 4px} .sub{color:var(--muted);margin:0 0 20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px}
+.card{background:var(--card);border-radius:16px;padding:12px;text-align:center}
+.card h3{margin:6px 0 0;font-size:14px} .card p{margin:2px 0 0;color:var(--muted);font-size:11px}
+.stage{background:radial-gradient(120% 90% at 50% 35%,#34315a,#211f33 70%);border-radius:12px;height:130px;display:flex;align-items:center;justify-content:center}
+.r{display:inline-block;margin-top:4px;padding:1px 7px;border-radius:8px;font-size:10px}
+.common{background:#3a3658} .uncommon{background:#2e6b4e} .rare{background:#2e4e8a}
+.epic{background:#6b2e8a} .legendary{background:#8a6b2e}
+
+.luma-breathe{animation:luma-breathe 3.4s ease-in-out infinite;transform-origin:50% 90%}
+@keyframes luma-breathe{0%,100%{transform:scale(1,1)}50%{transform:scale(1.04,.97)}}
+.luma-hop{animation:luma-hop .7s ease-in-out infinite;transform-origin:50% 90%}
+@keyframes luma-hop{0%,100%{transform:translateY(0) scale(1,1)}30%{transform:translateY(-18px) scale(.96,1.05)}60%{transform:translateY(0) scale(1.08,.92)}}
+.luma-sway{animation:luma-sway 4s ease-in-out infinite;transform-origin:50% 90%}
+@keyframes luma-sway{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
+.luma-snooze{animation:luma-snooze 4s ease-in-out infinite;transform-origin:50% 90%}
+@keyframes luma-snooze{0%,100%{transform:scale(1,1) translateY(0)}50%{transform:scale(1.05,.95) translateY(3px)}}
+.luma-blink{animation:luma-blink 4.5s infinite;transform-origin:center}
+@keyframes luma-blink{0%,94%,100%{transform:scaleY(1)}97%{transform:scaleY(.1)}}
+@media (prefers-reduced-motion: reduce){
+  .luma-breathe,.luma-hop,.luma-sway,.luma-snooze,.luma-blink{animation:none!important}
+}
+
+</style></head><body>
+<h1>LUMA — Galeria do catálogo 🐾</h1>
+<p class="sub">100 personagens gerados pelo código e renderizados pelo render.ts (animados, kawaii vetorial).</p>
+<div class="grid">
+<div class="card">
+      <div class="stage"><div class="luma-breathe"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Luma">
+  <defs><radialGradient id="g-luma-idle" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#ffe1c2"/><stop offset="100%" stop-color="#ffb27a"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M26 70 Q26 36 60 34 Q94 36 94 70 Q94 102 60 102 Q26 102 26 70 Z" fill="url(#g-luma-idle)" stroke="#e08a4e" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <g class="luma-blink"><circle cx="49" cy="58" r="6.5" fill="#3a2d12"/><circle cx="71" cy="58" r="6.5" fill="#3a2d12"/><circle cx="51" cy="56" r="2" fill="#fff"/><circle cx="73" cy="56" r="2" fill="#fff"/></g><path d="M55 68 Q60 73 65 68" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+</svg></div></div>
+      <h3>Luma</h3>
+      <p>cachorro-corajoso · animal<br><span class="r common">common</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-hop"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Momo">
+  <defs><radialGradient id="g-momo-happy" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#d8dbe6"/><stop offset="100%" stop-color="#aab0c6"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M26 70 Q26 36 60 34 Q94 36 94 70 Q94 102 60 102 Q26 102 26 70 Z" fill="url(#g-momo-happy)" stroke="#7e86a6" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <path d="M44 58 Q49 52 54 58" stroke="#3a2d12" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M66 58 Q71 52 76 58" stroke="#3a2d12" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M53 67 Q60 76 67 67 Z" fill="#7a3b3b"/>
+</svg></div></div>
+      <h3>Momo</h3>
+      <p>bot-coração · robot<br><span class="r rare">rare</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-sway"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Nami">
+  <defs><radialGradient id="g-nami-curious" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#efeaff"/><stop offset="100%" stop-color="#d3c7f5"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M30 60 Q30 30 60 30 Q90 30 90 60 L90 96 L80 88 L70 96 L60 88 L50 96 L40 88 L30 96 Z" fill="url(#g-nami-curious)" stroke="#b0a0e7" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <g class="luma-blink"><circle cx="51" cy="58" r="6.5" fill="#3a2d12"/><circle cx="73" cy="58" r="6.5" fill="#3a2d12"/><circle cx="53" cy="57" r="2" fill="#fff"/><circle cx="75" cy="57" r="2" fill="#fff"/></g><circle cx="60" cy="69" r="3" fill="#7a3b3b"/>
+</svg></div></div>
+      <h3>Nami</h3>
+      <p>fantasminha-lençol · ghost<br><span class="r uncommon">uncommon</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-breathe"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Sprout">
+  <defs><radialGradient id="g-sprout-comfort" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#d4f5b0"/><stop offset="100%" stop-color="#8fd65c"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M26 70 Q26 36 60 34 Q94 36 94 70 Q94 102 60 102 Q26 102 26 70 Z" fill="url(#g-sprout-comfort)" stroke="#5fae2e" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <g class="luma-blink"><circle cx="49" cy="58" r="6.5" fill="#3a2d12"/><circle cx="71" cy="58" r="6.5" fill="#3a2d12"/><circle cx="51" cy="56" r="2" fill="#fff"/><circle cx="73" cy="56" r="2" fill="#fff"/></g><path d="M55 68 Q60 73 65 68" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+</svg></div></div>
+      <h3>Sprout</h3>
+      <p>samambaia-dança · plant<br><span class="r uncommon">uncommon</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-snooze"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Orbit">
+  <defs><radialGradient id="g-orbit-sleep" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#ffd0c2"/><stop offset="100%" stop-color="#ff9a7a"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M40 30 L34 16 L48 28 Q60 24 72 28 L86 16 L80 30 Q96 42 94 70 Q94 102 60 102 Q26 102 26 70 Q24 42 40 30 Z" fill="url(#g-orbit-sleep)" stroke="#e0654e" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <path d="M44 59 Q49 63 54 59" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M66 59 Q71 63 76 59" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/><circle cx="60" cy="70" r="3" fill="#7a3b3b" opacity=".5"/><text x="84" y="40" font-size="16" fill="#cdbff5">z</text>
+</svg></div></div>
+      <h3>Orbit</h3>
+      <p>serpente-relâmpago · dragon<br><span class="r common">common</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-breathe"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Bibo">
+  <defs><radialGradient id="g-bibo-idle" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#d6ffd0"/><stop offset="100%" stop-color="#8fe88a"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M26 70 Q26 36 60 34 Q94 36 94 70 Q94 102 60 102 Q26 102 26 70 Z" fill="url(#g-bibo-idle)" stroke="#4eae4e" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <g class="luma-blink"><circle cx="49" cy="58" r="6.5" fill="#3a2d12"/><circle cx="71" cy="58" r="6.5" fill="#3a2d12"/><circle cx="51" cy="56" r="2" fill="#fff"/><circle cx="73" cy="56" r="2" fill="#fff"/></g><path d="M55 68 Q60 73 65 68" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+</svg></div></div>
+      <h3>Bibo</h3>
+      <p>estrangeiro-cosmo · alien<br><span class="r common">common</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-hop"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Koko">
+  <defs><radialGradient id="g-koko-happy" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#fff3b0"/><stop offset="100%" stop-color="#ffcf5c"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M60 14 L74 46 L108 50 L82 73 L90 107 L60 88 L30 107 L38 73 L12 50 L46 46 Z" fill="url(#g-koko-happy)" stroke="#e7a92e" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <path d="M44 58 Q49 52 54 58" stroke="#3a2d12" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M66 58 Q71 52 76 58" stroke="#3a2d12" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M53 67 Q60 76 67 67 Z" fill="#7a3b3b"/>
+</svg></div></div>
+      <h3>Koko</h3>
+      <p>constelação-mini · star<br><span class="r common">common</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-sway"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Tiko">
+  <defs><radialGradient id="g-tiko-curious" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#bdf5d6"/><stop offset="100%" stop-color="#5fd6a0"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M22 86 Q18 44 60 40 Q102 44 98 86 Q98 100 60 100 Q22 100 22 86 Z" fill="url(#g-tiko-curious)" stroke="#39b07e" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <g class="luma-blink"><circle cx="51" cy="58" r="6.5" fill="#3a2d12"/><circle cx="73" cy="58" r="6.5" fill="#3a2d12"/><circle cx="53" cy="57" r="2" fill="#fff"/><circle cx="75" cy="57" r="2" fill="#fff"/></g><circle cx="60" cy="69" r="3" fill="#7a3b3b"/>
+</svg></div></div>
+      <h3>Tiko</h3>
+      <p>blob-arco-íris · slime<br><span class="r common">common</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-breathe"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Vee">
+  <defs><radialGradient id="g-vee-comfort" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#eef3ff"/><stop offset="100%" stop-color="#c7d4f5"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M30 78 Q20 78 22 66 Q14 58 26 52 Q28 38 46 42 Q54 30 70 40 Q92 36 92 56 Q104 60 96 74 Q98 86 82 84 Q60 92 30 78 Z" fill="url(#g-vee-comfort)" stroke="#9fb0e7" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <g class="luma-blink"><circle cx="49" cy="58" r="6.5" fill="#3a2d12"/><circle cx="71" cy="58" r="6.5" fill="#3a2d12"/><circle cx="51" cy="56" r="2" fill="#fff"/><circle cx="73" cy="56" r="2" fill="#fff"/></g><path d="M55 68 Q60 73 65 68" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+</svg></div></div>
+      <h3>Vee</h3>
+      <p>cúmulo-soneca · cloud<br><span class="r common">common</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-snooze"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Pingo">
+  <defs><radialGradient id="g-pingo-sleep" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#ffd6d6"/><stop offset="100%" stop-color="#f59a9a"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M26 70 Q26 36 60 34 Q94 36 94 70 Q94 102 60 102 Q26 102 26 70 Z" fill="url(#g-pingo-sleep)" stroke="#c25e5e" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <path d="M44 59 Q49 63 54 59" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M66 59 Q71 63 76 59" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/><circle cx="60" cy="70" r="3" fill="#7a3b3b" opacity=".5"/><text x="84" y="40" font-size="16" fill="#cdbff5">z</text>
+</svg></div></div>
+      <h3>Pingo</h3>
+      <p>tampinha-feliz · mushroom<br><span class="r epic">epic</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-breathe"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Mochi">
+  <defs><radialGradient id="g-mochi-idle" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#f0d6ff"/><stop offset="100%" stop-color="#cf8fe8"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M26 70 Q26 36 60 34 Q94 36 94 70 Q94 102 60 102 Q26 102 26 70 Z" fill="url(#g-mochi-idle)" stroke="#9a4eae" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <g class="luma-blink"><circle cx="49" cy="58" r="6.5" fill="#3a2d12"/><circle cx="71" cy="58" r="6.5" fill="#3a2d12"/><circle cx="51" cy="56" r="2" fill="#fff"/><circle cx="73" cy="56" r="2" fill="#fff"/></g><path d="M55 68 Q60 73 65 68" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+</svg></div></div>
+      <h3>Mochi</h3>
+      <p>ser-aurora · magical<br><span class="r rare">rare</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-hop"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Pip">
+  <defs><radialGradient id="g-pip-happy" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#cfe6ff"/><stop offset="100%" stop-color="#6aa3e0"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M40 30 L34 16 L48 28 Q60 24 72 28 L86 16 L80 30 Q96 42 94 70 Q94 102 60 102 Q26 102 26 70 Q24 42 40 30 Z" fill="url(#g-pip-happy)" stroke="#3f6fb0" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <path d="M44 58 Q49 52 54 58" stroke="#3a2d12" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M66 58 Q71 52 76 58" stroke="#3a2d12" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M53 67 Q60 76 67 67 Z" fill="#7a3b3b"/>
+</svg></div></div>
+      <h3>Pip</h3>
+      <p>ogro-mini · monster<br><span class="r uncommon">uncommon</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-sway"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Nuvi">
+  <defs><radialGradient id="g-nuvi-curious" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#fff3b0"/><stop offset="100%" stop-color="#ffcf5c"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M60 14 L74 46 L108 50 L82 73 L90 107 L60 88 L30 107 L38 73 L12 50 L46 46 Z" fill="url(#g-nuvi-curious)" stroke="#e7a92e" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <g class="luma-blink"><circle cx="51" cy="58" r="6.5" fill="#3a2d12"/><circle cx="73" cy="58" r="6.5" fill="#3a2d12"/><circle cx="53" cy="57" r="2" fill="#fff"/><circle cx="75" cy="57" r="2" fill="#fff"/></g><circle cx="60" cy="69" r="3" fill="#7a3b3b"/>
+</svg></div></div>
+      <h3>Nuvi</h3>
+      <p>herói-8bit · pixel-mascot<br><span class="r common">common</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-breathe"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Tofu">
+  <defs><radialGradient id="g-tofu-comfort" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#eef0f5"/><stop offset="100%" stop-color="#cfd3dd"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M26 70 Q26 36 60 34 Q94 36 94 70 Q94 102 60 102 Q26 102 26 70 Z" fill="url(#g-tofu-comfort)" stroke="#a6acbb" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <g class="luma-blink"><circle cx="49" cy="58" r="6.5" fill="#3a2d12"/><circle cx="71" cy="58" r="6.5" fill="#3a2d12"/><circle cx="51" cy="56" r="2" fill="#fff"/><circle cx="73" cy="56" r="2" fill="#fff"/></g><path d="M55 68 Q60 73 65 68" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+</svg></div></div>
+      <h3>Tofu</h3>
+      <p>mascote-mínimo · minimal-mascot<br><span class="r uncommon">uncommon</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-snooze"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Bubu">
+  <defs><radialGradient id="g-bubu-sleep" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#ffe1c2"/><stop offset="100%" stop-color="#ffb27a"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M26 70 Q26 36 60 34 Q94 36 94 70 Q94 102 60 102 Q26 102 26 70 Z" fill="url(#g-bubu-sleep)" stroke="#e08a4e" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <path d="M44 59 Q49 63 54 59" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M66 59 Q71 63 76 59" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/><circle cx="60" cy="70" r="3" fill="#7a3b3b" opacity=".5"/><text x="84" y="40" font-size="16" fill="#cdbff5">z</text>
+</svg></div></div>
+      <h3>Bubu</h3>
+      <p>gato-nuvem · animal<br><span class="r epic">epic</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-breathe"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Lumi">
+  <defs><radialGradient id="g-lumi-idle" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#d8dbe6"/><stop offset="100%" stop-color="#aab0c6"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M26 70 Q26 36 60 34 Q94 36 94 70 Q94 102 60 102 Q26 102 26 70 Z" fill="url(#g-lumi-idle)" stroke="#7e86a6" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <g class="luma-blink"><circle cx="49" cy="58" r="6.5" fill="#3a2d12"/><circle cx="71" cy="58" r="6.5" fill="#3a2d12"/><circle cx="51" cy="56" r="2" fill="#fff"/><circle cx="73" cy="56" r="2" fill="#fff"/></g><path d="M55 68 Q60 73 65 68" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+</svg></div></div>
+      <h3>Lumi</h3>
+      <p>bot-coração · robot<br><span class="r uncommon">uncommon</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-hop"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Pixu">
+  <defs><radialGradient id="g-pixu-happy" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#efeaff"/><stop offset="100%" stop-color="#d3c7f5"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M30 60 Q30 30 60 30 Q90 30 90 60 L90 96 L80 88 L70 96 L60 88 L50 96 L40 88 L30 96 Z" fill="url(#g-pixu-happy)" stroke="#b0a0e7" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <path d="M44 58 Q49 52 54 58" stroke="#3a2d12" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M66 58 Q71 52 76 58" stroke="#3a2d12" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M53 67 Q60 76 67 67 Z" fill="#7a3b3b"/>
+</svg></div></div>
+      <h3>Pixu</h3>
+      <p>alma-brisa · ghost<br><span class="r uncommon">uncommon</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-sway"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Dodo">
+  <defs><radialGradient id="g-dodo-curious" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#d4f5b0"/><stop offset="100%" stop-color="#8fd65c"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M26 70 Q26 36 60 34 Q94 36 94 70 Q94 102 60 102 Q26 102 26 70 Z" fill="url(#g-dodo-curious)" stroke="#5fae2e" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <g class="luma-blink"><circle cx="51" cy="58" r="6.5" fill="#3a2d12"/><circle cx="73" cy="58" r="6.5" fill="#3a2d12"/><circle cx="53" cy="57" r="2" fill="#fff"/><circle cx="75" cy="57" r="2" fill="#fff"/></g><circle cx="60" cy="69" r="3" fill="#7a3b3b"/>
+</svg></div></div>
+      <h3>Dodo</h3>
+      <p>samambaia-dança · plant<br><span class="r common">common</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-breathe"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Fofo">
+  <defs><radialGradient id="g-fofo-comfort" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#ffd0c2"/><stop offset="100%" stop-color="#ff9a7a"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M40 30 L34 16 L48 28 Q60 24 72 28 L86 16 L80 30 Q96 42 94 70 Q94 102 60 102 Q26 102 26 70 Q24 42 40 30 Z" fill="url(#g-fofo-comfort)" stroke="#e0654e" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <g class="luma-blink"><circle cx="49" cy="58" r="6.5" fill="#3a2d12"/><circle cx="71" cy="58" r="6.5" fill="#3a2d12"/><circle cx="51" cy="56" r="2" fill="#fff"/><circle cx="73" cy="56" r="2" fill="#fff"/></g><path d="M55 68 Q60 73 65 68" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+</svg></div></div>
+      <h3>Fofo</h3>
+      <p>wyvern-sombrio · dragon<br><span class="r common">common</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-snooze"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Yumi">
+  <defs><radialGradient id="g-yumi-sleep" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#d6ffd0"/><stop offset="100%" stop-color="#8fe88a"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M26 70 Q26 36 60 34 Q94 36 94 70 Q94 102 60 102 Q26 102 26 70 Z" fill="url(#g-yumi-sleep)" stroke="#4eae4e" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <path d="M44 59 Q49 63 54 59" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M66 59 Q71 63 76 59" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/><circle cx="60" cy="70" r="3" fill="#7a3b3b" opacity=".5"/><text x="84" y="40" font-size="16" fill="#cdbff5">z</text>
+</svg></div></div>
+      <h3>Yumi</h3>
+      <p>estrangeiro-cosmo · alien<br><span class="r rare">rare</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-breathe"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Suki">
+  <defs><radialGradient id="g-suki-idle" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#fff3b0"/><stop offset="100%" stop-color="#ffcf5c"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M60 14 L74 46 L108 50 L82 73 L90 107 L60 88 L30 107 L38 73 L12 50 L46 46 Z" fill="url(#g-suki-idle)" stroke="#e7a92e" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <g class="luma-blink"><circle cx="49" cy="58" r="6.5" fill="#3a2d12"/><circle cx="71" cy="58" r="6.5" fill="#3a2d12"/><circle cx="51" cy="56" r="2" fill="#fff"/><circle cx="73" cy="56" r="2" fill="#fff"/></g><path d="M55 68 Q60 73 65 68" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+</svg></div></div>
+      <h3>Suki</h3>
+      <p>cometa-fofo · star<br><span class="r common">common</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-hop"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Tato">
+  <defs><radialGradient id="g-tato-happy" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#bdf5d6"/><stop offset="100%" stop-color="#5fd6a0"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M22 86 Q18 44 60 40 Q102 44 98 86 Q98 100 60 100 Q22 100 22 86 Z" fill="url(#g-tato-happy)" stroke="#39b07e" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <path d="M44 58 Q49 52 54 58" stroke="#3a2d12" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M66 58 Q71 52 76 58" stroke="#3a2d12" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M53 67 Q60 76 67 67 Z" fill="#7a3b3b"/>
+</svg></div></div>
+      <h3>Tato</h3>
+      <p>slime-geleia · slime<br><span class="r uncommon">uncommon</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-sway"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Coco">
+  <defs><radialGradient id="g-coco-curious" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#eef3ff"/><stop offset="100%" stop-color="#c7d4f5"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M30 78 Q20 78 22 66 Q14 58 26 52 Q28 38 46 42 Q54 30 70 40 Q92 36 92 56 Q104 60 96 74 Q98 86 82 84 Q60 92 30 78 Z" fill="url(#g-coco-curious)" stroke="#9fb0e7" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <g class="luma-blink"><circle cx="51" cy="58" r="6.5" fill="#3a2d12"/><circle cx="73" cy="58" r="6.5" fill="#3a2d12"/><circle cx="53" cy="57" r="2" fill="#fff"/><circle cx="75" cy="57" r="2" fill="#fff"/></g><circle cx="60" cy="69" r="3" fill="#7a3b3b"/>
+</svg></div></div>
+      <h3>Coco</h3>
+      <p>trovão-tímido · cloud<br><span class="r uncommon">uncommon</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-breathe"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Mimo">
+  <defs><radialGradient id="g-mimo-comfort" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#ffd6d6"/><stop offset="100%" stop-color="#f59a9a"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M26 70 Q26 36 60 34 Q94 36 94 70 Q94 102 60 102 Q26 102 26 70 Z" fill="url(#g-mimo-comfort)" stroke="#c25e5e" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <g class="luma-blink"><circle cx="49" cy="58" r="6.5" fill="#3a2d12"/><circle cx="71" cy="58" r="6.5" fill="#3a2d12"/><circle cx="51" cy="56" r="2" fill="#fff"/><circle cx="73" cy="56" r="2" fill="#fff"/></g><path d="M55 68 Q60 73 65 68" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+</svg></div></div>
+      <h3>Mimo</h3>
+      <p>cogumelo-lanterna · mushroom<br><span class="r rare">rare</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-snooze"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Bobo">
+  <defs><radialGradient id="g-bobo-sleep" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#f0d6ff"/><stop offset="100%" stop-color="#cf8fe8"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M26 70 Q26 36 60 34 Q94 36 94 70 Q94 102 60 102 Q26 102 26 70 Z" fill="url(#g-bobo-sleep)" stroke="#9a4eae" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <path d="M44 59 Q49 63 54 59" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M66 59 Q71 63 76 59" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/><circle cx="60" cy="70" r="3" fill="#7a3b3b" opacity=".5"/><text x="84" y="40" font-size="16" fill="#cdbff5">z</text>
+</svg></div></div>
+      <h3>Bobo</h3>
+      <p>espírito-cristal · magical<br><span class="r uncommon">uncommon</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-breathe"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Zuzu">
+  <defs><radialGradient id="g-zuzu-idle" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#cfe6ff"/><stop offset="100%" stop-color="#6aa3e0"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M40 30 L34 16 L48 28 Q60 24 72 28 L86 16 L80 30 Q96 42 94 70 Q94 102 60 102 Q26 102 26 70 Q24 42 40 30 Z" fill="url(#g-zuzu-idle)" stroke="#3f6fb0" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <g class="luma-blink"><circle cx="49" cy="58" r="6.5" fill="#3a2d12"/><circle cx="71" cy="58" r="6.5" fill="#3a2d12"/><circle cx="51" cy="56" r="2" fill="#fff"/><circle cx="73" cy="56" r="2" fill="#fff"/></g><path d="M55 68 Q60 73 65 68" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+</svg></div></div>
+      <h3>Zuzu</h3>
+      <p>monstrinho-peludo · monster<br><span class="r rare">rare</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-hop"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Plim">
+  <defs><radialGradient id="g-plim-happy" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#fff3b0"/><stop offset="100%" stop-color="#ffcf5c"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M60 14 L74 46 L108 50 L82 73 L90 107 L60 88 L30 107 L38 73 L12 50 L46 46 Z" fill="url(#g-plim-happy)" stroke="#e7a92e" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <path d="M44 58 Q49 52 54 58" stroke="#3a2d12" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M66 58 Q71 52 76 58" stroke="#3a2d12" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M53 67 Q60 76 67 67 Z" fill="#7a3b3b"/>
+</svg></div></div>
+      <h3>Plim</h3>
+      <p>herói-8bit · pixel-mascot<br><span class="r rare">rare</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-sway"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Nino">
+  <defs><radialGradient id="g-nino-curious" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#eef0f5"/><stop offset="100%" stop-color="#cfd3dd"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M26 70 Q26 36 60 34 Q94 36 94 70 Q94 102 60 102 Q26 102 26 70 Z" fill="url(#g-nino-curious)" stroke="#a6acbb" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <g class="luma-blink"><circle cx="51" cy="58" r="6.5" fill="#3a2d12"/><circle cx="73" cy="58" r="6.5" fill="#3a2d12"/><circle cx="53" cy="57" r="2" fill="#fff"/><circle cx="75" cy="57" r="2" fill="#fff"/></g><circle cx="60" cy="69" r="3" fill="#7a3b3b"/>
+</svg></div></div>
+      <h3>Nino</h3>
+      <p>forminha-feliz · minimal-mascot<br><span class="r uncommon">uncommon</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-breathe"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Tuto">
+  <defs><radialGradient id="g-tuto-comfort" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#ffe1c2"/><stop offset="100%" stop-color="#ffb27a"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M26 70 Q26 36 60 34 Q94 36 94 70 Q94 102 60 102 Q26 102 26 70 Z" fill="url(#g-tuto-comfort)" stroke="#e08a4e" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <g class="luma-blink"><circle cx="49" cy="58" r="6.5" fill="#3a2d12"/><circle cx="71" cy="58" r="6.5" fill="#3a2d12"/><circle cx="51" cy="56" r="2" fill="#fff"/><circle cx="73" cy="56" r="2" fill="#fff"/></g><path d="M55 68 Q60 73 65 68" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+</svg></div></div>
+      <h3>Tuto</h3>
+      <p>gato-nuvem · animal<br><span class="r common">common</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-snooze"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Gigi">
+  <defs><radialGradient id="g-gigi-sleep" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#d8dbe6"/><stop offset="100%" stop-color="#aab0c6"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M26 70 Q26 36 60 34 Q94 36 94 70 Q94 102 60 102 Q26 102 26 70 Z" fill="url(#g-gigi-sleep)" stroke="#7e86a6" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <path d="M44 59 Q49 63 54 59" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M66 59 Q71 63 76 59" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/><circle cx="60" cy="70" r="3" fill="#7a3b3b" opacity=".5"/><text x="84" y="40" font-size="16" fill="#cdbff5">z</text>
+</svg></div></div>
+      <h3>Gigi</h3>
+      <p>robozinho-lata · robot<br><span class="r common">common</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-breathe"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Wawa">
+  <defs><radialGradient id="g-wawa-idle" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#efeaff"/><stop offset="100%" stop-color="#d3c7f5"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M30 60 Q30 30 60 30 Q90 30 90 60 L90 96 L80 88 L70 96 L60 88 L50 96 L40 88 L30 96 Z" fill="url(#g-wawa-idle)" stroke="#b0a0e7" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <g class="luma-blink"><circle cx="49" cy="58" r="6.5" fill="#3a2d12"/><circle cx="71" cy="58" r="6.5" fill="#3a2d12"/><circle cx="51" cy="56" r="2" fill="#fff"/><circle cx="73" cy="56" r="2" fill="#fff"/></g><path d="M55 68 Q60 73 65 68" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+</svg></div></div>
+      <h3>Wawa</h3>
+      <p>alma-brisa · ghost<br><span class="r common">common</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-hop"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Kiki">
+  <defs><radialGradient id="g-kiki-happy" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#d4f5b0"/><stop offset="100%" stop-color="#8fd65c"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M26 70 Q26 36 60 34 Q94 36 94 70 Q94 102 60 102 Q26 102 26 70 Z" fill="url(#g-kiki-happy)" stroke="#5fae2e" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <path d="M44 58 Q49 52 54 58" stroke="#3a2d12" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M66 58 Q71 52 76 58" stroke="#3a2d12" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M53 67 Q60 76 67 67 Z" fill="#7a3b3b"/>
+</svg></div></div>
+      <h3>Kiki</h3>
+      <p>samambaia-dança · plant<br><span class="r common">common</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-sway"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Lalo">
+  <defs><radialGradient id="g-lalo-curious" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#ffd0c2"/><stop offset="100%" stop-color="#ff9a7a"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M40 30 L34 16 L48 28 Q60 24 72 28 L86 16 L80 30 Q96 42 94 70 Q94 102 60 102 Q26 102 26 70 Q24 42 40 30 Z" fill="url(#g-lalo-curious)" stroke="#e0654e" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <g class="luma-blink"><circle cx="51" cy="58" r="6.5" fill="#3a2d12"/><circle cx="73" cy="58" r="6.5" fill="#3a2d12"/><circle cx="53" cy="57" r="2" fill="#fff"/><circle cx="75" cy="57" r="2" fill="#fff"/></g><circle cx="60" cy="69" r="3" fill="#7a3b3b"/>
+</svg></div></div>
+      <h3>Lalo</h3>
+      <p>dragão-trovão · dragon<br><span class="r rare">rare</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-breathe"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Popo">
+  <defs><radialGradient id="g-popo-comfort" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#d6ffd0"/><stop offset="100%" stop-color="#8fe88a"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M26 70 Q26 36 60 34 Q94 36 94 70 Q94 102 60 102 Q26 102 26 70 Z" fill="url(#g-popo-comfort)" stroke="#4eae4e" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <g class="luma-blink"><circle cx="49" cy="58" r="6.5" fill="#3a2d12"/><circle cx="71" cy="58" r="6.5" fill="#3a2d12"/><circle cx="51" cy="56" r="2" fill="#fff"/><circle cx="73" cy="56" r="2" fill="#fff"/></g><path d="M55 68 Q60 73 65 68" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+</svg></div></div>
+      <h3>Popo</h3>
+      <p>alienígena-geleia · alien<br><span class="r uncommon">uncommon</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-snooze"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Riri">
+  <defs><radialGradient id="g-riri-sleep" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#fff3b0"/><stop offset="100%" stop-color="#ffcf5c"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M60 14 L74 46 L108 50 L82 73 L90 107 L60 88 L30 107 L38 73 L12 50 L46 46 Z" fill="url(#g-riri-sleep)" stroke="#e7a92e" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <path d="M44 59 Q49 63 54 59" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M66 59 Q71 63 76 59" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/><circle cx="60" cy="70" r="3" fill="#7a3b3b" opacity=".5"/><text x="84" y="40" font-size="16" fill="#cdbff5">z</text>
+</svg></div></div>
+      <h3>Riri</h3>
+      <p>estrelinha-de-luz · star<br><span class="r uncommon">uncommon</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-breathe"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Sasa">
+  <defs><radialGradient id="g-sasa-idle" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#bdf5d6"/><stop offset="100%" stop-color="#5fd6a0"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M22 86 Q18 44 60 40 Q102 44 98 86 Q98 100 60 100 Q22 100 22 86 Z" fill="url(#g-sasa-idle)" stroke="#39b07e" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <g class="luma-blink"><circle cx="49" cy="58" r="6.5" fill="#3a2d12"/><circle cx="71" cy="58" r="6.5" fill="#3a2d12"/><circle cx="51" cy="56" r="2" fill="#fff"/><circle cx="73" cy="56" r="2" fill="#fff"/></g><path d="M55 68 Q60 73 65 68" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+</svg></div></div>
+      <h3>Sasa</h3>
+      <p>pudim-vivo · slime<br><span class="r uncommon">uncommon</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-hop"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Tati">
+  <defs><radialGradient id="g-tati-happy" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#eef3ff"/><stop offset="100%" stop-color="#c7d4f5"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M30 78 Q20 78 22 66 Q14 58 26 52 Q28 38 46 42 Q54 30 70 40 Q92 36 92 56 Q104 60 96 74 Q98 86 82 84 Q60 92 30 78 Z" fill="url(#g-tati-happy)" stroke="#9fb0e7" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <path d="M44 58 Q49 52 54 58" stroke="#3a2d12" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M66 58 Q71 52 76 58" stroke="#3a2d12" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M53 67 Q60 76 67 67 Z" fill="#7a3b3b"/>
+</svg></div></div>
+      <h3>Tati</h3>
+      <p>cúmulo-soneca · cloud<br><span class="r common">common</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-sway"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Uba">
+  <defs><radialGradient id="g-uba-curious" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#ffd6d6"/><stop offset="100%" stop-color="#f59a9a"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M26 70 Q26 36 60 34 Q94 36 94 70 Q94 102 60 102 Q26 102 26 70 Z" fill="url(#g-uba-curious)" stroke="#c25e5e" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <g class="luma-blink"><circle cx="51" cy="58" r="6.5" fill="#3a2d12"/><circle cx="73" cy="58" r="6.5" fill="#3a2d12"/><circle cx="53" cy="57" r="2" fill="#fff"/><circle cx="75" cy="57" r="2" fill="#fff"/></g><circle cx="60" cy="69" r="3" fill="#7a3b3b"/>
+</svg></div></div>
+      <h3>Uba</h3>
+      <p>tampinha-feliz · mushroom<br><span class="r uncommon">uncommon</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-breathe"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Vovo">
+  <defs><radialGradient id="g-vovo-comfort" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#f0d6ff"/><stop offset="100%" stop-color="#cf8fe8"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M26 70 Q26 36 60 34 Q94 36 94 70 Q94 102 60 102 Q26 102 26 70 Z" fill="url(#g-vovo-comfort)" stroke="#9a4eae" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <g class="luma-blink"><circle cx="49" cy="58" r="6.5" fill="#3a2d12"/><circle cx="71" cy="58" r="6.5" fill="#3a2d12"/><circle cx="51" cy="56" r="2" fill="#fff"/><circle cx="73" cy="56" r="2" fill="#fff"/></g><path d="M55 68 Q60 73 65 68" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+</svg></div></div>
+      <h3>Vovo</h3>
+      <p>criatura-fada · magical<br><span class="r common">common</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-snooze"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Wibo">
+  <defs><radialGradient id="g-wibo-sleep" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#cfe6ff"/><stop offset="100%" stop-color="#6aa3e0"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M40 30 L34 16 L48 28 Q60 24 72 28 L86 16 L80 30 Q96 42 94 70 Q94 102 60 102 Q26 102 26 70 Q24 42 40 30 Z" fill="url(#g-wibo-sleep)" stroke="#3f6fb0" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <path d="M44 59 Q49 63 54 59" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M66 59 Q71 63 76 59" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/><circle cx="60" cy="70" r="3" fill="#7a3b3b" opacity=".5"/><text x="84" y="40" font-size="16" fill="#cdbff5">z</text>
+</svg></div></div>
+      <h3>Wibo</h3>
+      <p>bicho-dentuço · monster<br><span class="r rare">rare</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-breathe"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Xixi">
+  <defs><radialGradient id="g-xixi-idle" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#fff3b0"/><stop offset="100%" stop-color="#ffcf5c"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M60 14 L74 46 L108 50 L82 73 L90 107 L60 88 L30 107 L38 73 L12 50 L46 46 Z" fill="url(#g-xixi-idle)" stroke="#e7a92e" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <g class="luma-blink"><circle cx="49" cy="58" r="6.5" fill="#3a2d12"/><circle cx="71" cy="58" r="6.5" fill="#3a2d12"/><circle cx="51" cy="56" r="2" fill="#fff"/><circle cx="73" cy="56" r="2" fill="#fff"/></g><path d="M55 68 Q60 73 65 68" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+</svg></div></div>
+      <h3>Xixi</h3>
+      <p>mascote-pixel · pixel-mascot<br><span class="r rare">rare</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-hop"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Yaya">
+  <defs><radialGradient id="g-yaya-happy" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#eef0f5"/><stop offset="100%" stop-color="#cfd3dd"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M26 70 Q26 36 60 34 Q94 36 94 70 Q94 102 60 102 Q26 102 26 70 Z" fill="url(#g-yaya-happy)" stroke="#a6acbb" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <path d="M44 58 Q49 52 54 58" stroke="#3a2d12" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M66 58 Q71 52 76 58" stroke="#3a2d12" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M53 67 Q60 76 67 67 Z" fill="#7a3b3b"/>
+</svg></div></div>
+      <h3>Yaya</h3>
+      <p>ponto-gentil · minimal-mascot<br><span class="r rare">rare</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-sway"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Zazu">
+  <defs><radialGradient id="g-zazu-curious" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#ffe1c2"/><stop offset="100%" stop-color="#ffb27a"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M26 70 Q26 36 60 34 Q94 36 94 70 Q94 102 60 102 Q26 102 26 70 Z" fill="url(#g-zazu-curious)" stroke="#e08a4e" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <g class="luma-blink"><circle cx="51" cy="58" r="6.5" fill="#3a2d12"/><circle cx="73" cy="58" r="6.5" fill="#3a2d12"/><circle cx="53" cy="57" r="2" fill="#fff"/><circle cx="75" cy="57" r="2" fill="#fff"/></g><circle cx="60" cy="69" r="3" fill="#7a3b3b"/>
+</svg></div></div>
+      <h3>Zazu</h3>
+      <p>lobinho-lua · animal<br><span class="r rare">rare</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-breathe"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Aki">
+  <defs><radialGradient id="g-aki-comfort" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#d8dbe6"/><stop offset="100%" stop-color="#aab0c6"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M26 70 Q26 36 60 34 Q94 36 94 70 Q94 102 60 102 Q26 102 26 70 Z" fill="url(#g-aki-comfort)" stroke="#7e86a6" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <g class="luma-blink"><circle cx="49" cy="58" r="6.5" fill="#3a2d12"/><circle cx="71" cy="58" r="6.5" fill="#3a2d12"/><circle cx="51" cy="56" r="2" fill="#fff"/><circle cx="73" cy="56" r="2" fill="#fff"/></g><path d="M55 68 Q60 73 65 68" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+</svg></div></div>
+      <h3>Aki</h3>
+      <p>andróide-bolso · robot<br><span class="r common">common</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-snooze"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Belo">
+  <defs><radialGradient id="g-belo-sleep" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#efeaff"/><stop offset="100%" stop-color="#d3c7f5"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M30 60 Q30 30 60 30 Q90 30 90 60 L90 96 L80 88 L70 96 L60 88 L50 96 L40 88 L30 96 Z" fill="url(#g-belo-sleep)" stroke="#b0a0e7" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <path d="M44 59 Q49 63 54 59" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M66 59 Q71 63 76 59" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/><circle cx="60" cy="70" r="3" fill="#7a3b3b" opacity=".5"/><text x="84" y="40" font-size="16" fill="#cdbff5">z</text>
+</svg></div></div>
+      <h3>Belo</h3>
+      <p>assombro-fofo · ghost<br><span class="r uncommon">uncommon</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-breathe"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Cami">
+  <defs><radialGradient id="g-cami-idle" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#d4f5b0"/><stop offset="100%" stop-color="#8fd65c"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M26 70 Q26 36 60 34 Q94 36 94 70 Q94 102 60 102 Q26 102 26 70 Z" fill="url(#g-cami-idle)" stroke="#5fae2e" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <g class="luma-blink"><circle cx="49" cy="58" r="6.5" fill="#3a2d12"/><circle cx="71" cy="58" r="6.5" fill="#3a2d12"/><circle cx="51" cy="56" r="2" fill="#fff"/><circle cx="73" cy="56" r="2" fill="#fff"/></g><path d="M55 68 Q60 73 65 68" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+</svg></div></div>
+      <h3>Cami</h3>
+      <p>flor-sino · plant<br><span class="r common">common</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-hop"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Duda">
+  <defs><radialGradient id="g-duda-happy" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#ffd0c2"/><stop offset="100%" stop-color="#ff9a7a"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M40 30 L34 16 L48 28 Q60 24 72 28 L86 16 L80 30 Q96 42 94 70 Q94 102 60 102 Q26 102 26 70 Q24 42 40 30 Z" fill="url(#g-duda-happy)" stroke="#e0654e" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <path d="M44 58 Q49 52 54 58" stroke="#3a2d12" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M66 58 Q71 52 76 58" stroke="#3a2d12" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M53 67 Q60 76 67 67 Z" fill="#7a3b3b"/>
+</svg></div></div>
+      <h3>Duda</h3>
+      <p>dragão-trovão · dragon<br><span class="r rare">rare</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-sway"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Eko">
+  <defs><radialGradient id="g-eko-curious" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#d6ffd0"/><stop offset="100%" stop-color="#8fe88a"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M26 70 Q26 36 60 34 Q94 36 94 70 Q94 102 60 102 Q26 102 26 70 Z" fill="url(#g-eko-curious)" stroke="#4eae4e" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <g class="luma-blink"><circle cx="51" cy="58" r="6.5" fill="#3a2d12"/><circle cx="73" cy="58" r="6.5" fill="#3a2d12"/><circle cx="53" cy="57" r="2" fill="#fff"/><circle cx="75" cy="57" r="2" fill="#fff"/></g><circle cx="60" cy="69" r="3" fill="#7a3b3b"/>
+</svg></div></div>
+      <h3>Eko</h3>
+      <p>estrangeiro-cosmo · alien<br><span class="r uncommon">uncommon</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-breathe"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Fubá">
+  <defs><radialGradient id="g-fuba-comfort" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#fff3b0"/><stop offset="100%" stop-color="#ffcf5c"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M60 14 L74 46 L108 50 L82 73 L90 107 L60 88 L30 107 L38 73 L12 50 L46 46 Z" fill="url(#g-fuba-comfort)" stroke="#e7a92e" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <g class="luma-blink"><circle cx="49" cy="58" r="6.5" fill="#3a2d12"/><circle cx="71" cy="58" r="6.5" fill="#3a2d12"/><circle cx="51" cy="56" r="2" fill="#fff"/><circle cx="73" cy="56" r="2" fill="#fff"/></g><path d="M55 68 Q60 73 65 68" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+</svg></div></div>
+      <h3>Fubá</h3>
+      <p>constelação-mini · star<br><span class="r common">common</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-snooze"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Gomo">
+  <defs><radialGradient id="g-gomo-sleep" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#bdf5d6"/><stop offset="100%" stop-color="#5fd6a0"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M22 86 Q18 44 60 40 Q102 44 98 86 Q98 100 60 100 Q22 100 22 86 Z" fill="url(#g-gomo-sleep)" stroke="#39b07e" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <path d="M44 59 Q49 63 54 59" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M66 59 Q71 63 76 59" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/><circle cx="60" cy="70" r="3" fill="#7a3b3b" opacity=".5"/><text x="84" y="40" font-size="16" fill="#cdbff5">z</text>
+</svg></div></div>
+      <h3>Gomo</h3>
+      <p>pudim-vivo · slime<br><span class="r common">common</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-breathe"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Hibi">
+  <defs><radialGradient id="g-hibi-idle" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#eef3ff"/><stop offset="100%" stop-color="#c7d4f5"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M30 78 Q20 78 22 66 Q14 58 26 52 Q28 38 46 42 Q54 30 70 40 Q92 36 92 56 Q104 60 96 74 Q98 86 82 84 Q60 92 30 78 Z" fill="url(#g-hibi-idle)" stroke="#9fb0e7" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <g class="luma-blink"><circle cx="49" cy="58" r="6.5" fill="#3a2d12"/><circle cx="71" cy="58" r="6.5" fill="#3a2d12"/><circle cx="51" cy="56" r="2" fill="#fff"/><circle cx="73" cy="56" r="2" fill="#fff"/></g><path d="M55 68 Q60 73 65 68" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+</svg></div></div>
+      <h3>Hibi</h3>
+      <p>trovão-tímido · cloud<br><span class="r common">common</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-hop"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Indi">
+  <defs><radialGradient id="g-indi-happy" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#ffd6d6"/><stop offset="100%" stop-color="#f59a9a"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M26 70 Q26 36 60 34 Q94 36 94 70 Q94 102 60 102 Q26 102 26 70 Z" fill="url(#g-indi-happy)" stroke="#c25e5e" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <path d="M44 58 Q49 52 54 58" stroke="#3a2d12" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M66 58 Q71 52 76 58" stroke="#3a2d12" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M53 67 Q60 76 67 67 Z" fill="#7a3b3b"/>
+</svg></div></div>
+      <h3>Indi</h3>
+      <p>shitake-sábio · mushroom<br><span class="r common">common</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-sway"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Juju">
+  <defs><radialGradient id="g-juju-curious" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#f0d6ff"/><stop offset="100%" stop-color="#cf8fe8"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M26 70 Q26 36 60 34 Q94 36 94 70 Q94 102 60 102 Q26 102 26 70 Z" fill="url(#g-juju-curious)" stroke="#9a4eae" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <g class="luma-blink"><circle cx="51" cy="58" r="6.5" fill="#3a2d12"/><circle cx="73" cy="58" r="6.5" fill="#3a2d12"/><circle cx="53" cy="57" r="2" fill="#fff"/><circle cx="75" cy="57" r="2" fill="#fff"/></g><circle cx="60" cy="69" r="3" fill="#7a3b3b"/>
+</svg></div></div>
+      <h3>Juju</h3>
+      <p>criatura-fada · magical<br><span class="r uncommon">uncommon</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-breathe"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Kibo">
+  <defs><radialGradient id="g-kibo-comfort" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#cfe6ff"/><stop offset="100%" stop-color="#6aa3e0"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M40 30 L34 16 L48 28 Q60 24 72 28 L86 16 L80 30 Q96 42 94 70 Q94 102 60 102 Q26 102 26 70 Q24 42 40 30 Z" fill="url(#g-kibo-comfort)" stroke="#3f6fb0" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <g class="luma-blink"><circle cx="49" cy="58" r="6.5" fill="#3a2d12"/><circle cx="71" cy="58" r="6.5" fill="#3a2d12"/><circle cx="51" cy="56" r="2" fill="#fff"/><circle cx="73" cy="56" r="2" fill="#fff"/></g><path d="M55 68 Q60 73 65 68" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+</svg></div></div>
+      <h3>Kibo</h3>
+      <p>bicho-papão-fofo · monster<br><span class="r epic">epic</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-snooze"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Lila">
+  <defs><radialGradient id="g-lila-sleep" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#fff3b0"/><stop offset="100%" stop-color="#ffcf5c"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M60 14 L74 46 L108 50 L82 73 L90 107 L60 88 L30 107 L38 73 L12 50 L46 46 Z" fill="url(#g-lila-sleep)" stroke="#e7a92e" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <path d="M44 59 Q49 63 54 59" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M66 59 Q71 63 76 59" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/><circle cx="60" cy="70" r="3" fill="#7a3b3b" opacity=".5"/><text x="84" y="40" font-size="16" fill="#cdbff5">z</text>
+</svg></div></div>
+      <h3>Lila</h3>
+      <p>herói-8bit · pixel-mascot<br><span class="r rare">rare</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-breathe"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Mira">
+  <defs><radialGradient id="g-mira-idle" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#eef0f5"/><stop offset="100%" stop-color="#cfd3dd"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M26 70 Q26 36 60 34 Q94 36 94 70 Q94 102 60 102 Q26 102 26 70 Z" fill="url(#g-mira-idle)" stroke="#a6acbb" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <g class="luma-blink"><circle cx="49" cy="58" r="6.5" fill="#3a2d12"/><circle cx="71" cy="58" r="6.5" fill="#3a2d12"/><circle cx="51" cy="56" r="2" fill="#fff"/><circle cx="73" cy="56" r="2" fill="#fff"/></g><path d="M55 68 Q60 73 65 68" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+</svg></div></div>
+      <h3>Mira</h3>
+      <p>forminha-feliz · minimal-mascot<br><span class="r uncommon">uncommon</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-hop"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Nuno">
+  <defs><radialGradient id="g-nuno-happy" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#ffe1c2"/><stop offset="100%" stop-color="#ffb27a"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M26 70 Q26 36 60 34 Q94 36 94 70 Q94 102 60 102 Q26 102 26 70 Z" fill="url(#g-nuno-happy)" stroke="#e08a4e" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <path d="M44 58 Q49 52 54 58" stroke="#3a2d12" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M66 58 Q71 52 76 58" stroke="#3a2d12" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M53 67 Q60 76 67 67 Z" fill="#7a3b3b"/>
+</svg></div></div>
+      <h3>Nuno</h3>
+      <p>raposa-fogo · animal<br><span class="r common">common</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-sway"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Olo">
+  <defs><radialGradient id="g-olo-curious" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#d8dbe6"/><stop offset="100%" stop-color="#aab0c6"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M26 70 Q26 36 60 34 Q94 36 94 70 Q94 102 60 102 Q26 102 26 70 Z" fill="url(#g-olo-curious)" stroke="#7e86a6" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <g class="luma-blink"><circle cx="51" cy="58" r="6.5" fill="#3a2d12"/><circle cx="73" cy="58" r="6.5" fill="#3a2d12"/><circle cx="53" cy="57" r="2" fill="#fff"/><circle cx="75" cy="57" r="2" fill="#fff"/></g><circle cx="60" cy="69" r="3" fill="#7a3b3b"/>
+</svg></div></div>
+      <h3>Olo</h3>
+      <p>bot-coração · robot<br><span class="r common">common</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-breathe"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Puff">
+  <defs><radialGradient id="g-puff-comfort" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#efeaff"/><stop offset="100%" stop-color="#d3c7f5"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M30 60 Q30 30 60 30 Q90 30 90 60 L90 96 L80 88 L70 96 L60 88 L50 96 L40 88 L30 96 Z" fill="url(#g-puff-comfort)" stroke="#b0a0e7" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <g class="luma-blink"><circle cx="49" cy="58" r="6.5" fill="#3a2d12"/><circle cx="71" cy="58" r="6.5" fill="#3a2d12"/><circle cx="51" cy="56" r="2" fill="#fff"/><circle cx="73" cy="56" r="2" fill="#fff"/></g><path d="M55 68 Q60 73 65 68" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+</svg></div></div>
+      <h3>Puff</h3>
+      <p>alma-brisa · ghost<br><span class="r common">common</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-snooze"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Quel">
+  <defs><radialGradient id="g-quel-sleep" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#d4f5b0"/><stop offset="100%" stop-color="#8fd65c"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M26 70 Q26 36 60 34 Q94 36 94 70 Q94 102 60 102 Q26 102 26 70 Z" fill="url(#g-quel-sleep)" stroke="#5fae2e" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <path d="M44 59 Q49 63 54 59" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M66 59 Q71 63 76 59" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/><circle cx="60" cy="70" r="3" fill="#7a3b3b" opacity=".5"/><text x="84" y="40" font-size="16" fill="#cdbff5">z</text>
+</svg></div></div>
+      <h3>Quel</h3>
+      <p>flor-sino · plant<br><span class="r common">common</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-breathe"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Roro">
+  <defs><radialGradient id="g-roro-idle" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#ffd0c2"/><stop offset="100%" stop-color="#ff9a7a"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M40 30 L34 16 L48 28 Q60 24 72 28 L86 16 L80 30 Q96 42 94 70 Q94 102 60 102 Q26 102 26 70 Q24 42 40 30 Z" fill="url(#g-roro-idle)" stroke="#e0654e" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <g class="luma-blink"><circle cx="49" cy="58" r="6.5" fill="#3a2d12"/><circle cx="71" cy="58" r="6.5" fill="#3a2d12"/><circle cx="51" cy="56" r="2" fill="#fff"/><circle cx="73" cy="56" r="2" fill="#fff"/></g><path d="M55 68 Q60 73 65 68" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+</svg></div></div>
+      <h3>Roro</h3>
+      <p>draco-gelo · dragon<br><span class="r common">common</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-hop"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Simo">
+  <defs><radialGradient id="g-simo-happy" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#d6ffd0"/><stop offset="100%" stop-color="#8fe88a"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M26 70 Q26 36 60 34 Q94 36 94 70 Q94 102 60 102 Q26 102 26 70 Z" fill="url(#g-simo-happy)" stroke="#4eae4e" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <path d="M44 58 Q49 52 54 58" stroke="#3a2d12" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M66 58 Q71 52 76 58" stroke="#3a2d12" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M53 67 Q60 76 67 67 Z" fill="#7a3b3b"/>
+</svg></div></div>
+      <h3>Simo</h3>
+      <p>visitante-orbe · alien<br><span class="r common">common</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-sway"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Tibo">
+  <defs><radialGradient id="g-tibo-curious" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#fff3b0"/><stop offset="100%" stop-color="#ffcf5c"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M60 14 L74 46 L108 50 L82 73 L90 107 L60 88 L30 107 L38 73 L12 50 L46 46 Z" fill="url(#g-tibo-curious)" stroke="#e7a92e" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <g class="luma-blink"><circle cx="51" cy="58" r="6.5" fill="#3a2d12"/><circle cx="73" cy="58" r="6.5" fill="#3a2d12"/><circle cx="53" cy="57" r="2" fill="#fff"/><circle cx="75" cy="57" r="2" fill="#fff"/></g><circle cx="60" cy="69" r="3" fill="#7a3b3b"/>
+</svg></div></div>
+      <h3>Tibo</h3>
+      <p>constelação-mini · star<br><span class="r common">common</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-breathe"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Umi">
+  <defs><radialGradient id="g-umi-comfort" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#bdf5d6"/><stop offset="100%" stop-color="#5fd6a0"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M22 86 Q18 44 60 40 Q102 44 98 86 Q98 100 60 100 Q22 100 22 86 Z" fill="url(#g-umi-comfort)" stroke="#39b07e" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <g class="luma-blink"><circle cx="49" cy="58" r="6.5" fill="#3a2d12"/><circle cx="71" cy="58" r="6.5" fill="#3a2d12"/><circle cx="51" cy="56" r="2" fill="#fff"/><circle cx="73" cy="56" r="2" fill="#fff"/></g><path d="M55 68 Q60 73 65 68" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+</svg></div></div>
+      <h3>Umi</h3>
+      <p>gosma-feliz · slime<br><span class="r common">common</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-snooze"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Vivi">
+  <defs><radialGradient id="g-vivi-sleep" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#eef3ff"/><stop offset="100%" stop-color="#c7d4f5"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M30 78 Q20 78 22 66 Q14 58 26 52 Q28 38 46 42 Q54 30 70 40 Q92 36 92 56 Q104 60 96 74 Q98 86 82 84 Q60 92 30 78 Z" fill="url(#g-vivi-sleep)" stroke="#9fb0e7" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <path d="M44 59 Q49 63 54 59" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M66 59 Q71 63 76 59" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/><circle cx="60" cy="70" r="3" fill="#7a3b3b" opacity=".5"/><text x="84" y="40" font-size="16" fill="#cdbff5">z</text>
+</svg></div></div>
+      <h3>Vivi</h3>
+      <p>trovão-tímido · cloud<br><span class="r uncommon">uncommon</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-breathe"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Waki">
+  <defs><radialGradient id="g-waki-idle" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#ffd6d6"/><stop offset="100%" stop-color="#f59a9a"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M26 70 Q26 36 60 34 Q94 36 94 70 Q94 102 60 102 Q26 102 26 70 Z" fill="url(#g-waki-idle)" stroke="#c25e5e" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <g class="luma-blink"><circle cx="49" cy="58" r="6.5" fill="#3a2d12"/><circle cx="71" cy="58" r="6.5" fill="#3a2d12"/><circle cx="51" cy="56" r="2" fill="#fff"/><circle cx="73" cy="56" r="2" fill="#fff"/></g><path d="M55 68 Q60 73 65 68" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+</svg></div></div>
+      <h3>Waki</h3>
+      <p>cogumelo-lanterna · mushroom<br><span class="r common">common</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-hop"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Xum">
+  <defs><radialGradient id="g-xum-happy" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#f0d6ff"/><stop offset="100%" stop-color="#cf8fe8"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M26 70 Q26 36 60 34 Q94 36 94 70 Q94 102 60 102 Q26 102 26 70 Z" fill="url(#g-xum-happy)" stroke="#9a4eae" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <path d="M44 58 Q49 52 54 58" stroke="#3a2d12" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M66 58 Q71 52 76 58" stroke="#3a2d12" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M53 67 Q60 76 67 67 Z" fill="#7a3b3b"/>
+</svg></div></div>
+      <h3>Xum</h3>
+      <p>criatura-fada · magical<br><span class="r common">common</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-sway"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Yumo">
+  <defs><radialGradient id="g-yumo-curious" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#cfe6ff"/><stop offset="100%" stop-color="#6aa3e0"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M40 30 L34 16 L48 28 Q60 24 72 28 L86 16 L80 30 Q96 42 94 70 Q94 102 60 102 Q26 102 26 70 Q24 42 40 30 Z" fill="url(#g-yumo-curious)" stroke="#3f6fb0" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <g class="luma-blink"><circle cx="51" cy="58" r="6.5" fill="#3a2d12"/><circle cx="73" cy="58" r="6.5" fill="#3a2d12"/><circle cx="53" cy="57" r="2" fill="#fff"/><circle cx="75" cy="57" r="2" fill="#fff"/></g><circle cx="60" cy="69" r="3" fill="#7a3b3b"/>
+</svg></div></div>
+      <h3>Yumo</h3>
+      <p>monstrinho-peludo · monster<br><span class="r uncommon">uncommon</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-breathe"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Zeze">
+  <defs><radialGradient id="g-zeze-comfort" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#fff3b0"/><stop offset="100%" stop-color="#ffcf5c"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M60 14 L74 46 L108 50 L82 73 L90 107 L60 88 L30 107 L38 73 L12 50 L46 46 Z" fill="url(#g-zeze-comfort)" stroke="#e7a92e" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <g class="luma-blink"><circle cx="49" cy="58" r="6.5" fill="#3a2d12"/><circle cx="71" cy="58" r="6.5" fill="#3a2d12"/><circle cx="51" cy="56" r="2" fill="#fff"/><circle cx="73" cy="56" r="2" fill="#fff"/></g><path d="M55 68 Q60 73 65 68" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+</svg></div></div>
+      <h3>Zeze</h3>
+      <p>herói-8bit · pixel-mascot<br><span class="r rare">rare</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-snooze"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Abi">
+  <defs><radialGradient id="g-abi-sleep" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#eef0f5"/><stop offset="100%" stop-color="#cfd3dd"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M26 70 Q26 36 60 34 Q94 36 94 70 Q94 102 60 102 Q26 102 26 70 Z" fill="url(#g-abi-sleep)" stroke="#a6acbb" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <path d="M44 59 Q49 63 54 59" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M66 59 Q71 63 76 59" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/><circle cx="60" cy="70" r="3" fill="#7a3b3b" opacity=".5"/><text x="84" y="40" font-size="16" fill="#cdbff5">z</text>
+</svg></div></div>
+      <h3>Abi</h3>
+      <p>traço-vivo · minimal-mascot<br><span class="r uncommon">uncommon</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-breathe"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Bobi">
+  <defs><radialGradient id="g-bobi-idle" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#ffe1c2"/><stop offset="100%" stop-color="#ffb27a"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M26 70 Q26 36 60 34 Q94 36 94 70 Q94 102 60 102 Q26 102 26 70 Z" fill="url(#g-bobi-idle)" stroke="#e08a4e" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <g class="luma-blink"><circle cx="49" cy="58" r="6.5" fill="#3a2d12"/><circle cx="71" cy="58" r="6.5" fill="#3a2d12"/><circle cx="51" cy="56" r="2" fill="#fff"/><circle cx="73" cy="56" r="2" fill="#fff"/></g><path d="M55 68 Q60 73 65 68" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+</svg></div></div>
+      <h3>Bobi</h3>
+      <p>gato-nuvem · animal<br><span class="r uncommon">uncommon</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-hop"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Cuco">
+  <defs><radialGradient id="g-cuco-happy" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#d8dbe6"/><stop offset="100%" stop-color="#aab0c6"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M26 70 Q26 36 60 34 Q94 36 94 70 Q94 102 60 102 Q26 102 26 70 Z" fill="url(#g-cuco-happy)" stroke="#7e86a6" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <path d="M44 58 Q49 52 54 58" stroke="#3a2d12" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M66 58 Q71 52 76 58" stroke="#3a2d12" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M53 67 Q60 76 67 67 Z" fill="#7a3b3b"/>
+</svg></div></div>
+      <h3>Cuco</h3>
+      <p>robozinho-lata · robot<br><span class="r epic">epic</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-sway"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Dami">
+  <defs><radialGradient id="g-dami-curious" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#efeaff"/><stop offset="100%" stop-color="#d3c7f5"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M30 60 Q30 30 60 30 Q90 30 90 60 L90 96 L80 88 L70 96 L60 88 L50 96 L40 88 L30 96 Z" fill="url(#g-dami-curious)" stroke="#b0a0e7" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <g class="luma-blink"><circle cx="51" cy="58" r="6.5" fill="#3a2d12"/><circle cx="73" cy="58" r="6.5" fill="#3a2d12"/><circle cx="53" cy="57" r="2" fill="#fff"/><circle cx="75" cy="57" r="2" fill="#fff"/></g><circle cx="60" cy="69" r="3" fill="#7a3b3b"/>
+</svg></div></div>
+      <h3>Dami</h3>
+      <p>alma-brisa · ghost<br><span class="r common">common</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-breathe"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Elo">
+  <defs><radialGradient id="g-elo-comfort" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#d4f5b0"/><stop offset="100%" stop-color="#8fd65c"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M26 70 Q26 36 60 34 Q94 36 94 70 Q94 102 60 102 Q26 102 26 70 Z" fill="url(#g-elo-comfort)" stroke="#5fae2e" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <g class="luma-blink"><circle cx="49" cy="58" r="6.5" fill="#3a2d12"/><circle cx="71" cy="58" r="6.5" fill="#3a2d12"/><circle cx="51" cy="56" r="2" fill="#fff"/><circle cx="73" cy="56" r="2" fill="#fff"/></g><path d="M55 68 Q60 73 65 68" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+</svg></div></div>
+      <h3>Elo</h3>
+      <p>samambaia-dança · plant<br><span class="r common">common</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-snooze"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Faro">
+  <defs><radialGradient id="g-faro-sleep" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#ffd0c2"/><stop offset="100%" stop-color="#ff9a7a"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M40 30 L34 16 L48 28 Q60 24 72 28 L86 16 L80 30 Q96 42 94 70 Q94 102 60 102 Q26 102 26 70 Q24 42 40 30 Z" fill="url(#g-faro-sleep)" stroke="#e0654e" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <path d="M44 59 Q49 63 54 59" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M66 59 Q71 63 76 59" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/><circle cx="60" cy="70" r="3" fill="#7a3b3b" opacity=".5"/><text x="84" y="40" font-size="16" fill="#cdbff5">z</text>
+</svg></div></div>
+      <h3>Faro</h3>
+      <p>dragão-trovão · dragon<br><span class="r uncommon">uncommon</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-breathe"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Guga">
+  <defs><radialGradient id="g-guga-idle" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#d6ffd0"/><stop offset="100%" stop-color="#8fe88a"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M26 70 Q26 36 60 34 Q94 36 94 70 Q94 102 60 102 Q26 102 26 70 Z" fill="url(#g-guga-idle)" stroke="#4eae4e" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <g class="luma-blink"><circle cx="49" cy="58" r="6.5" fill="#3a2d12"/><circle cx="71" cy="58" r="6.5" fill="#3a2d12"/><circle cx="51" cy="56" r="2" fill="#fff"/><circle cx="73" cy="56" r="2" fill="#fff"/></g><path d="M55 68 Q60 73 65 68" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+</svg></div></div>
+      <h3>Guga</h3>
+      <p>et-bolso · alien<br><span class="r rare">rare</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-hop"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Halo">
+  <defs><radialGradient id="g-halo-happy" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#fff3b0"/><stop offset="100%" stop-color="#ffcf5c"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M60 14 L74 46 L108 50 L82 73 L90 107 L60 88 L30 107 L38 73 L12 50 L46 46 Z" fill="url(#g-halo-happy)" stroke="#e7a92e" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <path d="M44 58 Q49 52 54 58" stroke="#3a2d12" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M66 58 Q71 52 76 58" stroke="#3a2d12" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M53 67 Q60 76 67 67 Z" fill="#7a3b3b"/>
+</svg></div></div>
+      <h3>Halo</h3>
+      <p>estrelinha-de-luz · star<br><span class="r common">common</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-sway"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Ivo">
+  <defs><radialGradient id="g-ivo-curious" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#bdf5d6"/><stop offset="100%" stop-color="#5fd6a0"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M22 86 Q18 44 60 40 Q102 44 98 86 Q98 100 60 100 Q22 100 22 86 Z" fill="url(#g-ivo-curious)" stroke="#39b07e" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <g class="luma-blink"><circle cx="51" cy="58" r="6.5" fill="#3a2d12"/><circle cx="73" cy="58" r="6.5" fill="#3a2d12"/><circle cx="53" cy="57" r="2" fill="#fff"/><circle cx="75" cy="57" r="2" fill="#fff"/></g><circle cx="60" cy="69" r="3" fill="#7a3b3b"/>
+</svg></div></div>
+      <h3>Ivo</h3>
+      <p>pudim-vivo · slime<br><span class="r uncommon">uncommon</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-breathe"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Joia">
+  <defs><radialGradient id="g-joia-comfort" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#eef3ff"/><stop offset="100%" stop-color="#c7d4f5"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M30 78 Q20 78 22 66 Q14 58 26 52 Q28 38 46 42 Q54 30 70 40 Q92 36 92 56 Q104 60 96 74 Q98 86 82 84 Q60 92 30 78 Z" fill="url(#g-joia-comfort)" stroke="#9fb0e7" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <g class="luma-blink"><circle cx="49" cy="58" r="6.5" fill="#3a2d12"/><circle cx="71" cy="58" r="6.5" fill="#3a2d12"/><circle cx="51" cy="56" r="2" fill="#fff"/><circle cx="73" cy="56" r="2" fill="#fff"/></g><path d="M55 68 Q60 73 65 68" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+</svg></div></div>
+      <h3>Joia</h3>
+      <p>trovão-tímido · cloud<br><span class="r rare">rare</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-snooze"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Kuro">
+  <defs><radialGradient id="g-kuro-sleep" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#ffd6d6"/><stop offset="100%" stop-color="#f59a9a"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M26 70 Q26 36 60 34 Q94 36 94 70 Q94 102 60 102 Q26 102 26 70 Z" fill="url(#g-kuro-sleep)" stroke="#c25e5e" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <path d="M44 59 Q49 63 54 59" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M66 59 Q71 63 76 59" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/><circle cx="60" cy="70" r="3" fill="#7a3b3b" opacity=".5"/><text x="84" y="40" font-size="16" fill="#cdbff5">z</text>
+</svg></div></div>
+      <h3>Kuro</h3>
+      <p>fungo-fada · mushroom<br><span class="r uncommon">uncommon</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-breathe"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Lume">
+  <defs><radialGradient id="g-lume-idle" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#f0d6ff"/><stop offset="100%" stop-color="#cf8fe8"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M26 70 Q26 36 60 34 Q94 36 94 70 Q94 102 60 102 Q26 102 26 70 Z" fill="url(#g-lume-idle)" stroke="#9a4eae" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <g class="luma-blink"><circle cx="49" cy="58" r="6.5" fill="#3a2d12"/><circle cx="71" cy="58" r="6.5" fill="#3a2d12"/><circle cx="51" cy="56" r="2" fill="#fff"/><circle cx="73" cy="56" r="2" fill="#fff"/></g><path d="M55 68 Q60 73 65 68" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+</svg></div></div>
+      <h3>Lume</h3>
+      <p>espírito-cristal · magical<br><span class="r common">common</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-hop"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Mau">
+  <defs><radialGradient id="g-mau-happy" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#cfe6ff"/><stop offset="100%" stop-color="#6aa3e0"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M40 30 L34 16 L48 28 Q60 24 72 28 L86 16 L80 30 Q96 42 94 70 Q94 102 60 102 Q26 102 26 70 Q24 42 40 30 Z" fill="url(#g-mau-happy)" stroke="#3f6fb0" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <path d="M44 58 Q49 52 54 58" stroke="#3a2d12" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M66 58 Q71 52 76 58" stroke="#3a2d12" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M53 67 Q60 76 67 67 Z" fill="#7a3b3b"/>
+</svg></div></div>
+      <h3>Mau</h3>
+      <p>bicho-papão-fofo · monster<br><span class="r common">common</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-sway"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Nita">
+  <defs><radialGradient id="g-nita-curious" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#fff3b0"/><stop offset="100%" stop-color="#ffcf5c"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M60 14 L74 46 L108 50 L82 73 L90 107 L60 88 L30 107 L38 73 L12 50 L46 46 Z" fill="url(#g-nita-curious)" stroke="#e7a92e" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <g class="luma-blink"><circle cx="51" cy="58" r="6.5" fill="#3a2d12"/><circle cx="73" cy="58" r="6.5" fill="#3a2d12"/><circle cx="53" cy="57" r="2" fill="#fff"/><circle cx="75" cy="57" r="2" fill="#fff"/></g><circle cx="60" cy="69" r="3" fill="#7a3b3b"/>
+</svg></div></div>
+      <h3>Nita</h3>
+      <p>bichinho-retrô · pixel-mascot<br><span class="r common">common</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-breathe"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Ovo">
+  <defs><radialGradient id="g-ovo-comfort" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#eef0f5"/><stop offset="100%" stop-color="#cfd3dd"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M26 70 Q26 36 60 34 Q94 36 94 70 Q94 102 60 102 Q26 102 26 70 Z" fill="url(#g-ovo-comfort)" stroke="#a6acbb" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <g class="luma-blink"><circle cx="49" cy="58" r="6.5" fill="#3a2d12"/><circle cx="71" cy="58" r="6.5" fill="#3a2d12"/><circle cx="51" cy="56" r="2" fill="#fff"/><circle cx="73" cy="56" r="2" fill="#fff"/></g><path d="M55 68 Q60 73 65 68" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+</svg></div></div>
+      <h3>Ovo</h3>
+      <p>traço-vivo · minimal-mascot<br><span class="r uncommon">uncommon</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-snooze"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Pomo">
+  <defs><radialGradient id="g-pomo-sleep" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#ffe1c2"/><stop offset="100%" stop-color="#ffb27a"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M26 70 Q26 36 60 34 Q94 36 94 70 Q94 102 60 102 Q26 102 26 70 Z" fill="url(#g-pomo-sleep)" stroke="#e08a4e" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <path d="M44 59 Q49 63 54 59" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M66 59 Q71 63 76 59" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/><circle cx="60" cy="70" r="3" fill="#7a3b3b" opacity=".5"/><text x="84" y="40" font-size="16" fill="#cdbff5">z</text>
+</svg></div></div>
+      <h3>Pomo</h3>
+      <p>lobinho-lua · animal<br><span class="r common">common</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-breathe"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Quim">
+  <defs><radialGradient id="g-quim-idle" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#d8dbe6"/><stop offset="100%" stop-color="#aab0c6"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M26 70 Q26 36 60 34 Q94 36 94 70 Q94 102 60 102 Q26 102 26 70 Z" fill="url(#g-quim-idle)" stroke="#7e86a6" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <g class="luma-blink"><circle cx="49" cy="58" r="6.5" fill="#3a2d12"/><circle cx="71" cy="58" r="6.5" fill="#3a2d12"/><circle cx="51" cy="56" r="2" fill="#fff"/><circle cx="73" cy="56" r="2" fill="#fff"/></g><path d="M55 68 Q60 73 65 68" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+</svg></div></div>
+      <h3>Quim</h3>
+      <p>robozinho-lata · robot<br><span class="r common">common</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-hop"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Rumo">
+  <defs><radialGradient id="g-rumo-happy" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#efeaff"/><stop offset="100%" stop-color="#d3c7f5"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M30 60 Q30 30 60 30 Q90 30 90 60 L90 96 L80 88 L70 96 L60 88 L50 96 L40 88 L30 96 Z" fill="url(#g-rumo-happy)" stroke="#b0a0e7" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <path d="M44 58 Q49 52 54 58" stroke="#3a2d12" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M66 58 Q71 52 76 58" stroke="#3a2d12" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M53 67 Q60 76 67 67 Z" fill="#7a3b3b"/>
+</svg></div></div>
+      <h3>Rumo</h3>
+      <p>alma-brisa · ghost<br><span class="r uncommon">uncommon</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-sway"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Sol">
+  <defs><radialGradient id="g-sol-curious" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#d4f5b0"/><stop offset="100%" stop-color="#8fd65c"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M26 70 Q26 36 60 34 Q94 36 94 70 Q94 102 60 102 Q26 102 26 70 Z" fill="url(#g-sol-curious)" stroke="#5fae2e" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <g class="luma-blink"><circle cx="51" cy="58" r="6.5" fill="#3a2d12"/><circle cx="73" cy="58" r="6.5" fill="#3a2d12"/><circle cx="53" cy="57" r="2" fill="#fff"/><circle cx="75" cy="57" r="2" fill="#fff"/></g><circle cx="60" cy="69" r="3" fill="#7a3b3b"/>
+</svg></div></div>
+      <h3>Sol</h3>
+      <p>cacto-abraço · plant<br><span class="r rare">rare</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-breathe"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Teo">
+  <defs><radialGradient id="g-teo-comfort" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#ffd0c2"/><stop offset="100%" stop-color="#ff9a7a"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M40 30 L34 16 L48 28 Q60 24 72 28 L86 16 L80 30 Q96 42 94 70 Q94 102 60 102 Q26 102 26 70 Q24 42 40 30 Z" fill="url(#g-teo-comfort)" stroke="#e0654e" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <g class="luma-blink"><circle cx="49" cy="58" r="6.5" fill="#3a2d12"/><circle cx="71" cy="58" r="6.5" fill="#3a2d12"/><circle cx="51" cy="56" r="2" fill="#fff"/><circle cx="73" cy="56" r="2" fill="#fff"/></g><path d="M55 68 Q60 73 65 68" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+</svg></div></div>
+      <h3>Teo</h3>
+      <p>dragão-trovão · dragon<br><span class="r common">common</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-snooze"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Uni">
+  <defs><radialGradient id="g-uni-sleep" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#d6ffd0"/><stop offset="100%" stop-color="#8fe88a"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M26 70 Q26 36 60 34 Q94 36 94 70 Q94 102 60 102 Q26 102 26 70 Z" fill="url(#g-uni-sleep)" stroke="#4eae4e" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <path d="M44 59 Q49 63 54 59" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M66 59 Q71 63 76 59" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/><circle cx="60" cy="70" r="3" fill="#7a3b3b" opacity=".5"/><text x="84" y="40" font-size="16" fill="#cdbff5">z</text>
+</svg></div></div>
+      <h3>Uni</h3>
+      <p>visitante-orbe · alien<br><span class="r common">common</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-breathe"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Vela">
+  <defs><radialGradient id="g-vela-idle" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#fff3b0"/><stop offset="100%" stop-color="#ffcf5c"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M60 14 L74 46 L108 50 L82 73 L90 107 L60 88 L30 107 L38 73 L12 50 L46 46 Z" fill="url(#g-vela-idle)" stroke="#e7a92e" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <g class="luma-blink"><circle cx="49" cy="58" r="6.5" fill="#3a2d12"/><circle cx="71" cy="58" r="6.5" fill="#3a2d12"/><circle cx="51" cy="56" r="2" fill="#fff"/><circle cx="73" cy="56" r="2" fill="#fff"/></g><path d="M55 68 Q60 73 65 68" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+</svg></div></div>
+      <h3>Vela</h3>
+      <p>brilho-noturno · star<br><span class="r common">common</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-hop"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Wim">
+  <defs><radialGradient id="g-wim-happy" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#bdf5d6"/><stop offset="100%" stop-color="#5fd6a0"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M22 86 Q18 44 60 40 Q102 44 98 86 Q98 100 60 100 Q22 100 22 86 Z" fill="url(#g-wim-happy)" stroke="#39b07e" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <path d="M44 58 Q49 52 54 58" stroke="#3a2d12" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M66 58 Q71 52 76 58" stroke="#3a2d12" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M53 67 Q60 76 67 67 Z" fill="#7a3b3b"/>
+</svg></div></div>
+      <h3>Wim</h3>
+      <p>blob-arco-íris · slime<br><span class="r rare">rare</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-sway"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Xara">
+  <defs><radialGradient id="g-xara-curious" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#eef3ff"/><stop offset="100%" stop-color="#c7d4f5"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M30 78 Q20 78 22 66 Q14 58 26 52 Q28 38 46 42 Q54 30 70 40 Q92 36 92 56 Q104 60 96 74 Q98 86 82 84 Q60 92 30 78 Z" fill="url(#g-xara-curious)" stroke="#9fb0e7" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <g class="luma-blink"><circle cx="51" cy="58" r="6.5" fill="#3a2d12"/><circle cx="73" cy="58" r="6.5" fill="#3a2d12"/><circle cx="53" cy="57" r="2" fill="#fff"/><circle cx="75" cy="57" r="2" fill="#fff"/></g><circle cx="60" cy="69" r="3" fill="#7a3b3b"/>
+</svg></div></div>
+      <h3>Xara</h3>
+      <p>cúmulo-soneca · cloud<br><span class="r rare">rare</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-breathe"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Yoko">
+  <defs><radialGradient id="g-yoko-comfort" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#ffd6d6"/><stop offset="100%" stop-color="#f59a9a"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M26 70 Q26 36 60 34 Q94 36 94 70 Q94 102 60 102 Q26 102 26 70 Z" fill="url(#g-yoko-comfort)" stroke="#c25e5e" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <g class="luma-blink"><circle cx="49" cy="58" r="6.5" fill="#3a2d12"/><circle cx="71" cy="58" r="6.5" fill="#3a2d12"/><circle cx="51" cy="56" r="2" fill="#fff"/><circle cx="73" cy="56" r="2" fill="#fff"/></g><path d="M55 68 Q60 73 65 68" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+</svg></div></div>
+      <h3>Yoko</h3>
+      <p>fungo-fada · mushroom<br><span class="r uncommon">uncommon</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-snooze"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Zumi">
+  <defs><radialGradient id="g-zumi-sleep" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#f0d6ff"/><stop offset="100%" stop-color="#cf8fe8"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M26 70 Q26 36 60 34 Q94 36 94 70 Q94 102 60 102 Q26 102 26 70 Z" fill="url(#g-zumi-sleep)" stroke="#9a4eae" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <path d="M44 59 Q49 63 54 59" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M66 59 Q71 63 76 59" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/><circle cx="60" cy="70" r="3" fill="#7a3b3b" opacity=".5"/><text x="84" y="40" font-size="16" fill="#cdbff5">z</text>
+</svg></div></div>
+      <h3>Zumi</h3>
+      <p>criatura-fada · magical<br><span class="r common">common</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-breathe"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Aço">
+  <defs><radialGradient id="g-aco-idle" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#cfe6ff"/><stop offset="100%" stop-color="#6aa3e0"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M40 30 L34 16 L48 28 Q60 24 72 28 L86 16 L80 30 Q96 42 94 70 Q94 102 60 102 Q26 102 26 70 Q24 42 40 30 Z" fill="url(#g-aco-idle)" stroke="#3f6fb0" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <g class="luma-blink"><circle cx="49" cy="58" r="6.5" fill="#3a2d12"/><circle cx="71" cy="58" r="6.5" fill="#3a2d12"/><circle cx="51" cy="56" r="2" fill="#fff"/><circle cx="73" cy="56" r="2" fill="#fff"/></g><path d="M55 68 Q60 73 65 68" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+</svg></div></div>
+      <h3>Aço</h3>
+      <p>bicho-dentuço · monster<br><span class="r common">common</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-hop"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Brisa">
+  <defs><radialGradient id="g-brisa-happy" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#fff3b0"/><stop offset="100%" stop-color="#ffcf5c"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M60 14 L74 46 L108 50 L82 73 L90 107 L60 88 L30 107 L38 73 L12 50 L46 46 Z" fill="url(#g-brisa-happy)" stroke="#e7a92e" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <path d="M44 58 Q49 52 54 58" stroke="#3a2d12" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M66 58 Q71 52 76 58" stroke="#3a2d12" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M53 67 Q60 76 67 67 Z" fill="#7a3b3b"/>
+</svg></div></div>
+      <h3>Brisa</h3>
+      <p>herói-8bit · pixel-mascot<br><span class="r common">common</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-sway"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Cris">
+  <defs><radialGradient id="g-cris-curious" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#eef0f5"/><stop offset="100%" stop-color="#cfd3dd"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M26 70 Q26 36 60 34 Q94 36 94 70 Q94 102 60 102 Q26 102 26 70 Z" fill="url(#g-cris-curious)" stroke="#a6acbb" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <g class="luma-blink"><circle cx="51" cy="58" r="6.5" fill="#3a2d12"/><circle cx="73" cy="58" r="6.5" fill="#3a2d12"/><circle cx="53" cy="57" r="2" fill="#fff"/><circle cx="75" cy="57" r="2" fill="#fff"/></g><circle cx="60" cy="69" r="3" fill="#7a3b3b"/>
+</svg></div></div>
+      <h3>Cris</h3>
+      <p>mascote-mínimo · minimal-mascot<br><span class="r uncommon">uncommon</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-breathe"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Dindo">
+  <defs><radialGradient id="g-dindo-comfort" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#ffe1c2"/><stop offset="100%" stop-color="#ffb27a"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M26 70 Q26 36 60 34 Q94 36 94 70 Q94 102 60 102 Q26 102 26 70 Z" fill="url(#g-dindo-comfort)" stroke="#e08a4e" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <g class="luma-blink"><circle cx="49" cy="58" r="6.5" fill="#3a2d12"/><circle cx="71" cy="58" r="6.5" fill="#3a2d12"/><circle cx="51" cy="56" r="2" fill="#fff"/><circle cx="73" cy="56" r="2" fill="#fff"/></g><path d="M55 68 Q60 73 65 68" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+</svg></div></div>
+      <h3>Dindo</h3>
+      <p>raposa-fogo · animal<br><span class="r common">common</span></p>
+    </div>
+<div class="card">
+      <div class="stage"><div class="luma-snooze"><svg width="110" height="110" viewBox="0 0 120 120" role="img" aria-label="Estê">
+  <defs><radialGradient id="g-este-sleep" cx="50%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="#d8dbe6"/><stop offset="100%" stop-color="#aab0c6"/>
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  <path d="M26 70 Q26 36 60 34 Q94 36 94 70 Q94 102 60 102 Q26 102 26 70 Z" fill="url(#g-este-sleep)" stroke="#7e86a6" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.6"/>
+  <path d="M44 59 Q49 63 54 59" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M66 59 Q71 63 76 59" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/><circle cx="60" cy="70" r="3" fill="#7a3b3b" opacity=".5"/><text x="84" y="40" font-size="16" fill="#cdbff5">z</text>
+</svg></div></div>
+      <h3>Estê</h3>
+      <p>bot-coração · robot<br><span class="r rare">rare</span></p>
+    </div>
+</div></body></html>

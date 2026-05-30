@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell($r = \\(Get-Command rustc -ErrorAction SilentlyContinue\\); if \\($r\\) { & rustc --version } else { \"RUST AUSENTE\" }; $c = \\(Get-Command cargo -ErrorAction SilentlyContinue\\); if \\($c\\) { & cargo --version } else { \"CARGO AUSENTE\" })",
+      "PowerShell(winget install --id Rustlang.Rustup -e --accept-source-agreements --accept-package-agreements --disable-interactivity 2>&1)",
+      "Bash(echo \"TC=$?\")",
+      "Bash(echo \"BUILD=$?\")",
+      "PowerShell($c = Get-NetTCPConnection -LocalPort 1420 -State Listen -ErrorAction SilentlyContinue; if \\($c\\) { $c.OwningProcess | Select-Object -Unique | ForEach-Object { Stop-Process -Id $_ -Force -ErrorAction SilentlyContinue } }; Start-Sleep -Milliseconds 500; \"porta livre\")",
+      "PowerShell($r = \\(Get-Command rustc -ErrorAction SilentlyContinue\\); if \\($r\\) { & rustc --version } else { $rp = \"$env:USERPROFILE\\\\.cargo\\\\bin\\\\rustc.exe\"; if \\(Test-Path $rp\\) { & $rp --version; \"\\(rust instalado, falta reabrir terminal p/ PATH\\)\" } else { \"RUST AINDA INSTALANDO OU AUSENTE\" } })",
+      "PowerShell(Start-Process \"http://localhost:1420/\"; \"LUMA repaginado aberto. \\(preview no navegador\\)\"; \"--- Rust status ---\"; $rp = \"$env:USERPROFILE\\\\.cargo\\\\bin\\\\rustc.exe\"; if \\(Test-Path $rp\\) { & $rp --version } else { \"Rust ainda instalando...\" })",
+      "PowerShell($rp = \"$env:USERPROFILE\\\\.cargo\\\\bin\\\\rustc.exe\"; $cp = \"$env:USERPROFILE\\\\.cargo\\\\bin\\\\cargo.exe\"; \"rustc exists: $\\(Test-Path $rp\\)\"; \"cargo exists: $\\(Test-Path $cp\\)\"; if \\(Test-Path $rp\\) { & $rp --version })",
+      "PowerShell($p = Get-Process -Name \"luma-desktop\" -ErrorAction SilentlyContinue; if \\($p\\) { \"✅ APP NATIVO RODANDO — PID $\\($p.Id\\)\" } else { \"ainda compilando/iniciando...\"; if \\(Test-Path \"$env:TEMP\\\\luma_tauri.log\"\\) { Get-Content \"$env:TEMP\\\\luma_tauri.log\" -Tail 6 } })",
+      "Bash(node -e ' *)",
+      "Bash(ls -la icon-source.png)",
+      "Bash(node -e \"const b=require\\('fs'\\).readFileSync\\('icon-source.png'\\); console.log\\('sig ok:', b.slice\\(0,8\\).toString\\('hex'\\)==='89504e470d0a1a0a', 'size:', b.length\\);\")",
+      "PowerShell($env:Path = \"$env:USERPROFILE\\\\.cargo\\\\bin;$env:Path\"; cd \"c:\\\\Users\\\\allan\\\\OneDrive\\\\Área de Trabalho\\\\Programação\\\\SISTEMAS\\\\tamago\\\\apps\\\\desktop\"; pnpm tauri icon \"src-tauri/icons/icon-source.png\" 2>&1 | Select-Object -Last 15)",
+      "Bash(sed -i 's/expect\\(r.from\\).toBe\\(\"egg\"\\);/expect\\(r.from\\).toBe\\(\"egg\"\\);/' packages/core/src/growth/growth.test.ts)",
+      "Read(//c/Users/allan/AppData/Local/Temp/**)",
+      "PowerShell(if \\(Test-Path \"$env:TEMP\\\\luma_tauri2.log\"\\) { Get-Content \"$env:TEMP\\\\luma_tauri2.log\" -Tail 12 } else { \"log2 ausente\" }; \"---\"; $p = Get-Process -Name \"luma-desktop\" -ErrorAction SilentlyContinue; if \\($p\\) { \"APP RODANDO PID $\\($p.Id\\)\" } else { \"app ainda nao iniciou\" })",
+      "PowerShell($log = \"$env:TEMP\\\\luma_tauri2.log\"; if \\(Test-Path $log\\) { \\(Get-Content $log -Tail 15\\) -join \"`n\" } else { \"log2 ausente ainda\" })",
+      "Bash(grep -iE \"node_modules|/target/|\\\\.exe$\")",
+      "Bash(git config *)",
+      "Bash(echo \"commit exit=$?\")"
+    ]
+  }
+}

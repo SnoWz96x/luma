@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   LUMA — Design System (cozy, kawaii, aconchegante)
+   ============================================================ */
+:root {
+  --bg-0: #14131f;
+  --bg-1: #1c1b29;
+  --card: rgba(255, 255, 255, 0.06);
+  --card-strong: rgba(255, 255, 255, 0.1);
+  --stroke: rgba(255, 255, 255, 0.1);
+  --ink: #f3efff;
+  --muted: #a79fce;
+  --accent: #ff9ec7;
+  --accent-2: #b69cff;
+  --radius: 22px;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: transparent;
+  color: var(--ink);
+  font-family: "Quicksand", "Nunito", ui-rounded, "Segoe UI", system-ui, sans-serif;
+  -webkit-user-select: none;
+  user-select: none;
+  overflow: hidden;
+}
+
+/* área arrastável da janela (Tauri sem bordas) */
+[data-tauri-drag-region] {
+  -webkit-app-region: drag;
+}
+button,
+input,
+a,
+[role="button"] {
+  -webkit-app-region: no-drag;
+}
+
+/* scrollbar discreta */
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* superfície de vidro reutilizável */
+.glass {
+  background: var(--card);
+  border: 1px solid var(--stroke);
+  backdrop-filter: blur(12px);
+}
+
+/* brilho ambiente atrás do pet */
+.aura {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    closest-side,
+    rgba(255, 158, 199, 0.18),
+    transparent 70%
+  );
+}
+
+/* entrada suave */
+@keyframes luma-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.fade-up {
+  animation: luma-fade-up 0.45s ease both;
+}
+
+@keyframes luma-pop {
+  0% {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.04);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.pop {
+  animation: luma-pop 0.4s ease both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-up,
+  .pop {
+    animation: none;
+  }
+}

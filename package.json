@@ -1,0 +1,21 @@
+{
+  "name": "luma",
+  "private": true,
+  "version": "0.0.0",
+  "description": "LUMA — um ser vivo digital que mora no computador e cresce junto com seu usuário.",
+  "packageManager": "pnpm@9.0.0",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "build": "pnpm -r build",
+    "test": "pnpm -r test",
+    "typecheck": "pnpm -r typecheck",
+    "lint": "pnpm -r lint"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.0",
+    "vitest": "^2.0.0"
+  }
+}

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>LUMA — Exemplos de estilo de arte</title>
+<style>
+  :root { --bg:#1c1b29; --card:#262438; --ink:#efeaff; --muted:#a79fce; }
+  * { box-sizing: border-box; }
+  body {
+    margin:0; font-family: system-ui, -apple-system, Segoe UI, sans-serif;
+    background: var(--bg); color: var(--ink); padding: 32px;
+  }
+  h1 { font-weight:800; margin:0 0 4px; }
+  .sub { color: var(--muted); margin:0 0 28px; }
+  .grid { display:grid; grid-template-columns: repeat(3, 1fr); gap:20px; }
+  @media (max-width: 900px){ .grid{ grid-template-columns:1fr; } }
+  .card {
+    background: var(--card); border-radius:20px; padding:20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.35);
+  }
+  .card h2 { margin:0 0 2px; font-size:18px; }
+  .card .tag { color: var(--muted); font-size:13px; margin:0 0 14px; }
+  .stage {
+    background: radial-gradient(120% 90% at 50% 30%, #34315a 0%, #211f33 70%);
+    border-radius:14px; display:flex; gap:8px; justify-content:center;
+    align-items:flex-end; padding:18px; min-height:200px;
+  }
+  .vibe { color: var(--muted); font-size:12px; margin-top:12px; line-height:1.5; }
+  .float { animation: float 3.2s ease-in-out infinite; }
+  .float.b { animation-delay:.6s; }
+  @keyframes float { 0%,100%{ transform: translateY(0);} 50%{ transform: translateY(-8px);} }
+  .pixelated { image-rendering: pixelated; }
+</style>
+</head>
+<body>
+  <h1>LUMA — Como os personagens podem ser</h1>
+  <p class="sub">Mesmos bichinhos (uma estrelinha e um slime) desenhados nos 3 estilos. Compare e escolha.</p>
+
+  <div class="grid">
+
+    <!-- ============ 1) KAWAII VETORIAL ============ -->
+    <div class="card">
+      <h2>1 · Kawaii vetorial (soft)</h2>
+      <p class="tag">Recomendado · escala bem · anima suave</p>
+      <div class="stage">
+        <!-- Estrela fofa -->
+        <svg class="float" width="120" height="120" viewBox="0 0 120 120">
+          <defs>
+            <radialGradient id="kStar" cx="50%" cy="40%" r="65%">
+              <stop offset="0%" stop-color="#fff3b0"/>
+              <stop offset="100%" stop-color="#ffcf5c"/>
+            </radialGradient>
+          </defs>
+          <path d="M60 14 L74 46 L108 50 L82 73 L90 107 L60 88 L30 107 L38 73 L12 50 L46 46 Z"
+                fill="url(#kStar)" stroke="#e7a92e" stroke-width="3" stroke-linejoin="round"/>
+          <circle cx="49" cy="58" r="6.5" fill="#3a2d12"/>
+          <circle cx="71" cy="58" r="6.5" fill="#3a2d12"/>
+          <circle cx="51" cy="56" r="2" fill="#fff"/>
+          <circle cx="73" cy="56" r="2" fill="#fff"/>
+          <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity=".6"/>
+          <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity=".6"/>
+          <path d="M55 68 Q60 73 65 68" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        </svg>
+        <!-- Slime fofo -->
+        <svg class="float b" width="120" height="120" viewBox="0 0 120 120">
+          <defs>
+            <radialGradient id="kSlime" cx="50%" cy="35%" r="70%">
+              <stop offset="0%" stop-color="#bdf5d6"/>
+              <stop offset="100%" stop-color="#5fd6a0"/>
+            </radialGradient>
+          </defs>
+          <path d="M22 86 Q18 44 60 40 Q102 44 98 86 Q98 100 60 100 Q22 100 22 86 Z"
+                fill="url(#kSlime)" stroke="#39b07e" stroke-width="3"/>
+          <ellipse cx="48" cy="64" rx="5.5" ry="7" fill="#244"/>
+          <ellipse cx="72" cy="64" rx="5.5" ry="7" fill="#244"/>
+          <circle cx="50" cy="61" r="1.8" fill="#fff"/>
+          <circle cx="74" cy="61" r="1.8" fill="#fff"/>
+          <circle cx="40" cy="74" r="4.5" fill="#ff9aa2" opacity=".55"/>
+          <circle cx="80" cy="74" r="4.5" fill="#ff9aa2" opacity=".55"/>
+          <path d="M55 74 Q60 79 65 74" stroke="#244" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <p class="vibe">Formas redondas, contornos macios, olhos grandes, bochechas coradas, cores pastel com leve gradiente. Vibe: Finch / cozy / aconchegante.</p>
+    </div>
+
+    <!-- ============ 2) PIXEL ART ============ -->
+    <div class="card">
+      <h2>2 · Pixel art (retro)</h2>
+      <p class="tag">Nostálgico · combina com sprite sheets (openpets)</p>
+      <div class="stage">
+        <!-- Estrela pixel -->
+        <svg class="float pixelated" width="120" height="120" viewBox="0 0 16 16" shape-rendering="crispEdges">
+          <g fill="#ffcf5c">
+            <rect x="7" y="1" width="2" height="2"/>
+            <rect x="5" y="3" width="6" height="2"/>
+            <rect x="2" y="5" width="12" height="3"/>
+            <rect x="3" y="8" width="10" height="2"/>
+            <rect x="4" y="10" width="3" height="3"/><rect x="9" y="10" width="3" height="3"/>
+          </g>
+          <g fill="#e7a92e">
+            <rect x="2" y="5" width="2" height="3"/><rect x="12" y="5" width="2" height="3"/>
+          </g>
+          <rect x="5" y="6" width="1" height="2" fill="#3a2d12"/>
+          <rect x="10" y="6" width="1" height="2" fill="#3a2d12"/>
+          <rect x="7" y="8" width="2" height="1" fill="#3a2d12"/>
+        </svg>
+        <!-- Slime pixel -->
+        <svg class="float b pixelated" width="120" height="120" viewBox="0 0 16 16" shape-rendering="crispEdges">
+          <g fill="#5fd6a0">
+            <rect x="4" y="5" width="8" height="2"/>
+            <rect x="3" y="7" width="10" height="4"/>
+            <rect x="2" y="11" width="12" height="2"/>
+          </g>
+          <g fill="#39b07e"><rect x="2" y="11" width="12" height="1"/></g>
+          <rect x="5" y="8" width="1" height="2" fill="#224"/>
+          <rect x="10" y="8" width="1" height="2" fill="#224"/>
+          <rect x="7" y="10" width="2" height="1" fill="#224"/>
+        </svg>
+      </div>
+      <p class="vibe">Pixels chunky, paleta limitada, animação frame-a-frame. Sprite sheet 16/32/48px. Vibe: Tamagotchi / Neko Atsume.</p>
+    </div>
+
+    <!-- ============ 3) STORYBOOK ============ -->
+    <div class="card">
+      <h2>3 · Storybook (desenhado)</h2>
+      <p class="tag">Artístico · quente · produção mais cara</p>
+      <div class="stage">
+        <svg width="248" height="120" viewBox="0 0 248 120">
+          <defs>
+            <filter id="rough"><feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" seed="7" result="n"/>
+              <feDisplacementMap in="SourceGraphic" in2="n" scale="4"/></filter>
+            <radialGradient id="sStar" cx="50%" cy="40%" r="65%">
+              <stop offset="0%" stop-color="#ffe8a8"/><stop offset="100%" stop-color="#f3b84e"/></radialGradient>
+            <radialGradient id="sSlime" cx="50%" cy="35%" r="70%">
+              <stop offset="0%" stop-color="#cdeecf"/><stop offset="100%" stop-color="#7cc18a"/></radialGradient>
+          </defs>
+          <g filter="url(#rough)" class="float">
+            <path d="M60 18 L73 47 L104 50 L80 71 L88 102 L60 85 L32 102 L40 71 L16 50 L47 47 Z"
+                  fill="url(#sStar)" stroke="#9c6b1f" stroke-width="2.5" stroke-linejoin="round"/>
+            <circle cx="50" cy="58" r="5" fill="#5a3d16"/><circle cx="70" cy="58" r="5" fill="#5a3d16"/>
+            <path d="M54 67 Q60 72 66 67" stroke="#5a3d16" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            <circle cx="43" cy="66" r="4" fill="#e98b7a" opacity=".5"/><circle cx="77" cy="66" r="4" fill="#e98b7a" opacity=".5"/>
+          </g>
+          <g filter="url(#rough)" class="float b">
+            <path d="M150 88 Q146 46 188 42 Q230 46 226 88 Q226 102 188 102 Q150 102 150 88 Z"
+                  fill="url(#sSlime)" stroke="#4f8a5c" stroke-width="2.5"/>
+            <ellipse cx="176" cy="66" rx="5" ry="6.5" fill="#2f4a35"/><ellipse cx="200" cy="66" rx="5" ry="6.5" fill="#2f4a35"/>
+            <path d="M183 76 Q188 81 193 76" stroke="#2f4a35" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            <circle cx="168" cy="76" r="4" fill="#e98b7a" opacity=".5"/><circle cx="208" cy="76" r="4" fill="#e98b7a" opacity=".5"/>
+          </g>
+        </svg>
+      </div>
+      <p class="vibe">Traço irregular/orgânico, textura de aquarela, contornos quentes. Vibe: Animal Crossing / livro infantil.</p>
+    </div>
+
+  </div>
+</body>
+</html>

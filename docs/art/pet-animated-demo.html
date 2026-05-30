@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>LUMA — Pet animado (prova de conceito)</title>
+<style>
+  :root { --bg:#1c1b29; --card:#262438; --ink:#efeaff; --muted:#a79fce; }
+  * { box-sizing:border-box; }
+  body{ margin:0; font-family:system-ui,Segoe UI,sans-serif; background:var(--bg);
+        color:var(--ink); padding:28px; }
+  h1{ margin:0 0 4px; } .sub{ color:var(--muted); margin:0 0 24px; }
+  .grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:16px; }
+  .card{ background:var(--card); border-radius:18px; padding:16px; text-align:center; }
+  .card h3{ margin:0 0 2px; font-size:15px; } .card p{ margin:0 0 10px; color:var(--muted); font-size:12px; }
+  .stage{ background:radial-gradient(120% 90% at 50% 35%,#34315a,#211f33 70%);
+          border-radius:14px; height:170px; display:flex; align-items:center; justify-content:center; }
+  /* dia difícil: paleta fria + chuvinha */
+  .stage.cool{ background:radial-gradient(120% 90% at 50% 35%,#27425a,#1a2533 70%); }
+  .stage.warm{ background:radial-gradient(120% 90% at 50% 35%,#5a4a31,#33291a 70%); }
+  .controls{ margin:22px 0; display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+  button{ background:#3a3658; color:var(--ink); border:0; padding:9px 14px; border-radius:10px;
+          cursor:pointer; font-size:13px; } button:hover{ background:#4a4570; }
+  .live{ margin-top:24px; }
+  .bigstage{ height:320px; border-radius:18px; display:flex; align-items:center; justify-content:center;
+             background:radial-gradient(120% 90% at 50% 35%,#34315a,#211f33 70%); transition:background .6s; }
+
+  /* ===== ANIMAÇÕES ===== */
+  .breathe { animation: breathe 3.4s ease-in-out infinite; transform-origin:50% 90%; }
+  @keyframes breathe { 0%,100%{ transform:scale(1,1);} 50%{ transform:scale(1.04,0.97);} }
+
+  .hop { animation: hop .7s ease-in-out infinite; transform-origin:50% 90%; }
+  @keyframes hop { 0%,100%{ transform:translateY(0) scale(1,1);} 30%{ transform:translateY(-18px) scale(0.96,1.05);} 60%{ transform:translateY(0) scale(1.08,0.92);} }
+
+  .sway { animation: sway 4s ease-in-out infinite; transform-origin:50% 90%; }
+  @keyframes sway { 0%,100%{ transform:rotate(-4deg);} 50%{ transform:rotate(4deg);} }
+
+  .snooze { animation: snooze 4s ease-in-out infinite; transform-origin:50% 90%; }
+  @keyframes snooze { 0%,100%{ transform:scale(1,1) translateY(0);} 50%{ transform:scale(1.05,0.95) translateY(3px);} }
+
+  .blink { animation: blink 4.5s infinite; transform-origin:center; }
+  @keyframes blink { 0%,94%,100%{ transform:scaleY(1);} 97%{ transform:scaleY(0.1);} }
+
+  .float-z { animation: floatZ 2.5s ease-in-out infinite; }
+  @keyframes floatZ { 0%{ opacity:0; transform:translate(0,0) scale(.6);} 30%{opacity:1;} 100%{ opacity:0; transform:translate(14px,-26px) scale(1.1);} }
+
+  @media (prefers-reduced-motion: reduce){
+    .breathe,.hop,.sway,.snooze,.blink,.float-z{ animation:none !important; }
+  }
+</style>
+</head>
+<body>
+  <h1>LUMA — Pet animado 🐾</h1>
+  <p class="sub">Mesmo personagem (estilo kawaii vetorial) nos 5 estados. Tudo animado em SVG+CSS, leve e nítido. Respeita <code>prefers-reduced-motion</code>.</p>
+
+  <!-- Os 5 estados lado a lado -->
+  <div class="grid">
+    <div class="card"><h3>idle</h3><p>respira + pisca</p>
+      <div class="stage"><div class="breathe" id="s_idle"></div></div></div>
+    <div class="card"><h3>happy</h3><p>salta (squash &amp; stretch)</p>
+      <div class="stage warm"><div class="hop" id="s_happy"></div></div></div>
+    <div class="card"><h3>curious</h3><p>balança, olha ao redor</p>
+      <div class="stage"><div class="sway" id="s_curious"></div></div></div>
+    <div class="card"><h3>comfort</h3><p>aconchego suave</p>
+      <div class="stage cool"><div class="breathe" id="s_comfort"></div></div></div>
+    <div class="card"><h3>sleep</h3><p>cochila + Zzz</p>
+      <div class="stage"><div class="snooze" id="s_sleep" style="position:relative"></div></div></div>
+  </div>
+
+  <!-- Demo interativa: reage como no app real -->
+  <div class="live">
+    <h2>Reagindo aos estados (como no app)</h2>
+    <p class="sub">Clique para mudar o humor/energia — o pet e o ambiente respondem (sem barras).</p>
+    <div class="controls">
+      <button onclick="setMood('happy')">😄 Brincar</button>
+      <button onclick="setMood('idle')">🙂 Tranquilo</button>
+      <button onclick="setMood('curious')">👀 Curioso</button>
+      <button onclick="setMood('comfort')">🫂 Aconchego</button>
+      <button onclick="setMood('sleep')">😴 Dormir</button>
+    </div>
+    <div class="bigstage" id="bigstage"><div id="bigpet" class="breathe" style="position:relative"></div></div>
+  </div>
+
+<script>
+// ---- Gera o SVG do pet (uma estrelinha kawaii) num dado estado ----
+function petSVG(state){
+  // olhos mudam por estado
+  let eyes = `
+    <g class="blink">
+      <circle cx="49" cy="58" r="6.5" fill="#3a2d12"/>
+      <circle cx="71" cy="58" r="6.5" fill="#3a2d12"/>
+      <circle cx="51" cy="56" r="2" fill="#fff"/>
+      <circle cx="73" cy="56" r="2" fill="#fff"/>
+    </g>`;
+  let mouth = `<path d="M55 68 Q60 73 65 68" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/>`;
+  let extra = "";
+  if(state==="happy"){ // olhos felizes (^^) e boca aberta
+    eyes = `<path d="M44 58 Q49 52 54 58" stroke="#3a2d12" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <path d="M66 58 Q71 52 76 58" stroke="#3a2d12" stroke-width="3" fill="none" stroke-linecap="round"/>`;
+    mouth = `<path d="M53 67 Q60 76 67 67 Z" fill="#7a3b3b"/>`;
+  }
+  if(state==="sleep"){ // olhos fechados + Zzz
+    eyes = `<path d="M44 59 Q49 63 54 59" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            <path d="M66 59 Q71 63 76 59" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/>`;
+    mouth = `<circle cx="60" cy="70" r="3" fill="#7a3b3b" opacity=".5"/>`;
+    extra = `<text x="84" y="40" class="float-z" font-size="16" fill="#cdbff5">z</text>`;
+  }
+  if(state==="curious"){ // olhos olhando pro lado
+    eyes = `<g class="blink">
+      <circle cx="51" cy="58" r="6.5" fill="#3a2d12"/><circle cx="73" cy="58" r="6.5" fill="#3a2d12"/>
+      <circle cx="53" cy="57" r="2" fill="#fff"/><circle cx="75" cy="57" r="2" fill="#fff"/></g>`;
+    mouth = `<circle cx="60" cy="69" r="3" fill="#7a3b3b"/>`;
+  }
+  return `
+  <svg width="150" height="150" viewBox="0 0 120 120">
+    <defs><radialGradient id="g${state}" cx="50%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#fff3b0"/><stop offset="100%" stop-color="#ffcf5c"/>
+    </radialGradient></defs>
+    <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity=".18"/>
+    <path d="M60 14 L74 46 L108 50 L82 73 L90 107 L60 88 L30 107 L38 73 L12 50 L46 46 Z"
+          fill="url(#g${state})" stroke="#e7a92e" stroke-width="3" stroke-linejoin="round"/>
+    <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity=".6"/>
+    <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity=".6"/>
+    ${eyes}${mouth}${extra}
+  </svg>`;
+}
+
+for(const st of ["idle","happy","curious","comfort","sleep"]){
+  document.getElementById("s_"+st).innerHTML = petSVG(st);
+}
+
+const animClass = { idle:"breathe", happy:"hop", curious:"sway", comfort:"breathe", sleep:"snooze" };
+const stageClass = { idle:"", happy:"warm", curious:"", comfort:"cool", sleep:"" };
+function setMood(state){
+  const pet = document.getElementById("bigpet");
+  pet.className = animClass[state];
+  pet.innerHTML = petSVG(state);
+  const big = document.getElementById("bigstage");
+  big.style.background = state==="happy" ? "radial-gradient(120% 90% at 50% 35%,#5a4a31,#33291a 70%)"
+    : state==="comfort" ? "radial-gradient(120% 90% at 50% 35%,#27425a,#1a2533 70%)"
+    : "radial-gradient(120% 90% at 50% 35%,#34315a,#211f33 70%)";
+}
+setMood("idle");
+</script>
+</body>
+</html>

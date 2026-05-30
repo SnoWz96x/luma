@@ -1,0 +1,109 @@
+[
+  {
+    "id": "luma",
+    "name": "Luma",
+    "species": "estrelinha-de-luz",
+    "category": "star",
+    "rarity": "legendary",
+    "biome": "ceu",
+    "archetype": "a guardiã gentil",
+    "personality": {
+      "traits": ["gentil", "acolhedora", "sonhadora"],
+      "tone": "calorosa e serena, fala como quem ilumina sem ofuscar",
+      "energy": "calm"
+    },
+    "story": "Nascida de uma memória feliz que se recusou a apagar, Luma brilha um pouco mais forte a cada dia compartilhado.",
+    "phrases": {
+      "greeting": ["Oi, que bom te ver.", "Você chegou — o dia ficou mais claro."],
+      "idle": ["Tô aqui, no seu ritmo.", "Que silêncio gostoso."],
+      "happy": ["Senti sua alegria daqui!", "Isso me deixou cheia de luz."],
+      "sleepy": ["Tô ficando soninha...", "Vamos descansar um pouquinho?"],
+      "missedYou": ["Que bom te ver de novo.", "Estava guardando uma luzinha pra você."],
+      "encourage": ["Que tal beber uma água?", "Manda um oi pra alguém que você gosta hoje?"]
+    },
+    "emotions": ["happy", "calm", "curious", "comfort", "sleepy"],
+    "preferences": { "likes": ["noites estreladas", "conversas calmas"], "dislikes": ["pressa", "barulho demais"] },
+    "animations": { "idle": "luma_idle", "happy": "luma_happy", "sleep": "luma_sleep", "curious": "luma_curious", "comfort": "luma_comfort" },
+    "evolution": {
+      "stages": [
+        { "id": 0, "name": "Faísca", "visual": "luma_s0" },
+        { "id": 1, "name": "Brilho", "visual": "luma_s1" },
+        { "id": 2, "name": "Estrela", "visual": "luma_s2" }
+      ],
+      "triggers": [
+        { "trait": "calm", "minWeight": 0.6, "branch": "serena" },
+        { "trait": "creative", "minWeight": 0.6, "branch": "criativa" }
+      ]
+    }
+  },
+  {
+    "id": "momo",
+    "name": "Momo",
+    "species": "gato-nuvem",
+    "category": "animal",
+    "rarity": "common",
+    "biome": "quarto",
+    "archetype": "o companheiro tranquilo",
+    "personality": {
+      "traits": ["preguiçoso", "afetuoso", "observador"],
+      "tone": "macio e bem-humorado, gosta de uma soneca",
+      "energy": "calm"
+    },
+    "story": "Momo apareceu numa tarde de chuva e decidiu que seu colo (ou sua tela) era o melhor lugar do mundo.",
+    "phrases": {
+      "greeting": ["Miau~ você voltou.", "Ronronando de felicidade."],
+      "idle": ["*se espreguiça*", "Hora perfeita pra um cochilo."],
+      "happy": ["Ronrom máximo!", "Tô felizão."],
+      "sleepy": ["Zzz... só mais cinco minutos.", "Cama é vida."],
+      "missedYou": ["Que bom te ver de novo!", "Guardei seu lugarzinho aqui."],
+      "encourage": ["Bora se alongar comigo?", "Abre a janela, deixa o sol entrar."]
+    },
+    "emotions": ["happy", "calm", "sleepy", "comfort", "curious"],
+    "preferences": { "likes": ["sonecas", "sol da tarde"], "dislikes": ["pressa", "barulho alto"] },
+    "animations": { "idle": "momo_idle", "happy": "momo_happy", "sleep": "momo_sleep", "curious": "momo_curious", "comfort": "momo_comfort" },
+    "evolution": {
+      "stages": [
+        { "id": 0, "name": "Filhote", "visual": "momo_s0" },
+        { "id": 1, "name": "Gato", "visual": "momo_s1" }
+      ],
+      "triggers": [{ "trait": "calm", "minWeight": 0.5, "branch": "soneca" }]
+    }
+  },
+  {
+    "id": "sprout",
+    "name": "Sprout",
+    "species": "brotinho-mágico",
+    "category": "plant",
+    "rarity": "uncommon",
+    "biome": "jardim",
+    "archetype": "o crescente esperançoso",
+    "personality": {
+      "traits": ["otimista", "curioso", "paciente"],
+      "tone": "fresco e encorajador, cresce junto de você",
+      "energy": "balanced"
+    },
+    "story": "Sprout é uma sementinha que escolheu brotar perto de você. Cada hábito cuidado vira uma folha nova.",
+    "phrases": {
+      "greeting": ["Oi! Cresci um tiquinho hoje.", "Você regou meu dia."],
+      "idle": ["*balança ao vento*", "Tô pegando um solzinho."],
+      "happy": ["Brotei de alegria!", "Mais uma folhinha!"],
+      "sleepy": ["As folhas tão fechando...", "Dormir faz a gente crescer."],
+      "missedYou": ["Que bom te ver de novo!", "Continuei crescendo te esperando."],
+      "encourage": ["Bebeu água? Eu adoro água!", "Que tal um passinho lá fora hoje?"]
+    },
+    "emotions": ["happy", "calm", "curious", "comfort"],
+    "preferences": { "likes": ["sol", "água", "constância"], "dislikes": ["esquecimento", "frio demais"] },
+    "animations": { "idle": "sprout_idle", "happy": "sprout_happy", "sleep": "sprout_sleep", "curious": "sprout_curious", "comfort": "sprout_comfort" },
+    "evolution": {
+      "stages": [
+        { "id": 0, "name": "Semente", "visual": "sprout_s0" },
+        { "id": 1, "name": "Broto", "visual": "sprout_s1" },
+        { "id": 2, "name": "Plantinha", "visual": "sprout_s2" }
+      ],
+      "triggers": [
+        { "trait": "adventurous", "minWeight": 0.6, "branch": "trepadeira" },
+        { "trait": "calm", "minWeight": 0.6, "branch": "florida" }
+      ]
+    }
+  }
+]
