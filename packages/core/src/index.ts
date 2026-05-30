@@ -15,3 +15,5 @@ export * from "./activity/breathing.js";
 export * from "./economy/shop.js";
 export * from "./world/world.js";
 export * from "./world/constellation.js";
+export * from "./help/providers.js";
+export * from "./support/support.js";
