@@ -33,7 +33,16 @@
       "PowerShell($p = Get-Process -Name \"luma-desktop\" -ErrorAction SilentlyContinue; if \\($p\\) { \"RODANDO PID $\\($p.Id\\)\" } else { \"NAO RODANDO\" }; if \\(Test-Path \"$env:TEMP\\\\luma_run.log\"\\) { \"--- log tail ---\"; \\(Get-Content \"$env:TEMP\\\\luma_run.log\" -Tail 6\\) -join \"`n\" })",
       "Bash(tasklist)",
       "Bash(awk '/Test Files|Tests / {print}' /tmp/alltests.log)",
-      "Bash(xargs echo \"luma-desktop processos:\")"
+      "Bash(xargs echo \"luma-desktop processos:\")",
+      "Bash(xargs echo \"target:\")",
+      "Bash(echo \"commit_exit=$?\")",
+      "Bash(echo \"push_exit=$?\")",
+      "Bash(xargs echo \"processos luma-desktop:\")",
+      "Bash(xargs echo \"luma:\")",
+      "Bash(xargs echo \"logsize:\")",
+      "Bash(curl -s -o /dev/null -w \"vite_1420=%{http_code}\\\\n\" http://localhost:1420/)",
+      "Bash(grep -nE \"Celebration|adoptedDefId, petName|useAppStore\\\\\\(\\\\\\)|import \\\\{ SettingsPanel\" apps/desktop/src/App.tsx)",
+      "Bash(echo \"push=$?\")"
     ]
   }
 }
