@@ -49,6 +49,25 @@ export function extractMemory(
   };
 }
 
+/**
+ * Cria uma memória a partir de uma entrada de diário (sempre memoriza — foi o
+ * usuário que escolheu registrar). Importância base alta; sobe com emoção.
+ */
+export function diaryMemory(
+  text: string,
+  opts: { emotion?: string } = {},
+): MemoryCandidate | null {
+  const content = text.trim();
+  if (content.length < 2) return null;
+  const emotionBoost = opts.emotion === "great" || opts.emotion === "sad" ? 15 : 0;
+  return {
+    content,
+    ...(opts.emotion !== undefined ? { emotion: opts.emotion } : {}),
+    importance: Math.min(100, 65 + emotionBoost + Math.min(content.length / 12, 20)),
+    source: "manual",
+  };
+}
+
 /** Ordena memórias por relevância para caber no orçamento do prompt. */
 export function rankMemories(memories: Memory[], limit = 8): Memory[] {
   return [...memories]

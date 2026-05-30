@@ -5,6 +5,7 @@ import { useMemo } from "react";
 import { buildWorld, buildConstellation, describeWorld } from "@luma/core";
 import type { WorldElement } from "@luma/shared";
 import { useChatStore } from "../stores/chatStore";
+import { useMemoryStore } from "../stores/memoryStore";
 import { useHabitsStore } from "../stores/habitsStore";
 import { useProgressStore } from "../stores/progressStore";
 
@@ -46,7 +47,7 @@ function Glyph({ el }: { el: WorldElement }) {
 }
 
 export function WorldScene() {
-  const memories = useChatStore((s) => s.memories);
+  const memories = useMemoryStore((s) => s.memories);
   const relationship = useChatStore((s) => s.relationship);
   const messages = useChatStore((s) => s.messages);
   const logs = useHabitsStore((s) => s.logs);

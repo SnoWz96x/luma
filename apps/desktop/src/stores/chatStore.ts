@@ -14,6 +14,7 @@ import type {
   Memory,
   Relationship,
 } from "@luma/shared";
+import { useMemoryStore } from "./memoryStore";
 
 const provider = new MockProvider();
 
@@ -35,7 +36,6 @@ function freshRelationship(): Relationship {
 
 interface ChatStore {
   messages: ChatTurn[];
-  memories: Memory[];
   relationship: Relationship;
   sending: boolean;
   send: (character: CharacterDef, text: string) => Promise<string>;
@@ -60,7 +60,6 @@ function buildContext(
 
 export const useChatStore = create<ChatStore>((set, get) => ({
   messages: [],
-  memories: [],
   relationship: freshRelationship(),
   sending: false,
 
@@ -75,7 +74,8 @@ export const useChatStore = create<ChatStore>((set, get) => ({
     if (!clean || get().sending) return "calm";
     set({ sending: true });
 
-    const { messages, memories, relationship } = get();
+    const { messages, relationship } = get();
+    const memories = useMemoryStore.getState().memories;
     const history = messages.slice(-12);
 
     const result = await talkToPet({
@@ -86,22 +86,19 @@ export const useChatStore = create<ChatStore>((set, get) => ({
       provider,
     });
 
-    // memória importante?
+    // memória importante? grava no store compartilhado (alimenta o Mundo Espelho)
     const candidate = extractMemory(clean, { emotion: result.emotion });
-    const newMemories = candidate
-      ? [
-          ...memories,
-          {
-            id: `m-${Date.now()}`,
-            userId: "local",
-            content: candidate.content,
-            importance: candidate.importance,
-            source: candidate.source,
-            createdAt: new Date().toISOString(),
-            ...(candidate.emotion !== undefined ? { emotion: candidate.emotion } : {}),
-          } satisfies Memory,
-        ]
-      : memories;
+    if (candidate) {
+      useMemoryStore.getState().add({
+        id: `m-${Date.now()}`,
+        userId: "local",
+        content: candidate.content,
+        importance: candidate.importance,
+        source: candidate.source,
+        createdAt: new Date().toISOString(),
+        ...(candidate.emotion !== undefined ? { emotion: candidate.emotion } : {}),
+      } satisfies Memory);
+    }
 
     // evolui o relacionamento (conversar)
     const { relationship: nextRel } = applyRelationshipInteraction(
@@ -115,7 +112,6 @@ export const useChatStore = create<ChatStore>((set, get) => ({
         { role: "user", content: clean },
         { role: "pet", content: result.reply, emotion: result.emotion },
       ],
-      memories: newMemories,
       relationship: nextRel,
       sending: false,
     });

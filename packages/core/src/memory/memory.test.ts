@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { extractMemory, rankMemories } from "./memory.js";
+import { extractMemory, rankMemories, diaryMemory } from "./memory.js";
 import type { Memory } from "@luma/shared";
 
 describe("extractMemory", () => {
@@ -27,6 +27,25 @@ describe("extractMemory", () => {
     const emotional = extractMemory("estava chovendo lá fora", { emotion: "comfort" });
     expect(neutral).toBeNull();
     expect(emotional).not.toBeNull();
+  });
+});
+
+describe("diaryMemory", () => {
+  it("sempre memoriza uma entrada de diário (escolha do usuário)", () => {
+    const m = diaryMemory("hoje o céu estava bonito");
+    expect(m).not.toBeNull();
+    expect(m!.source).toBe("manual");
+    expect(m!.importance).toBeGreaterThanOrEqual(65);
+  });
+
+  it("emoção forte aumenta a importância", () => {
+    const neutral = diaryMemory("um dia comum", { emotion: "ok" })!;
+    const strong = diaryMemory("um dia comum", { emotion: "sad" })!;
+    expect(strong.importance).toBeGreaterThan(neutral.importance);
+  });
+
+  it("ignora texto vazio", () => {
+    expect(diaryMemory("  ")).toBeNull();
   });
 });
 
