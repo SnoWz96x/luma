@@ -11,10 +11,13 @@ import { Onboarding } from "./components/Onboarding";
 import { Chat } from "./components/Chat";
 import { TitleBar } from "./components/TitleBar";
 import { BadgesPanel } from "./components/BadgesPanel";
+import { HabitsPanel } from "./components/HabitsPanel";
+import { Breathing } from "./components/Breathing";
 import { Celebration } from "./components/Celebration";
+import { useHabitsStore } from "./stores/habitsStore";
 import { relationshipLabel } from "./lib/relationshipLabel";
 
-type Tab = "pet" | "chat" | "badges";
+type Tab = "pet" | "chat" | "habits" | "calm" | "badges";
 
 function petLine(animation: string, name: string): string {
   switch (animation) {
@@ -39,6 +42,7 @@ function Home() {
   const streak = useProgressStore((s) => s.streak);
   const care = useProgressStore((s) => s.care);
   const dailyCheckin = useProgressStore((s) => s.dailyCheckin);
+  const sparks = useHabitsStore((s) => s.sparks);
   const [tab, setTab] = useState<Tab>("pet");
 
   const character = findCharacter(adoptedDefId);
@@ -84,21 +88,32 @@ function Home() {
             <span aria-hidden>{rel.emoji}</span>
             {rel.text}
           </div>
-          {streak.current > 0 && (
-            <div className="flex items-center gap-1 rounded-full border border-orange-300/20 bg-orange-400/10 px-2 py-0.5 text-[10px] text-orange-200">
-              🔥 {streak.current} {streak.current === 1 ? "dia" : "dias"}
-            </div>
-          )}
+          <div className="flex items-center gap-1.5">
+            {streak.current > 0 && (
+              <span className="flex items-center gap-1 rounded-full border border-orange-300/20 bg-orange-400/10 px-2 py-0.5 text-[10px] text-orange-200">
+                🔥 {streak.current}
+              </span>
+            )}
+            <span className="flex items-center gap-1 rounded-full border border-amber-300/20 bg-amber-400/10 px-2 py-0.5 text-[10px] text-amber-200">
+              ✨ {sparks}
+            </span>
+          </div>
         </div>
       </div>
 
       {/* abas */}
-      <div className="flex gap-2 px-4 pb-3">
+      <div className="flex gap-1.5 overflow-x-auto px-4 pb-3">
         <TabButton active={tab === "pet"} onClick={() => setTab("pet")}>
           🏡 Casa
         </TabButton>
         <TabButton active={tab === "chat"} onClick={() => setTab("chat")}>
           💬 Conversar
+        </TabButton>
+        <TabButton active={tab === "habits"} onClick={() => setTab("habits")}>
+          🌿 Hábitos
+        </TabButton>
+        <TabButton active={tab === "calm"} onClick={() => setTab("calm")}>
+          🫧 Respirar
         </TabButton>
         <TabButton active={tab === "badges"} onClick={() => setTab("badges")}>
           🏆 Conquistas
@@ -135,6 +150,18 @@ function Home() {
               petName={petName}
               onEmotion={() => handleInteract("talk")}
             />
+          </div>
+        )}
+
+        {tab === "habits" && (
+          <div className="min-h-0 flex-1">
+            <HabitsPanel />
+          </div>
+        )}
+
+        {tab === "calm" && (
+          <div className="min-h-0 flex-1">
+            <Breathing />
           </div>
         )}
 

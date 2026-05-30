@@ -20,7 +20,12 @@
       "PowerShell($log = \"$env:TEMP\\\\luma_tauri2.log\"; if \\(Test-Path $log\\) { \\(Get-Content $log -Tail 15\\) -join \"`n\" } else { \"log2 ausente ainda\" })",
       "Bash(grep -iE \"node_modules|/target/|\\\\.exe$\")",
       "Bash(git config *)",
-      "Bash(echo \"commit exit=$?\")"
+      "Bash(echo \"commit exit=$?\")",
+      "Bash(git ls-remote *)",
+      "Bash(echo \"remote: $\\(git ls-remote origin refs/heads/main)",
+      "Bash(echo \"build=$?\")",
+      "Bash(echo \"tc=$?\")",
+      "Bash(xargs echo \"target files \\(deve ser 0\\):\")"
     ]
   }
 }

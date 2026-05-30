@@ -10,3 +10,5 @@ export * from "./relationship/relationship.js";
 export * from "./memory/memory.js";
 export * from "./growth/growth.js";
 export * from "./achievement/achievement.js";
+export * from "./habit/habit.js";
+export * from "./activity/breathing.js";
