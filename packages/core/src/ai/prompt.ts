@@ -61,6 +61,7 @@ export function buildSystemPrompt(
     "",
     `Sobre a pessoa com quem você fala:`,
     `${stagePhrase[stage]} Hoje, ${moodPhrase(ctx)}. ${traitsPhrase(ctx)}`,
+    ctx.toneHint ? `Leitura emocional (ajuste o TOM, sem comentar isso): ${ctx.toneHint}.` : "",
     memoriesBlock(ctx),
   ]
     .filter(Boolean)

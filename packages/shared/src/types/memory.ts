@@ -59,6 +59,8 @@ export interface PromptContext {
   recentTurns: ChatTurn[];
   summaries: ConversationSummary[];
   safetyFlags: SafetyFlag[];
+  /** dica de TOM derivada do contexto emocional (não-clínica), opcional */
+  toneHint?: string;
 }
 
 export interface SafetyFlag {

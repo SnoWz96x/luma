@@ -3,6 +3,27 @@
 O coração do produto. **O valor não está no modelo de IA, está aqui:** memória,
 contexto, relacionamento, histórico, personalidade, evolução. A IA é só o gerador.
 
+## v2 — Tiers + relevância + contexto emocional (implementado)
+Ver [12-MEMORY-RESEARCH](12-MEMORY-RESEARCH.md) (base MemGPT/Letta) e
+[00-IMPLEMENTATION-PLAN](00-IMPLEMENTATION-PLAN.md) (Sprint A).
+
+- **Tiers** (`core/memory/tiers.ts`): `short_term`, `long_term`, `emotional`,
+  `relationship`, `world`, `milestone`. `tierOf(memory)` classifica por origem/emoção.
+- **Relevância com decaimento** (`relevanceScore`): `importância × decaimento
+  temporal × bônus emocional`. Meia-vida por tier — marcos quase não esquecem,
+  short-term some rápido. `recallRelevant()` devolve o top-N para o prompt.
+- **Resumo do histórico** (`turnsToSummarize`): quando passa de N turnos, os
+  antigos são marcados para virar `conversation_summary` (compressão via IA na app).
+- **Emotional Context Engine** (`core/emotion/emotion.ts`): infere sinais 0..1
+  (stress, energy, motivation, positivity, social_need, confidence) a partir de
+  humor/streak/hábitos/vínculo/texto. **Não-clínico** — só ajusta o TOM via
+  `emotionToToneHint()`, injetado no system prompt. Ver [07-SAFETY-LAYER](07-SAFETY-LAYER.md).
+
+O chat usa `recallRelevant` (em vez do ranking simples) + `toneHint` a cada mensagem.
+
+---
+
+
 ## Toda resposta considera
 
 ```json

@@ -6,6 +6,9 @@ import {
   talkToPet,
   extractMemory,
   applyRelationshipInteraction,
+  inferEmotion,
+  emotionToToneHint,
+  recallRelevant,
 } from "@luma/core";
 import type {
   CharacterDef,
@@ -16,6 +19,8 @@ import type {
 } from "@luma/shared";
 import { useMemoryStore } from "./memoryStore";
 import { useAiStore } from "./aiStore";
+import { useProgressStore } from "./progressStore";
+import { useHabitsStore } from "./habitsStore";
 
 // Relacionamento inicial em memória (persistência via repo entra depois).
 function freshRelationship(): Relationship {
@@ -48,15 +53,18 @@ function buildContext(
   memories: Memory[],
   relationship: Relationship,
   recentTurns: ChatTurn[],
+  toneHint: string,
 ): PromptContext {
   return {
     profile: { userId: "local" },
     traits: [],
     relationship,
-    memories,
+    // recupera por relevância (decaimento) em vez de só importância (Memory v2)
+    memories: recallRelevant(memories, new Date().toISOString(), 8),
     recentTurns,
     summaries: [],
     safetyFlags: [],
+    toneHint,
   };
 }
 
@@ -84,9 +92,18 @@ export const useChatStore = create<ChatStore>((set, get) => ({
     const history = messages.slice(-12);
     const provider = await useAiStore.getState().resolveProvider();
 
+    // Emotional Context Engine: infere o TOM a partir de sinais reais do app.
+    const emotion = inferEmotion({
+      streak: useProgressStore.getState().streak.current,
+      habitsToday: useHabitsStore.getState().doneToday(),
+      friendship: relationship.friendship,
+      lastUserText: clean,
+    });
+    const toneHint = emotionToToneHint(emotion);
+
     const result = await talkToPet({
       character,
-      context: buildContext(memories, relationship, history),
+      context: buildContext(memories, relationship, history, toneHint),
       history,
       userMessage: clean,
       provider,
