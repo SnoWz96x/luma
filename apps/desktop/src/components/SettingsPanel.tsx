@@ -1,9 +1,10 @@
 // Configurações — país (Help Hub), provider de IA (futuro) e PRIVACIDADE:
 // exportar / importar / apagar todos os dados. Tudo local, do usuário.
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { stageLabel } from "@luma/core";
 import { useSupportStore } from "../stores/supportStore";
 import { useProgressStore } from "../stores/progressStore";
+import { useAiStore } from "../stores/aiStore";
 import { downloadBackup, importBackup, eraseAllData } from "../lib/dataPrivacy";
 
 const COUNTRIES = [
@@ -86,17 +87,8 @@ export function SettingsPanel() {
         </div>
       </section>
 
-      {/* IA (preparado) */}
-      <section>
-        <h3 className="mb-1.5 px-1 text-xs font-semibold text-luma-ink">
-          Inteligência do pet
-        </h3>
-        <div className="rounded-xl border border-white/10 bg-white/[0.05] p-3 text-[12px] text-luma-muted">
-          Modo atual: <b className="text-luma-ink">Local (offline)</b>. Em
-          breve: conectar um modelo local (Ollama) para conversas mais ricas —
-          100% no seu computador.
-        </div>
-      </section>
+      {/* IA */}
+      <AiSection />
 
       {/* privacidade */}
       <section>
@@ -154,5 +146,98 @@ export function SettingsPanel() {
         LUMA é companhia e bem-estar — não substitui ajuda profissional. 💛
       </p>
     </div>
+  );
+}
+
+const STATUS_LABEL: Record<string, { text: string; cls: string }> = {
+  unknown: { text: "—", cls: "text-luma-muted" },
+  checking: { text: "verificando…", cls: "text-amber-200" },
+  online: { text: "● conectado", cls: "text-emerald-300" },
+  offline: { text: "● offline (usando modo simples)", cls: "text-orange-200" },
+};
+
+function AiSection() {
+  const { mode, baseUrl, model, status, setMode, setBaseUrl, setModel, checkOllama } =
+    useAiStore();
+
+  // ao abrir em modo Ollama, verifica a conexão uma vez
+  useEffect(() => {
+    if (mode === "ollama") void checkOllama();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const st = STATUS_LABEL[status] ?? STATUS_LABEL.unknown!;
+
+  return (
+    <section>
+      <h3 className="mb-1.5 px-1 text-xs font-semibold text-luma-ink">
+        Inteligência do pet
+      </h3>
+
+      <div className="flex gap-2">
+        <button
+          type="button"
+          onClick={() => setMode("mock")}
+          className={`flex-1 rounded-xl border px-3 py-2 text-sm transition ${
+            mode === "mock"
+              ? "border-luma-accent bg-luma-accent/15 text-luma-ink"
+              : "border-white/10 bg-white/[0.05] text-luma-muted hover:bg-white/[0.1]"
+          }`}
+        >
+          🌙 Simples (offline)
+        </button>
+        <button
+          type="button"
+          onClick={() => setMode("ollama")}
+          className={`flex-1 rounded-xl border px-3 py-2 text-sm transition ${
+            mode === "ollama"
+              ? "border-luma-accent bg-luma-accent/15 text-luma-ink"
+              : "border-white/10 bg-white/[0.05] text-luma-muted hover:bg-white/[0.1]"
+          }`}
+        >
+          🧠 IA local (Ollama)
+        </button>
+      </div>
+
+      {mode === "ollama" && (
+        <div className="mt-2 flex flex-col gap-2 rounded-xl border border-white/10 bg-white/[0.04] p-3">
+          <p className="text-[11px] leading-relaxed text-luma-muted">
+            100% no seu computador. Requer o{" "}
+            <b className="text-luma-ink">Ollama</b> rodando e um modelo baixado
+            (ex.: <code>ollama run phi3:mini</code>).
+          </p>
+          <label className="text-[10px] text-luma-muted">Endereço</label>
+          <input
+            value={baseUrl}
+            onChange={(e) => setBaseUrl(e.target.value)}
+            placeholder="http://localhost:11434"
+            className="rounded-lg bg-white/[0.06] px-2.5 py-1.5 text-sm text-luma-ink outline-none"
+          />
+          <label className="text-[10px] text-luma-muted">Modelo</label>
+          <input
+            value={model}
+            onChange={(e) => setModel(e.target.value)}
+            placeholder="phi3:mini"
+            className="rounded-lg bg-white/[0.06] px-2.5 py-1.5 text-sm text-luma-ink outline-none"
+          />
+          <div className="flex items-center justify-between">
+            <span className={`text-[11px] ${st.cls}`}>{st.text}</span>
+            <button
+              type="button"
+              onClick={() => void checkOllama()}
+              className="rounded-lg border border-white/10 bg-white/[0.06] px-3 py-1 text-[11px] text-luma-ink transition hover:bg-white/[0.1]"
+            >
+              Testar conexão
+            </button>
+          </div>
+        </div>
+      )}
+
+      {mode === "mock" && (
+        <p className="mt-1.5 px-1 text-[11px] text-luma-muted">
+          Respostas acolhedoras pré-definidas. Sem servidor, funciona sempre.
+        </p>
+      )}
+    </section>
   );
 }

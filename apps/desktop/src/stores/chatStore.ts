@@ -1,9 +1,9 @@
 // Chat store — conversa com o pet usando o ChatService + Safety + Memory do core.
-// No MVP usa MockProvider (sem servidor); troca p/ Ollama via settings depois.
+// O provider de IA (Mock offline ou Ollama local) vem do aiStore, que faz
+// fallback automático para o Mock se o Ollama não estiver disponível.
 import { create } from "zustand";
 import {
   talkToPet,
-  MockProvider,
   extractMemory,
   applyRelationshipInteraction,
 } from "@luma/core";
@@ -15,8 +15,7 @@ import type {
   Relationship,
 } from "@luma/shared";
 import { useMemoryStore } from "./memoryStore";
-
-const provider = new MockProvider();
+import { useAiStore } from "./aiStore";
 
 // Relacionamento inicial em memória (persistência via repo entra depois).
 function freshRelationship(): Relationship {
@@ -83,6 +82,7 @@ export const useChatStore = create<ChatStore>((set, get) => ({
     const { messages, relationship } = get();
     const memories = useMemoryStore.getState().memories;
     const history = messages.slice(-12);
+    const provider = await useAiStore.getState().resolveProvider();
 
     const result = await talkToPet({
       character,
