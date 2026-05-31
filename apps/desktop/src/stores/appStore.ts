@@ -70,11 +70,7 @@ export const useAppStore = create<AppStore>((set, get) => ({
   },
 
   reset: () => {
-    try {
-      localStorage.removeItem(LS_KEY);
-    } catch {
-      /* ignore */
-    }
+    kvRemove(LS_KEY);
     set({
       phase: "onboarding",
       adoptedDefId: null,

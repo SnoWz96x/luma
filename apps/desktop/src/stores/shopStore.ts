@@ -23,11 +23,7 @@ function load(): OwnedItems {
 }
 
 function persist(o: OwnedItems) {
-  try {
-    localStorage.setItem(LS_KEY, JSON.stringify(o));
-  } catch {
-    /* ignore */
-  }
+  kvSet(LS_KEY, JSON.stringify(o));
 }
 
 interface ShopStore {

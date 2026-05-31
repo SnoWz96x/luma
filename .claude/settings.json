@@ -48,7 +48,8 @@
       "Bash(npx prettier *)",
       "Bash(pnpm add *)",
       "Bash(sed 's/\\\\x1b\\\\[[0-9;]*m//g')",
-      "Bash(echo \"tests_exit=$?\")"
+      "Bash(echo \"tests_exit=$?\")",
+      "Bash(echo \"tests=$?\")"
     ]
   }
 }

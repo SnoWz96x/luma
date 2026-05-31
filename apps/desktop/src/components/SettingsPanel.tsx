@@ -14,6 +14,8 @@ const COUNTRIES = [
 export function SettingsPanel() {
   const country = useSupportStore((s) => s.country);
   const setCountry = useSupportStore((s) => s.setCountry);
+  const growth = useProgressStore((s) => s.growth);
+  const demoGrow = useProgressStore((s) => s.demoGrow);
   const fileRef = useRef<HTMLInputElement>(null);
   const [msg, setMsg] = useState<string | null>(null);
 

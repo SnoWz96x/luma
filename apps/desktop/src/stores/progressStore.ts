@@ -18,6 +18,7 @@ import type {
   UnlockedBadge,
   UserTrait,
 } from "@luma/shared";
+import { kvGet, kvSet } from "../repositories";
 
 const LS_KEY = "luma.progress";
 
@@ -30,7 +31,7 @@ interface Persisted {
 
 function load(): Persisted {
   try {
-    const raw = localStorage.getItem(LS_KEY);
+    const raw = kvGet(LS_KEY);
     if (raw) return JSON.parse(raw) as Persisted;
   } catch {
     /* ignore */
@@ -44,11 +45,7 @@ function load(): Persisted {
 }
 
 function persist(p: Persisted) {
-  try {
-    localStorage.setItem(LS_KEY, JSON.stringify(p));
-  } catch {
-    /* ignore */
-  }
+  kvSet(LS_KEY, JSON.stringify(p));
 }
 
 const today = () => new Date().toISOString().slice(0, 10);
