@@ -18,7 +18,7 @@ interface Persisted {
 
 function load(): Persisted {
   try {
-    const raw = localStorage.getItem(LS_KEY);
+    const raw = kvGet(LS_KEY);
     if (raw) return JSON.parse(raw) as Persisted;
   } catch {
     /* ignore */
@@ -27,11 +27,7 @@ function load(): Persisted {
 }
 
 function persist(p: Persisted) {
-  try {
-    localStorage.setItem(LS_KEY, JSON.stringify(p));
-  } catch {
-    /* ignore */
-  }
+  kvSet(LS_KEY, JSON.stringify(p));
 }
 
 interface HabitsStore extends Persisted {
