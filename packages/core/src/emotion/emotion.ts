@@ -19,12 +19,13 @@ const MOOD_VALENCE: Record<MoodLabel, number> = {
 };
 
 // Palavras (sem acento) que sugerem TOM — heurística leve, jamais diagnóstico.
+// Usam radicais (prefixos), por isso \b só no início (casa "cansado", "estressada").
 const LOW_WORDS =
-  /\b(triste|sozinh|cansad|exaust|sem forca|sem energia|dificil|pesad|ansios|preocupad|medo|estress)\b/;
+  /\b(triste|sozinh|cansad|exaust|sem forca|sem energia|dificil|pesad|ansios|preocupad|medo|estress)/;
 const HIGH_WORDS =
-  /\b(feliz|otim|alegr|animad|grato|orgulh|consegui|tranquil|leve|content)\b/;
+  /\b(feliz|otim|alegr|animad|grato|orgulh|consegui|tranquil|leve|content)/;
 const SOCIAL_WORDS =
-  /\b(sozinh|saudade|ningu[eé]m|isolad|queria conversar|sem amigos)\b/;
+  /\b(sozinh|saudade|ningu[eé]m|isolad|queria conversar|sem amigos)/;
 
 function deburr(s: string): string {
   return s
@@ -49,7 +50,7 @@ export function inferEmotion(signals: EmotionalSignals): EmotionalContext {
   const socialHit = text && SOCIAL_WORDS.test(text) ? 1 : 0;
 
   // positividade: humor + texto
-  const positivity = clamp01(valence * 0.7 + highHit * 0.3 - lowHit * 0.3);
+  const positivity = clamp01(valence * 0.8 + highHit * 0.2 - lowHit * 0.3);
 
   // energia: humor + hábitos − sinais de cansaço no texto
   const energy = clamp01(0.4 + valence * 0.3 + habitFactor * 0.3 - lowHit * 0.2);

@@ -17,3 +17,5 @@ export * from "./world/world.js";
 export * from "./world/constellation.js";
 export * from "./help/providers.js";
 export * from "./support/support.js";
+export * from "./emotion/emotion.js";
+export * from "./memory/tiers.js";
