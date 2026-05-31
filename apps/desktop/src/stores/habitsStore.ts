@@ -7,6 +7,7 @@ import {
   doneCountToday,
 } from "@luma/core";
 import type { HabitLogEntry, HabitProgress } from "@luma/shared";
+import { kvGet, kvSet } from "../repositories";
 
 const LS_KEY = "luma.habits";
 const today = () => new Date().toISOString().slice(0, 10);
