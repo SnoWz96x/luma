@@ -23,8 +23,8 @@
 ## Inteligência emocional & memória
 | Capacidade V3 | Estado | Lacuna |
 |---------------|--------|--------|
-| Emotional Context Engine (stress/energy/motivation/positivity/social_need/confidence) | ❌ | não existe; hoje só humor do check-in |
-| Memory: short/long/emotional/relationship/world/milestone (camadas) | 🟡 | memórias existem e persistem, mas sem **tiers** nem resumo/decaimento |
+| Emotional Context Engine (stress/energy/motivation/positivity/social_need/confidence) | ✅ | Sprint A — `core/emotion` (não-clínico, ajusta TOM) |
+| Memory: short/long/emotional/relationship/world/milestone (camadas) | ✅ | Sprint A — `core/memory/tiers` (relevância+decaimento+resumo) |
 | Memórias → estrelas/constelações | ✅ | artefatos genéricos: 🟡 (só estrelas) |
 | User traits (perfil aprendido) alimentando IA | 🟡 | tipo existe; pipeline de inferência não roda |
 
@@ -32,10 +32,10 @@
 | Capacidade V3 | Estado | Lacuna |
 |---------------|--------|--------|
 | 100 personagens (lore/evolução/bioma/arquétipo) | ✅ | — |
-| System Motivator (pet com sonhos/curiosidades/objetivos/projetos) | ❌ | não existe |
+| System Motivator (pet com sonhos/curiosidades/objetivos/projetos) | ✅ | Sprint B — `core/motivator` |
 | World Engine (mundo espelho, constelações, evolução visual) | ✅ | — |
-| Narrative Engine (histórias contínuas) | ❌ | não existe |
-| Event Engine (Natal/Halloween/aniversários) | ❌ | não existe |
+| Narrative Engine (histórias contínuas) | ✅ | Sprint B — `core/narrative` (aba 📖 História) |
+| Event Engine (Natal/Halloween/aniversários) | ✅ | Sprint B — `core/events` |
 
 ## Bem-estar & apoio
 | Capacidade V3 | Estado | Lacuna |

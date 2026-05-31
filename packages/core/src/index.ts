@@ -19,3 +19,6 @@ export * from "./help/providers.js";
 export * from "./support/support.js";
 export * from "./emotion/emotion.js";
 export * from "./memory/tiers.js";
+export * from "./motivator/motivator.js";
+export * from "./events/events.js";
+export * from "./narrative/narrative.js";

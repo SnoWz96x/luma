@@ -147,11 +147,18 @@ function Home() {
                   <p className="max-w-xs text-center text-sm text-luma-ink/90">
                     {petLine(signals.animation, petName)}
                   </p>
+                  <PetSpeech />
                 </div>
               </Scene>
             </div>
             <InteractionBar onAction={handleInteract} />
           </>
+        )}
+
+        {tab === "story" && (
+          <div className="min-h-0 flex-1">
+            <NarrativePanel />
+          </div>
         )}
 
         {tab === "chat" && (
