@@ -50,7 +50,8 @@
       "Bash(sed 's/\\\\x1b\\\\[[0-9;]*m//g')",
       "Bash(echo \"tests_exit=$?\")",
       "Bash(echo \"tests=$?\")",
-      "Bash(echo \"tc_all=$?\")"
+      "Bash(echo \"tc_all=$?\")",
+      "Bash(cmd.exe /c start \"\" /b cmd /c \"set \\\\\"PATH=%USERPROFILE%\\\\.cargo\\\\bin;%PATH%\\\\\" && pnpm tauri dev > \\\\\"%TEMP%\\\\luma_live.log\\\\\" 2>&1\")"
     ]
   }
 }
