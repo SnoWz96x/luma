@@ -51,7 +51,16 @@
       "Bash(echo \"tests_exit=$?\")",
       "Bash(echo \"tests=$?\")",
       "Bash(echo \"tc_all=$?\")",
-      "Bash(cmd.exe /c start \"\" /b cmd /c \"set \\\\\"PATH=%USERPROFILE%\\\\.cargo\\\\bin;%PATH%\\\\\" && pnpm tauri dev > \\\\\"%TEMP%\\\\luma_live.log\\\\\" 2>&1\")"
+      "Bash(cmd.exe /c start \"\" /b cmd /c \"set \\\\\"PATH=%USERPROFILE%\\\\.cargo\\\\bin;%PATH%\\\\\" && pnpm tauri dev > \\\\\"%TEMP%\\\\luma_live.log\\\\\" 2>&1\")",
+      "Bash(cmd.exe /c start \"\" /b cmd /c \"set \\\\\"PATH=%USERPROFILE%\\\\.cargo\\\\bin;%PATH%\\\\\" && pnpm tauri build > \\\\\"%TEMP%\\\\luma_build.log\\\\\" 2>&1\")",
+      "Bash(pnpm build *)",
+      "Bash(echo \"fe_build=$?\")",
+      "PowerShell(Get-Process -Name \"luma-desktop\" -ErrorAction SilentlyContinue)",
+      "PowerShell(Stop-Process -Force -ErrorAction SilentlyContinue)",
+      "PowerShell(\"fechado\")",
+      "Bash(cmd.exe /c start \"LUMA\" /b cmd /c \"set \\\\\"PATH=%USERPROFILE%\\\\.cargo\\\\bin;%PATH%\\\\\" && pnpm tauri dev > \\\\\"%TEMP%\\\\luma_dev.log\\\\\" 2>&1\")",
+      "PowerShell(Invoke-Item \"c:\\\\Users\\\\allan\\\\OneDrive\\\\Área de Trabalho\\\\Programação\\\\SISTEMAS\\\\tamago\\\\docs\\\\art\\\\catalog-gallery.html\"; \"galeria atual aberta \\(cor unica + tracos por categoria\\)\")",
+      "PowerShell(Invoke-Item \"c:\\\\Users\\\\allan\\\\OneDrive\\\\Área de Trabalho\\\\Programação\\\\SISTEMAS\\\\tamago\\\\docs\\\\art\\\\catalog-gallery.html\"; \"galeria com corpo inteiro aberta\")"
     ]
   }
 }

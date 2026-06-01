@@ -1,6 +1,10 @@
 // Renderizador de pet PURO (sem framework): gera SVG + classe de animação a
 // partir do estado sensorial. Reutilizado por Desktop (Tauri/React) e Web (Next).
 // Veja docs/09-ARTE.md. Estilo: kawaii vetorial (soft).
+//
+// Cada personagem tem: (1) silhueta + traços CARACTERÍSTICOS da categoria
+// (dragão tem chifres/asas, ET antenas, animal orelhas...) e (2) uma COR ÚNICA
+// derivada do id — então dois personagens da mesma categoria não ficam iguais.
 import type {
   CharacterDef,
   SensorySignals,
@@ -36,24 +40,53 @@ export const PET_ANIMATION_CSS = `
 }
 `;
 
-/** Cor base do corpo por categoria (kawaii pastel). */
-const BODY_COLOR: Record<string, [string, string, string]> = {
-  // [gradiente claro, gradiente escuro, contorno]
-  star: ["#fff3b0", "#ffcf5c", "#e7a92e"],
-  slime: ["#bdf5d6", "#5fd6a0", "#39b07e"],
-  animal: ["#ffe1c2", "#ffb27a", "#e08a4e"],
-  plant: ["#d4f5b0", "#8fd65c", "#5fae2e"],
-  cloud: ["#eef3ff", "#c7d4f5", "#9fb0e7"],
-  robot: ["#d8dbe6", "#aab0c6", "#7e86a6"],
-  ghost: ["#efeaff", "#d3c7f5", "#b0a0e7"],
-  dragon: ["#ffd0c2", "#ff9a7a", "#e0654e"],
-  alien: ["#d6ffd0", "#8fe88a", "#4eae4e"],
-  mushroom: ["#ffd6d6", "#f59a9a", "#c25e5e"],
-  magical: ["#f0d6ff", "#cf8fe8", "#9a4eae"],
-  monster: ["#cfe6ff", "#6aa3e0", "#3f6fb0"],
-  "pixel-mascot": ["#fff3b0", "#ffcf5c", "#e7a92e"],
-  "minimal-mascot": ["#eef0f5", "#cfd3dd", "#a6acbb"],
+// ----------------------------------------------------------------------------
+// COR — base por categoria (HSL) + variação única por personagem (id)
+// ----------------------------------------------------------------------------
+
+/** Matiz/saturação/luz base por categoria. A matiz varia por personagem. */
+const CATEGORY_HSL: Record<string, { h: number; s: number; l: number; range: number }> = {
+  star: { h: 45, s: 100, l: 68, range: 25 },
+  slime: { h: 152, s: 60, l: 60, range: 60 },
+  animal: { h: 28, s: 80, l: 72, range: 50 },
+  plant: { h: 96, s: 55, l: 60, range: 40 },
+  cloud: { h: 222, s: 55, l: 85, range: 30 },
+  robot: { h: 222, s: 15, l: 72, range: 200 },
+  ghost: { h: 260, s: 50, l: 86, range: 40 },
+  dragon: { h: 8, s: 80, l: 70, range: 180 },
+  alien: { h: 122, s: 60, l: 70, range: 80 },
+  mushroom: { h: 0, s: 70, l: 78, range: 30 },
+  magical: { h: 285, s: 65, l: 75, range: 60 },
+  monster: { h: 210, s: 60, l: 68, range: 200 },
+  "pixel-mascot": { h: 45, s: 90, l: 65, range: 200 },
+  "minimal-mascot": { h: 222, s: 10, l: 84, range: 200 },
 };
+
+function hashId(s: string): number {
+  let h = 2166136261;
+  for (let i = 0; i < s.length; i++) {
+    h ^= s.charCodeAt(i);
+    h = Math.imul(h, 16777619);
+  }
+  return h >>> 0;
+}
+
+function hsl(h: number, s: number, l: number): string {
+  return `hsl(${((h % 360) + 360) % 360} ${s}% ${l}%)`;
+}
+
+/** Cores [claro, escuro, contorno] únicas do personagem (variação por id). */
+function characterColors(def: CharacterDef): [string, string, string] {
+  const base = CATEGORY_HSL[def.category] ?? CATEGORY_HSL.star!;
+  const r = hashId(def.id);
+  // desloca a matiz dentro do "range" da categoria (centrado), determinístico
+  const shift = (r % (base.range + 1)) - base.range / 2;
+  const h = base.h + shift;
+  // leve variação de saturação/luz para diferenciar ainda mais
+  const s = Math.max(12, Math.min(100, base.s + ((r >> 8) % 16) - 8));
+  const l = base.l;
+  return [hsl(h, s, l + 8), hsl(h, s, l - 10), hsl(h, Math.min(100, s + 10), l - 30)];
+}
 
 interface FaceParts {
   eyes: string;
@@ -101,13 +134,130 @@ function bodyPath(category: string): string {
     case "cloud":
       return `M30 78 Q20 78 22 66 Q14 58 26 52 Q28 38 46 42 Q54 30 70 40 Q92 36 92 56 Q104 60 96 74 Q98 86 82 84 Q60 92 30 78 Z`;
     case "ghost":
-      return `M30 60 Q30 30 60 30 Q90 30 90 60 L90 96 L80 88 L70 96 L60 88 L50 96 L40 88 L30 96 Z`;
-    case "monster":
+      return `M30 60 Q30 28 60 28 Q90 28 90 60 L90 96 L80 88 L70 96 L60 88 L50 96 L40 88 L30 96 Z`;
+    case "alien":
+      // cabeça grande e oval (vibe ET)
+      return `M60 30 Q92 30 92 64 Q92 100 60 102 Q28 100 28 64 Q28 30 60 30 Z`;
+    case "robot":
+      // corpo com cantos arredondados (lata)
+      return `M30 40 Q30 34 36 34 L84 34 Q90 34 90 40 L90 96 Q90 102 84 102 L36 102 Q30 102 30 96 Z`;
     case "dragon":
-      // corpo arredondado com chifrinhos (vibe corajosa, ainda fofa)
-      return `M40 30 L34 16 L48 28 Q60 24 72 28 L86 16 L80 30 Q96 42 94 70 Q94 102 60 102 Q26 102 26 70 Q24 42 40 30 Z`;
-    default: // blob arredondado padrão (animal, plant, robot, etc.)
+    case "monster":
+      // corpo robusto com barriga
+      return `M28 64 Q28 36 60 36 Q92 36 92 64 Q92 102 60 102 Q28 102 28 64 Z`;
+    default: // blob arredondado padrão (plant, etc.)
       return `M26 70 Q26 36 60 34 Q94 36 94 70 Q94 102 60 102 Q26 102 26 70 Z`;
+  }
+}
+
+/**
+ * Traços característicos por categoria. Retorna SVG desenhado ATRÁS (`behind`,
+ * ex.: orelhas, asas, antenas) e NA FRENTE (`front`, ex.: barriga, manchas).
+ * `c1` é a cor escura do corpo (para os apêndices casarem). `stroke` o contorno.
+ */
+function categoryFeatures(
+  category: string,
+  c0: string,
+  c1: string,
+  stroke: string,
+): { behind: string; front: string } {
+  const sw = `stroke="${stroke}" stroke-width="3" stroke-linejoin="round"`;
+  switch (category) {
+    case "animal":
+      return {
+        behind:
+          `<path d="M34 42 Q30 16 48 30 Z" fill="${c1}" ${sw}/>` + // orelha esq
+          `<path d="M86 42 Q90 16 72 30 Z" fill="${c1}" ${sw}/>`, // orelha dir
+        front:
+          `<circle cx="60" cy="74" r="3.2" fill="${stroke}"/>` + // focinho
+          `<path d="M60 77 Q56 82 52 80 M60 77 Q64 82 68 80" stroke="${stroke}" stroke-width="1.6" fill="none" stroke-linecap="round"/>`,
+      };
+    case "dragon":
+      return {
+        behind:
+          `<path d="M34 40 L24 22 L42 34 Z" fill="${c1}" ${sw}/>` + // chifre esq
+          `<path d="M86 40 L96 22 L78 34 Z" fill="${c1}" ${sw}/>` + // chifre dir
+          `<path d="M30 70 Q4 58 10 86 Q22 78 34 84 Z" fill="${c1}" ${sw}/>` + // asa esq
+          `<path d="M90 70 Q116 58 110 86 Q98 78 86 84 Z" fill="${c1}" ${sw}/>` + // asa dir
+          `<path d="M92 96 Q112 98 110 112 Q100 108 94 102 Z" fill="${c1}" ${sw}/>`, // cauda
+        front:
+          `<path d="M44 96 Q60 108 76 96 Q60 104 44 96 Z" fill="${c0}" opacity=".85"/>` + // barriga
+          `<path d="M52 96 L56 100 L60 96 L64 100 L68 96" stroke="${stroke}" stroke-width="1.6" fill="none"/>`, // dentinhos
+      };
+    case "monster":
+      return {
+        behind:
+          `<path d="M36 38 L30 20 L48 32 Z" fill="${c1}" ${sw}/>` + // chifre esq
+          `<path d="M84 38 L90 20 L72 32 Z" fill="${c1}" ${sw}/>`, // chifre dir
+        front: `<path d="M48 92 L52 98 L56 92 L60 98 L64 92 L68 98 L72 92" stroke="#fff" stroke-width="2.2" fill="none"/>`, // dentes ziguezague
+      };
+    case "alien":
+      return {
+        behind:
+          `<line x1="48" y1="30" x2="42" y2="14" stroke="${stroke}" stroke-width="2.5"/>` +
+          `<circle cx="41" cy="12" r="4" fill="${c1}" ${sw}/>` + // antena esq
+          `<line x1="72" y1="30" x2="78" y2="14" stroke="${stroke}" stroke-width="2.5"/>` +
+          `<circle cx="79" cy="12" r="4" fill="${c1}" ${sw}/>`, // antena dir
+        front:
+          `<circle cx="44" cy="82" r="3" fill="${c1}" opacity=".7"/>` + // manchas
+          `<circle cx="74" cy="86" r="2.5" fill="${c1}" opacity=".7"/>` +
+          `<circle cx="60" cy="90" r="2" fill="${c1}" opacity=".7"/>`,
+      };
+    case "robot":
+      return {
+        behind:
+          `<line x1="60" y1="34" x2="60" y2="20" stroke="${stroke}" stroke-width="2.5"/>` +
+          `<circle cx="60" cy="17" r="4" fill="${c1}" ${sw}/>`, // antena
+        front:
+          `<circle cx="36" cy="40" r="2.4" fill="${stroke}"/>` + // parafusos
+          `<circle cx="84" cy="40" r="2.4" fill="${stroke}"/>` +
+          `<circle cx="36" cy="96" r="2.4" fill="${stroke}"/>` +
+          `<circle cx="84" cy="96" r="2.4" fill="${stroke}"/>` +
+          `<rect x="50" y="84" width="20" height="8" rx="2" fill="${stroke}" opacity=".25"/>`, // painel
+      };
+    case "plant":
+      return {
+        behind:
+          `<path d="M60 36 Q60 14 74 12 Q72 28 60 34 Z" fill="#7cc46a" ${sw}/>` + // folha dir
+          `<path d="M60 36 Q60 18 48 14 Q50 28 60 34 Z" fill="#8fd676" ${sw}/>`, // folha esq
+        front: "",
+      };
+    case "mushroom":
+      return {
+        behind: `<path d="M24 56 Q24 22 60 22 Q96 22 96 56 Q60 66 24 56 Z" fill="${c1}" ${sw}/>`, // chapéu
+        front:
+          `<circle cx="44" cy="44" r="4" fill="#fff" opacity=".85"/>` + // pintas do chapéu
+          `<circle cx="72" cy="40" r="5" fill="#fff" opacity=".85"/>` +
+          `<circle cx="60" cy="52" r="3" fill="#fff" opacity=".85"/>`,
+      };
+    case "ghost":
+      return {
+        behind: "",
+        front:
+          `<ellipse cx="40" cy="74" rx="5" ry="7" fill="${c0}" opacity=".5"/>` + // bracinhos
+          `<ellipse cx="80" cy="74" rx="5" ry="7" fill="${c0}" opacity=".5"/>`,
+      };
+    case "magical":
+      return {
+        behind:
+          `<path d="M30 64 Q8 60 14 84 Q24 76 34 80 Z" fill="${c1}" opacity=".8" ${sw}/>` + // asinha esq
+          `<path d="M90 64 Q112 60 106 84 Q96 76 86 80 Z" fill="${c1}" opacity=".8" ${sw}/>`, // asinha dir
+        front:
+          `<text x="40" y="44" font-size="11" fill="#fff" opacity=".9">✦</text>` +
+          `<text x="74" y="50" font-size="8" fill="#fff" opacity=".8">✦</text>`,
+      };
+    case "slime":
+      return {
+        behind: "",
+        front: `<ellipse cx="46" cy="56" rx="6" ry="9" fill="#fff" opacity=".35"/>`, // brilho gelatina
+      };
+    case "cloud":
+      return {
+        behind: "",
+        front: `<path d="M48 92 q3 8 9 4 q3 8 9 2" stroke="#bcd0ff" stroke-width="2" fill="none" stroke-linecap="round" opacity=".7"/>`, // chuvinha
+      };
+    default:
+      return { behind: "", front: "" };
   }
 }
 
@@ -126,7 +276,14 @@ export interface RenderOptions {
 }
 
 /** SVG do OVO (estágio inicial). Casca com manchinhas, sem rosto ainda. */
-function eggSVG(size: number, stroke: string, c0: string, c1: string, light: number, name: string): string {
+function eggSVG(
+  size: number,
+  stroke: string,
+  c0: string,
+  c1: string,
+  light: number,
+  name: string,
+): string {
   return `<svg width="${size}" height="${size}" viewBox="0 0 120 120" role="img" aria-label="ovo de ${name}">
   <defs><radialGradient id="egg" cx="50%" cy="38%" r="70%">
     <stop offset="0%" stop-color="${c0}"/><stop offset="100%" stop-color="${c1}"/>
@@ -143,13 +300,13 @@ function eggSVG(size: number, stroke: string, c0: string, c1: string, light: num
 /** Detalhe visual por ramo de evolução (aparece em teen/adult/elder). */
 function branchDecor(branch: EvolutionBranch | undefined, light: number): string {
   switch (branch) {
-    case "creative": // brilho de inspiração
+    case "creative":
       return `<text x="86" y="34" font-size="16" fill="#ffe08a" opacity="${light}">✦</text>`;
-    case "adventurous": // cachecol aventureiro
+    case "adventurous":
       return `<path d="M44 84 Q60 92 76 84 L74 92 Q60 98 46 92 Z" fill="#ff7a7a" opacity="${0.85 * light}"/>`;
-    case "serene": // folhinha serena
+    case "serene":
       return `<path d="M60 14 Q70 6 76 16 Q66 22 60 18 Z" fill="#8fd65c" opacity="${light}"/>`;
-    case "social": // coração de vínculo
+    case "social":
       return `<text x="84" y="40" font-size="14" fill="#ff9ec7" opacity="${light}">♥</text>`;
     default:
       return "";
@@ -171,8 +328,33 @@ function eyeScale(stage: LifeStage | undefined): number {
     case "teen":
       return 1.05;
     default:
-      return 1; // adult/elder/undefined
+      return 1;
   }
+}
+
+// Categorias "amorfas" — corpo é uma forma única, sem membros (slime, nuvem...).
+const BLOB_CATEGORIES = new Set([
+  "slime",
+  "cloud",
+  "ghost",
+  "star",
+  "pixel-mascot",
+  "minimal-mascot",
+]);
+
+/** Corpo chibi (tronco + braços + pernas) desenhado abaixo da cabeça grande. */
+function chibiBody(c1: string, stroke: string, gid: string): string {
+  const sw = `stroke="${stroke}" stroke-width="2.6" stroke-linejoin="round"`;
+  return (
+    // pernas (atrás)
+    `<ellipse cx="50" cy="115" rx="7.5" ry="6" fill="${c1}" ${sw}/>` +
+    `<ellipse cx="70" cy="115" rx="7.5" ry="6" fill="${c1}" ${sw}/>` +
+    // braços
+    `<ellipse cx="33" cy="92" rx="6" ry="11" fill="${c1}" ${sw} transform="rotate(14 33 92)"/>` +
+    `<ellipse cx="87" cy="92" rx="6" ry="11" fill="${c1}" ${sw} transform="rotate(-14 87 92)"/>` +
+    // tronco (gradiente do corpo)
+    `<ellipse cx="60" cy="94" rx="20" ry="22" fill="url(#${gid})" ${sw}/>`
+  );
 }
 
 /** Gera o markup SVG do pet. Determinístico e testável. */
@@ -180,9 +362,9 @@ export function renderPetSVG(def: CharacterDef, opts: RenderOptions = {}): strin
   const animation = opts.animation ?? "idle";
   const size = opts.size ?? 150;
   const light = opts.light ?? 1;
-  const base = BODY_COLOR[def.category] ?? BODY_COLOR.star!;
-  const [c0, c1] = opts.skinColors ?? [base[0], base[1]];
-  const stroke = base[2];
+  const auto = characterColors(def);
+  const [c0, c1] = opts.skinColors ?? [auto[0], auto[1]];
+  const stroke = auto[2];
 
   // Estágio OVO: ainda não nasceu — desenha a casca.
   if (opts.stage === "egg") {
@@ -190,8 +372,9 @@ export function renderPetSVG(def: CharacterDef, opts: RenderOptions = {}): strin
   }
 
   const face = faceFor(animation);
-  const path = bodyPath(def.category);
+  const features = categoryFeatures(def.category, c0, c1, stroke);
   const gid = `g-${def.id}-${animation}`;
+  const op = `${0.6 + 0.4 * light}`;
 
   // olhos maiores em filhotes; detalhe do ramo de vida em estágios avançados
   const es = eyeScale(opts.stage);
@@ -199,19 +382,48 @@ export function renderPetSVG(def: CharacterDef, opts: RenderOptions = {}): strin
     es === 1
       ? face.eyes
       : `<g transform="translate(60 58) scale(${es}) translate(-60 -58)">${face.eyes}</g>`;
-  const showBranch = isHatched(opts.stage)
-    ? opts.stage === "teen" || opts.stage === "adult" || opts.stage === "elder"
-    : false;
+  const showBranch =
+    isHatched(opts.stage) &&
+    (opts.stage === "teen" || opts.stage === "adult" || opts.stage === "elder");
   const decor = showBranch ? branchDecor(opts.branch, light) : "";
 
-  return `<svg width="${size}" height="${size}" viewBox="0 0 120 120" role="img" aria-label="${def.name}">
+  const head = `<g opacity="${op}">`;
+  const svgOpen = `<svg width="${size}" height="${size}" viewBox="0 0 120 120" role="img" aria-label="${def.name}, ${def.species}">
   <defs><radialGradient id="${gid}" cx="50%" cy="40%" r="65%">
     <stop offset="0%" stop-color="${c0}"/><stop offset="100%" stop-color="${c1}"/>
-  </radialGradient></defs>
+  </radialGradient></defs>`;
+
+  // BLOB: forma única (sem membros) — como os amorfos.
+  if (BLOB_CATEGORIES.has(def.category)) {
+    return `${svgOpen}
   <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="${0.18 * light}"/>
-  <path d="${path}" fill="url(#${gid})" stroke="${stroke}" stroke-width="3" stroke-linejoin="round" opacity="${0.55 + 0.45 * light}"/>
-  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="${0.6 * light}"/>
-  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="${0.6 * light}"/>
+  ${features.behind}
+  <path d="${bodyPath(def.category)}" fill="url(#${gid})" stroke="${stroke}" stroke-width="3" stroke-linejoin="round" opacity="${op}"/>
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="${0.55 * light}"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="${0.55 * light}"/>
+  ${features.front}
+  ${eyes}${face.mouth}${face.extra}${decor}
+</svg>`;
+  }
+
+  // CRIATURA chibi: cabeça grande + tronco + braços + pernas.
+  // Cabeça é um círculo (alien um pouco mais oval). As features (orelhas/chifres/
+  // antenas) já ficam na região da cabeça; barriga/dentes/manchas no tronco.
+  const headShape =
+    def.category === "alien"
+      ? `<ellipse cx="60" cy="50" rx="36" ry="33" fill="url(#${gid})" stroke="${stroke}" stroke-width="3"/>`
+      : `<circle cx="60" cy="50" r="34" fill="url(#${gid})" stroke="${stroke}" stroke-width="3"/>`;
+
+  return `${svgOpen}
+  <ellipse cx="60" cy="116" rx="26" ry="5" fill="#000" opacity="${0.18 * light}"/>
+  ${head}
+  ${features.behind}
+  ${chibiBody(c1, stroke, gid)}
+  ${headShape}
+  </g>
+  ${features.front}
+  <circle cx="40" cy="64" r="5" fill="#ff9aa2" opacity="${0.5 * light}"/>
+  <circle cx="80" cy="64" r="5" fill="#ff9aa2" opacity="${0.5 * light}"/>
   ${eyes}${face.mouth}${face.extra}${decor}
 </svg>`;
 }
@@ -229,7 +441,6 @@ export function renderFromSignals(
   signals: SensorySignals,
   opts: FromSignalsOptions | number = {},
 ): string {
-  // compat: aceita `size` numérico direto (chamadas antigas)
   const o: FromSignalsOptions = typeof opts === "number" ? { size: opts } : opts;
   return renderPetSVG(def, {
     animation: signals.animation,

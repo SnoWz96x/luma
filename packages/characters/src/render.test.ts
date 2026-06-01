@@ -10,7 +10,30 @@ describe("renderPetSVG", () => {
     const svg = renderPetSVG(sample);
     expect(svg).toContain("<svg");
     expect(svg).toContain("</svg>");
-    expect(svg).toContain(`aria-label="${sample.name}"`);
+    expect(svg).toContain(`aria-label="${sample.name}, ${sample.species}"`);
+  });
+
+  it("personagens diferentes da mesma categoria têm cores diferentes", () => {
+    const all = generateCharacters();
+    const dragons = all.filter((c) => c.category === "dragon").slice(0, 2);
+    if (dragons.length === 2) {
+      const a = renderPetSVG(dragons[0]!);
+      const b = renderPetSVG(dragons[1]!);
+      // extrai o primeiro stop-color de cada
+      const colorA = a.match(/stop-color="([^"]+)"/)?.[1];
+      const colorB = b.match(/stop-color="([^"]+)"/)?.[1];
+      expect(colorA).not.toBe(colorB);
+    }
+  });
+
+  it("inclui traços característicos da categoria (dragão tem asas/chifres)", () => {
+    const dragon = generateCharacters().find((c) => c.category === "dragon");
+    if (dragon) {
+      const svg = renderPetSVG(dragon);
+      // dragão desenha apêndices atrás do corpo (asas/chifres/cauda)
+      const paths = (svg.match(/<path/g) ?? []).length;
+      expect(paths).toBeGreaterThan(2);
+    }
   });
 
   it("muda a face conforme o estado", () => {
