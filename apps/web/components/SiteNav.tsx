@@ -9,8 +9,14 @@ export function SiteNav() {
         🌙 LUMA
       </Link>
       <div className="flex items-center gap-5 text-sm text-luma-muted">
+        <Link href="/como-funciona" className="hidden hover:text-luma-ink sm:inline">
+          Como funciona
+        </Link>
         <Link href="/personagens" className="hidden hover:text-luma-ink sm:inline">
           Personagens
+        </Link>
+        <Link href="/faq" className="hidden hover:text-luma-ink sm:inline">
+          FAQ
         </Link>
         <Link href="/apoio" className="hidden hover:text-luma-ink sm:inline">
           Apoio

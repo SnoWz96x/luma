@@ -71,7 +71,8 @@
       "Bash(pnpm --filter @luma/web dev)",
       "PowerShell(Start-Process \"http://localhost:3000/\")",
       "PowerShell(\"Site LUMA aberto no navegador\")",
-      "Bash(xargs echo \"artefatos rastreados \\(deve ser 0\\):\")"
+      "Bash(xargs echo \"artefatos rastreados \\(deve ser 0\\):\")",
+      "Bash(curl -s http://localhost:3000/personagens)"
     ]
   }
 }
