@@ -1,0 +1,20 @@
+LUMA — Avisos e atribuições de terceiros
+=========================================
+
+O código-fonte do LUMA é licenciado sob MIT (ver LICENSE).
+
+Este arquivo credita conteúdo de terceiros reutilizado no projeto. Toda arte,
+sprite ou pacote de personagem com licença de terceiros DEVE ser listado aqui,
+com: nome, autor, licença e o que foi usado.
+
+Até o momento, o LUMA não reutiliza código ou arte de terceiros — todos os
+personagens e o renderizador são originais (SVG gerado por código). Conceitos de
+sistemas open source foram apenas estudados (ver docs/10-OPEN-SOURCE-RESEARCH.md e
+docs/11-REUSE-MATRIX.md), sem cópia de código.
+
+Ferramentas e bibliotecas de runtime mantêm suas próprias licenças (Tauri, React,
+Vite, Zustand, Tailwind, SQLite, Ollama, zod, etc.).
+
+--- Atribuições de conteúdo (preencher ao reutilizar) -----------------------------
+# Exemplo:
+# - Pack: "Sprites da Luma" | Autor: Fulano | Licença: CC-BY-4.0 | Uso: sprites do personagem "luma"

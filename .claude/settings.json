@@ -60,7 +60,10 @@
       "PowerShell(\"fechado\")",
       "Bash(cmd.exe /c start \"LUMA\" /b cmd /c \"set \\\\\"PATH=%USERPROFILE%\\\\.cargo\\\\bin;%PATH%\\\\\" && pnpm tauri dev > \\\\\"%TEMP%\\\\luma_dev.log\\\\\" 2>&1\")",
       "PowerShell(Invoke-Item \"c:\\\\Users\\\\allan\\\\OneDrive\\\\Área de Trabalho\\\\Programação\\\\SISTEMAS\\\\tamago\\\\docs\\\\art\\\\catalog-gallery.html\"; \"galeria atual aberta \\(cor unica + tracos por categoria\\)\")",
-      "PowerShell(Invoke-Item \"c:\\\\Users\\\\allan\\\\OneDrive\\\\Área de Trabalho\\\\Programação\\\\SISTEMAS\\\\tamago\\\\docs\\\\art\\\\catalog-gallery.html\"; \"galeria com corpo inteiro aberta\")"
+      "PowerShell(Invoke-Item \"c:\\\\Users\\\\allan\\\\OneDrive\\\\Área de Trabalho\\\\Programação\\\\SISTEMAS\\\\tamago\\\\docs\\\\art\\\\catalog-gallery.html\"; \"galeria com corpo inteiro aberta\")",
+      "Bash(node -e \"try{require.resolve\\('sharp'\\);console.log\\('sharp ok'\\)}catch{console.log\\('sem sharp'\\)}\")",
+      "Bash(which rsvg-convert *)",
+      "PowerShell(Invoke-Item \"c:\\\\Users\\\\allan\\\\OneDrive\\\\Área de Trabalho\\\\Programação\\\\SISTEMAS\\\\tamago\\\\docs\\\\art\\\\logo.svg\"; \"logo aberto\")"
     ]
   }
 }
