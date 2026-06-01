@@ -16,6 +16,7 @@ import { TitleBar } from "./components/TitleBar";
 import { BadgesPanel } from "./components/BadgesPanel";
 import { HabitsPanel } from "./components/HabitsPanel";
 import { Breathing } from "./components/Breathing";
+import { Fishing } from "./components/Fishing";
 import { ShopPanel } from "./components/ShopPanel";
 import { WorldScene } from "./components/WorldScene";
 import { DiaryPanel } from "./components/DiaryPanel";
@@ -34,6 +35,7 @@ type Tab =
   | "diary"
   | "habits"
   | "calm"
+  | "fish"
   | "shop"
   | "support"
   | "badges"
@@ -47,6 +49,7 @@ const TABS: { id: Tab; label: string }[] = [
   { id: "diary", label: "📓 Diário" },
   { id: "habits", label: "🌿 Hábitos" },
   { id: "calm", label: "🫧 Respirar" },
+  { id: "fish", label: "🎣 Pescar" },
   { id: "shop", label: "🎀 Loja" },
   { id: "support", label: "💛 Apoio" },
   { id: "badges", label: "🏆 Conquistas" },
@@ -209,6 +212,12 @@ function Home() {
         {tab === "calm" && (
           <div className="min-h-0 flex-1">
             <Breathing />
+          </div>
+        )}
+
+        {tab === "fish" && (
+          <div className="min-h-0 flex-1">
+            <Fishing />
           </div>
         )}
 

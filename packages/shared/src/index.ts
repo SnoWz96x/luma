@@ -12,5 +12,6 @@ export * from "./types/support.js";
 export * from "./types/emotion.js";
 export * from "./types/motivator.js";
 export * from "./types/model.js";
+export * from "./types/plugin.js";
 export * from "./contracts/ai.js";
 export * from "./contracts/repositories.js";
