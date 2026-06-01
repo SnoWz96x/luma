@@ -3,11 +3,14 @@ import { usePetStore, findCharacter } from "./stores/petStore";
 import { useAppStore } from "./stores/appStore";
 import { useChatStore } from "./stores/chatStore";
 import { useProgressStore } from "./stores/progressStore";
+import { useHabitsStore } from "./stores/habitsStore";
+import { useShopStore } from "./stores/shopStore";
 import { stageScale, stageLabel } from "@luma/core";
 import { PetView } from "./components/PetView";
 import { Scene } from "./components/Scene";
 import { InteractionBar } from "./components/InteractionBar";
 import { Onboarding } from "./components/Onboarding";
+import { EggHatch } from "./components/EggHatch";
 import { Chat } from "./components/Chat";
 import { TitleBar } from "./components/TitleBar";
 import { BadgesPanel } from "./components/BadgesPanel";
@@ -15,12 +18,40 @@ import { HabitsPanel } from "./components/HabitsPanel";
 import { Breathing } from "./components/Breathing";
 import { ShopPanel } from "./components/ShopPanel";
 import { WorldScene } from "./components/WorldScene";
+import { DiaryPanel } from "./components/DiaryPanel";
+import { SupportPanel } from "./components/SupportPanel";
+import { SettingsPanel } from "./components/SettingsPanel";
+import { NarrativePanel } from "./components/NarrativePanel";
+import { PetSpeech } from "./components/PetSpeech";
 import { Celebration } from "./components/Celebration";
-import { useHabitsStore } from "./stores/habitsStore";
-import { useShopStore } from "./stores/shopStore";
 import { relationshipLabel } from "./lib/relationshipLabel";
 
-type Tab = "pet" | "chat" | "world" | "habits" | "calm" | "shop" | "badges";
+type Tab =
+  | "pet"
+  | "chat"
+  | "world"
+  | "story"
+  | "diary"
+  | "habits"
+  | "calm"
+  | "shop"
+  | "support"
+  | "badges"
+  | "settings";
+
+const TABS: { id: Tab; label: string }[] = [
+  { id: "pet", label: "🏡 Casa" },
+  { id: "chat", label: "💬 Conversar" },
+  { id: "world", label: "🌌 Mundo" },
+  { id: "story", label: "📖 História" },
+  { id: "diary", label: "📓 Diário" },
+  { id: "habits", label: "🌿 Hábitos" },
+  { id: "calm", label: "🫧 Respirar" },
+  { id: "shop", label: "🎀 Loja" },
+  { id: "support", label: "💛 Apoio" },
+  { id: "badges", label: "🏆 Conquistas" },
+  { id: "settings", label: "⚙️ Ajustes" },
+];
 
 function petLine(animation: string, name: string): string {
   switch (animation) {
@@ -107,27 +138,11 @@ function Home() {
 
       {/* abas */}
       <div className="flex gap-1.5 overflow-x-auto px-4 pb-3">
-        <TabButton active={tab === "pet"} onClick={() => setTab("pet")}>
-          🏡 Casa
-        </TabButton>
-        <TabButton active={tab === "chat"} onClick={() => setTab("chat")}>
-          💬 Conversar
-        </TabButton>
-        <TabButton active={tab === "world"} onClick={() => setTab("world")}>
-          🌌 Mundo
-        </TabButton>
-        <TabButton active={tab === "habits"} onClick={() => setTab("habits")}>
-          🌿 Hábitos
-        </TabButton>
-        <TabButton active={tab === "calm"} onClick={() => setTab("calm")}>
-          🫧 Respirar
-        </TabButton>
-        <TabButton active={tab === "shop"} onClick={() => setTab("shop")}>
-          🎀 Loja
-        </TabButton>
-        <TabButton active={tab === "badges"} onClick={() => setTab("badges")}>
-          🏆 Conquistas
-        </TabButton>
+        {TABS.map((t) => (
+          <TabButton key={t.id} active={tab === t.id} onClick={() => setTab(t.id)}>
+            {t.label}
+          </TabButton>
+        ))}
       </div>
 
       <div className="flex min-h-0 flex-1 flex-col gap-3 px-4 pb-4">
@@ -142,6 +157,8 @@ function Home() {
                     size={184}
                     scale={scale}
                     skinColors={skinColors}
+                    stage={growth.stage}
+                    branch={growth.branch}
                     onPet={() => handleInteract("comfort")}
                   />
                   <p className="max-w-xs text-center text-sm text-luma-ink/90">
@@ -153,12 +170,6 @@ function Home() {
             </div>
             <InteractionBar onAction={handleInteract} />
           </>
-        )}
-
-        {tab === "story" && (
-          <div className="min-h-0 flex-1">
-            <NarrativePanel />
-          </div>
         )}
 
         {tab === "chat" && (
@@ -174,6 +185,18 @@ function Home() {
         {tab === "world" && (
           <div className="min-h-0 flex-1">
             <WorldScene />
+          </div>
+        )}
+
+        {tab === "story" && (
+          <div className="min-h-0 flex-1">
+            <NarrativePanel />
+          </div>
+        )}
+
+        {tab === "diary" && (
+          <div className="min-h-0 flex-1">
+            <DiaryPanel />
           </div>
         )}
 
@@ -195,9 +218,21 @@ function Home() {
           </div>
         )}
 
+        {tab === "support" && (
+          <div className="min-h-0 flex-1">
+            <SupportPanel />
+          </div>
+        )}
+
         {tab === "badges" && (
           <div className="min-h-0 flex-1">
             <BadgesPanel />
+          </div>
+        )}
+
+        {tab === "settings" && (
+          <div className="min-h-0 flex-1">
+            <SettingsPanel />
           </div>
         )}
       </div>
@@ -218,7 +253,7 @@ function TabButton({
     <button
       type="button"
       onClick={onClick}
-      className={`flex-1 rounded-2xl px-3 py-2 text-sm font-semibold transition ${
+      className={`shrink-0 rounded-2xl px-3 py-2 text-sm font-semibold transition ${
         active
           ? "bg-gradient-to-r from-luma-accent to-luma-accent2 text-luma-bg0 shadow-glow"
           : "border border-white/10 bg-white/[0.05] text-luma-muted hover:bg-white/[0.1]"
@@ -231,5 +266,23 @@ function TabButton({
 
 export default function App() {
   const phase = useAppStore((s) => s.phase);
-  return phase === "onboarding" ? <Onboarding /> : <Home />;
+  const hatched = useAppStore((s) => s.hatched);
+  const hatch = useAppStore((s) => s.hatch);
+  const adoptedDefId = useAppStore((s) => s.adoptedDefId);
+  const petName = useAppStore((s) => s.petName);
+
+  if (phase === "onboarding") return <Onboarding />;
+
+  // ritual de nascimento: após adotar, choca o ovo antes de entrar na Casa
+  if (!hatched && adoptedDefId) {
+    return (
+      <EggHatch
+        character={findCharacter(adoptedDefId)}
+        petName={petName}
+        onHatched={hatch}
+      />
+    );
+  }
+
+  return <Home />;
 }
