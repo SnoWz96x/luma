@@ -42,11 +42,17 @@ export type OllamaStatus = "unknown" | "checking" | "online" | "offline";
 
 interface AIStore extends Persisted {
   status: OllamaStatus;
+  /** tags de modelos instalados no Ollama (Model Manager) */
+  installed: string[];
+  /** RAM total detectada em GB (navigator.deviceMemory; fallback 8) */
+  ramGb: number;
   setMode: (mode: AIMode) => void;
   setBaseUrl: (url: string) => void;
   setModel: (model: string) => void;
   /** testa conexão com o Ollama e atualiza o status */
   checkOllama: () => Promise<boolean>;
+  /** lê os modelos instalados (/api/tags) e atualiza `installed` */
+  refreshModels: () => Promise<void>;
   /**
    * Devolve o provider a usar agora. Se o modo for Ollama mas estiver offline,
    * cai no Mock automaticamente (o chat nunca quebra).
@@ -54,9 +60,17 @@ interface AIStore extends Persisted {
   resolveProvider: () => Promise<AIProvider>;
 }
 
+/** RAM aproximada do dispositivo (Chromium expõe deviceMemory; senão 8). */
+function detectRamGb(): number {
+  const dm = (navigator as unknown as { deviceMemory?: number }).deviceMemory;
+  return typeof dm === "number" && dm > 0 ? dm : 8;
+}
+
 export const useAiStore = create<AIStore>((set, get) => ({
   ...load(),
   status: "unknown",
+  installed: [],
+  ramGb: detectRamGb(),
 
   setMode: (mode) => {
     const next = { ...get(), mode } as Persisted;
@@ -81,7 +95,20 @@ export const useAiStore = create<AIStore>((set, get) => ({
     const provider = new LocalOllamaProvider({ baseUrl, model });
     const ok = await provider.isAvailable();
     set({ status: ok ? "online" : "offline" });
+    if (ok) void get().refreshModels();
     return ok;
+  },
+
+  refreshModels: async () => {
+    try {
+      const res = await fetch(`${get().baseUrl}/api/tags`);
+      if (!res.ok) return;
+      const data = (await res.json()) as { models?: { name: string }[] };
+      const tags = (data.models ?? []).map((m) => m.name);
+      set({ installed: tags });
+    } catch {
+      /* offline — mantém lista atual */
+    }
   },
 
   resolveProvider: async () => {

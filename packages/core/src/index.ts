@@ -6,6 +6,7 @@ export * from "./ai/prompt.js";
 export * from "./ai/mockProvider.js";
 export * from "./ai/ollamaProvider.js";
 export * from "./ai/chatService.js";
+export * from "./ai/orchestrator.js";
 export * from "./relationship/relationship.js";
 export * from "./memory/memory.js";
 export * from "./growth/growth.js";

@@ -1,7 +1,7 @@
 // Configurações — país (Help Hub), provider de IA (futuro) e PRIVACIDADE:
 // exportar / importar / apagar todos os dados. Tudo local, do usuário.
 import { useEffect, useRef, useState } from "react";
-import { stageLabel } from "@luma/core";
+import { stageLabel, describeModels, pickBestModel } from "@luma/core";
 import { useSupportStore } from "../stores/supportStore";
 import { useProgressStore } from "../stores/progressStore";
 import { useAiStore } from "../stores/aiStore";
@@ -157,8 +157,10 @@ const STATUS_LABEL: Record<string, { text: string; cls: string }> = {
 };
 
 function AiSection() {
-  const { mode, baseUrl, model, status, setMode, setBaseUrl, setModel, checkOllama } =
-    useAiStore();
+  const {
+    mode, baseUrl, model, status, installed, ramGb,
+    setMode, setBaseUrl, setModel, checkOllama,
+  } = useAiStore();
 
   // ao abrir em modo Ollama, verifica a conexão uma vez
   useEffect(() => {
@@ -167,6 +169,8 @@ function AiSection() {
   }, []);
 
   const st = STATUS_LABEL[status] ?? STATUS_LABEL.unknown!;
+  const models = describeModels({ ramGb, installed });
+  const best = pickBestModel({ ramGb, installed });
 
   return (
     <section>
@@ -229,6 +233,65 @@ function AiSection() {
             >
               Testar conexão
             </button>
+          </div>
+
+          {/* Model Manager */}
+          <div className="mt-1 border-t border-white/10 pt-2">
+            <p className="mb-1 text-[11px] text-luma-muted">
+              Modelos (sua RAM: ~{ramGb} GB). 💡 {best.reason}
+            </p>
+            <div className="flex flex-col gap-1">
+              {models.map((m) => {
+                const active = m.id === model;
+                return (
+                  <div
+                    key={m.id}
+                    className={`flex items-center gap-2 rounded-lg border px-2 py-1.5 ${
+                      active
+                        ? "border-luma-accent/50 bg-luma-accent/10"
+                        : "border-white/10 bg-white/[0.03]"
+                    }`}
+                  >
+                    <div className="min-w-0 flex-1">
+                      <p className="truncate text-[12px] text-luma-ink">
+                        {m.name}
+                        {m.id === best.recommend && (
+                          <span className="ml-1 text-[9px] text-emerald-300">recomendado</span>
+                        )}
+                      </p>
+                      <p className="text-[9px] text-luma-muted">
+                        {m.sizeGb} GB · precisa ~{m.ramGb} GB RAM · {m.note}
+                      </p>
+                    </div>
+                    {!m.fitsRam ? (
+                      <span className="shrink-0 text-[9px] text-orange-200">pesado p/ sua RAM</span>
+                    ) : m.installed ? (
+                      active ? (
+                        <span className="shrink-0 text-[10px] text-luma-accent">em uso</span>
+                      ) : (
+                        <button
+                          type="button"
+                          onClick={() => setModel(m.id)}
+                          className="shrink-0 rounded-md bg-white/10 px-2 py-0.5 text-[10px] text-luma-ink hover:bg-white/20"
+                        >
+                          usar
+                        </button>
+                      )
+                    ) : (
+                      <span
+                        className="shrink-0 cursor-help text-[9px] text-luma-muted"
+                        title={`No terminal: ollama pull ${m.id}`}
+                      >
+                        ⬇ baixar
+                      </span>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+            <p className="mt-1 text-[9px] text-luma-muted/70">
+              Para baixar um modelo: <code>ollama pull &lt;nome&gt;</code> no terminal.
+            </p>
           </div>
         </div>
       )}
