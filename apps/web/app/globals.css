@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-rounded: "Quicksand", "Nunito", ui-rounded, system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #14131f;
+  color: #f3efff;
+}
+
+/* brilho ambiente reutilizável */
+.aura {
+  background: radial-gradient(closest-side, rgba(255, 158, 199, 0.18), transparent 70%);
+}
+
+/* flutuar suave */
+@keyframes luma-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.float { animation: luma-float 4s ease-in-out infinite; }
+
+@keyframes luma-twinkle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .float { animation: none; }
+  html { scroll-behavior: auto; }
+}

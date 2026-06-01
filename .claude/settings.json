@@ -63,7 +63,15 @@
       "PowerShell(Invoke-Item \"c:\\\\Users\\\\allan\\\\OneDrive\\\\Área de Trabalho\\\\Programação\\\\SISTEMAS\\\\tamago\\\\docs\\\\art\\\\catalog-gallery.html\"; \"galeria com corpo inteiro aberta\")",
       "Bash(node -e \"try{require.resolve\\('sharp'\\);console.log\\('sharp ok'\\)}catch{console.log\\('sem sharp'\\)}\")",
       "Bash(which rsvg-convert *)",
-      "PowerShell(Invoke-Item \"c:\\\\Users\\\\allan\\\\OneDrive\\\\Área de Trabalho\\\\Programação\\\\SISTEMAS\\\\tamago\\\\docs\\\\art\\\\logo.svg\"; \"logo aberto\")"
+      "PowerShell(Invoke-Item \"c:\\\\Users\\\\allan\\\\OneDrive\\\\Área de Trabalho\\\\Programação\\\\SISTEMAS\\\\tamago\\\\docs\\\\art\\\\logo.svg\"; \"logo aberto\")",
+      "Bash(gh api *)",
+      "Bash(python -c \"import sys,json; print\\('topics:', ', '.join\\(json.load\\(sys.stdin\\).get\\('names',[]\\)\\)\\)\")",
+      "WebFetch(domain:www.assoprafitas.com.br)",
+      "Bash(pnpm --filter @luma/web build)",
+      "Bash(pnpm --filter @luma/web dev)",
+      "PowerShell(Start-Process \"http://localhost:3000/\")",
+      "PowerShell(\"Site LUMA aberto no navegador\")",
+      "Bash(xargs echo \"artefatos rastreados \\(deve ser 0\\):\")"
     ]
   }
 }
