@@ -1,4 +1,6 @@
 import { Mascot } from "../components/Mascot";
+import { SiteNav } from "../components/SiteNav";
+import { SiteFooter } from "../components/SiteFooter";
 
 const REPO = "https://github.com/SnoWz96x/luma";
 
@@ -29,20 +31,7 @@ const CARE = [
 export default function Home() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-luma-bg to-luma-bg0 text-luma-ink">
-      {/* ====== NAV ====== */}
-      <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
-        <span className="text-xl font-extrabold tracking-wide">🌙 LUMA</span>
-        <div className="flex items-center gap-5 text-sm text-luma-muted">
-          <a href="#features" className="hidden hover:text-luma-ink sm:inline">Recursos</a>
-          <a href="#pets" className="hidden hover:text-luma-ink sm:inline">Personagens</a>
-          <a
-            href={REPO}
-            className="rounded-full bg-gradient-to-r from-luma-accent to-luma-accent2 px-4 py-2 font-bold text-luma-bg0 transition hover:brightness-110"
-          >
-            ★ GitHub
-          </a>
-        </div>
-      </nav>
+      <SiteNav />
 
       {/* ====== HERO ====== */}
       <section className="relative mx-auto flex max-w-6xl flex-col items-center gap-8 px-6 pb-16 pt-10 text-center md:pt-16">
@@ -190,15 +179,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ====== FOOTER ====== */}
-      <footer className="border-t border-white/10 px-6 py-10 text-center text-sm text-luma-muted">
-        <p className="font-bold text-luma-ink">🌙 LUMA</p>
-        <p className="mt-2 mx-auto max-w-md">
-          O LUMA é companhia e bem-estar — <b>não substitui ajuda profissional</b>.
-          Em crise no Brasil, ligue para o <b className="text-luma-ink">CVV: 188</b> (24h, gratuito).
-        </p>
-        <p className="mt-4 text-xs">Feito com 💗 · código aberto sob licença MIT</p>
-      </footer>
+      <SiteFooter />
     </main>
   );
 }
