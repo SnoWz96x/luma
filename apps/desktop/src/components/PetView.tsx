@@ -70,6 +70,8 @@ export function PetView({ character, signals, size = 200, scale = 1, skinColors,
       dangerouslySetInnerHTML={{
         __html: renderFromSignals(character, signals, {
           size: px,
+          // estilo "ai" sem sprite -> render rico (sombra+brilho); senão vetorial
+          rich: artStyle === "ai",
           ...(skinColors ? { skinColors } : {}),
           ...(stage ? { stage } : {}),
           ...(branch ? { branch } : {}),

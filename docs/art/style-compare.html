@@ -1,0 +1,267 @@
+<!doctype html><meta charset="utf8"><title>LUMA — vetorial vs rico</title><style>body{margin:0;background:#14131f;color:#f3efff;font-family:system-ui;padding:24px}h1{text-align:center}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}.card{background:#262438;border-radius:18px;padding:14px;text-align:center}.pair{display:flex;gap:10px;justify-content:center}.pair>div{background:radial-gradient(120% 90% at 50% 35%,#34315a,#211f33 70%);border-radius:14px;padding:8px}.lbl{font-size:10px;color:#a79fce;margin-bottom:2px}
+.luma-breathe{animation:luma-breathe 3.4s ease-in-out infinite;transform-origin:50% 90%}
+@keyframes luma-breathe{0%,100%{transform:scale(1,1)}50%{transform:scale(1.04,.97)}}
+.luma-hop{animation:luma-hop .7s ease-in-out infinite;transform-origin:50% 90%}
+@keyframes luma-hop{0%,100%{transform:translateY(0) scale(1,1)}30%{transform:translateY(-18px) scale(.96,1.05)}60%{transform:translateY(0) scale(1.08,.92)}}
+.luma-sway{animation:luma-sway 4s ease-in-out infinite;transform-origin:50% 90%}
+@keyframes luma-sway{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
+.luma-snooze{animation:luma-snooze 4s ease-in-out infinite;transform-origin:50% 90%}
+@keyframes luma-snooze{0%,100%{transform:scale(1,1) translateY(0)}50%{transform:scale(1.05,.95) translateY(3px)}}
+.luma-blink{animation:luma-blink 4.5s infinite;transform-origin:center}
+@keyframes luma-blink{0%,94%,100%{transform:scaleY(1)}97%{transform:scaleY(.1)}}
+@media (prefers-reduced-motion: reduce){
+  .luma-breathe,.luma-hop,.luma-sway,.luma-snooze,.luma-blink{animation:none!important}
+}
+</style><h1>vetorial vs rico (IA) — mesmo personagem</h1><div class="grid"><div class="card"><div class="pair"><div><div class="lbl">vetorial</div><svg width="120" height="120" viewBox="0 0 120 120" role="img" aria-label="Luma, cachorro-corajoso">
+  <defs><radialGradient id="g-luma-idle" cx="42%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="hsl(45 59% 80%)"/><stop offset="100%" stop-color="hsl(45 59% 62%)"/>
+    
+  </radialGradient></defs>
+  <ellipse cx="60" cy="116" rx="26" ry="5" fill="#000" opacity="0.18"/>
+  <g opacity="1">
+  <path d="M34 42 Q30 16 48 30 Z" fill="hsl(45 59% 62%)" stroke="hsl(45 69% 42%)" stroke-width="3" stroke-linejoin="round"/><path d="M86 42 Q90 16 72 30 Z" fill="hsl(45 59% 62%)" stroke="hsl(45 69% 42%)" stroke-width="3" stroke-linejoin="round"/>
+  <ellipse cx="50" cy="115" rx="7.5" ry="6" fill="hsl(45 59% 62%)" stroke="hsl(45 69% 42%)" stroke-width="2.6" stroke-linejoin="round"/><ellipse cx="70" cy="115" rx="7.5" ry="6" fill="hsl(45 59% 62%)" stroke="hsl(45 69% 42%)" stroke-width="2.6" stroke-linejoin="round"/><ellipse cx="33" cy="92" rx="6" ry="11" fill="hsl(45 59% 62%)" stroke="hsl(45 69% 42%)" stroke-width="2.6" stroke-linejoin="round" transform="rotate(14 33 92)"/><ellipse cx="87" cy="92" rx="6" ry="11" fill="hsl(45 59% 62%)" stroke="hsl(45 69% 42%)" stroke-width="2.6" stroke-linejoin="round" transform="rotate(-14 87 92)"/><ellipse cx="60" cy="94" rx="20" ry="22" fill="url(#g-luma-idle)" stroke="hsl(45 69% 42%)" stroke-width="2.6" stroke-linejoin="round"/>
+  <circle cx="60" cy="50" r="34" fill="url(#g-luma-idle)" stroke="hsl(45 69% 42%)" stroke-width="3"/>
+  
+  </g>
+  <circle cx="60" cy="74" r="3.2" fill="hsl(45 69% 42%)"/><path d="M60 77 Q56 82 52 80 M60 77 Q64 82 68 80" stroke="hsl(45 69% 42%)" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+  <circle cx="40" cy="64" r="5" fill="#ff9aa2" opacity="0.5"/>
+  <circle cx="80" cy="64" r="5" fill="#ff9aa2" opacity="0.5"/>
+  <g class="luma-blink"><circle cx="49" cy="58" r="6.5" fill="#3a2d12"/><circle cx="71" cy="58" r="6.5" fill="#3a2d12"/><circle cx="51" cy="56" r="2" fill="#fff"/><circle cx="73" cy="56" r="2" fill="#fff"/></g><path d="M55 68 Q60 73 65 68" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+</svg></div><div><div class="lbl">rico (IA)</div><svg width="120" height="120" viewBox="0 0 120 120" role="img" aria-label="Luma, cachorro-corajoso">
+  <defs><radialGradient id="g-luma-idle" cx="42%" cy="26%" r="78%">
+    <stop offset="0%" stop-color="hsl(45 59% 80%)"/><stop offset="70%" stop-color="hsl(45 59% 62%)"/>
+    <stop offset="100%" stop-color="hsl(45 69% 42%)"/>
+  </radialGradient><radialGradient id="gl-g-luma-idle" cx="36%" cy="24%" r="55%">
+         <stop offset="0%" stop-color="#fff" stop-opacity="0.85"/>
+         <stop offset="35%" stop-color="#fff" stop-opacity="0.25"/>
+         <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
+       </radialGradient>
+       <radialGradient id="ao-g-luma-idle" cx="50%" cy="92%" r="55%">
+         <stop offset="0%" stop-color="#000" stop-opacity="0.35"/>
+         <stop offset="60%" stop-color="#000" stop-opacity="0"/>
+       </radialGradient>
+       <filter id="sh-g-luma-idle" x="-40%" y="-40%" width="180%" height="180%">
+         <feDropShadow dx="0" dy="4" stdDeviation="3" flood-color="#000" flood-opacity="0.40"/>
+       </filter></defs>
+  <ellipse cx="60" cy="116" rx="26" ry="5" fill="#000" opacity="0.18"/>
+  <g opacity="1">
+  <path d="M34 42 Q30 16 48 30 Z" fill="hsl(45 59% 62%)" stroke="hsl(45 69% 42%)" stroke-width="3" stroke-linejoin="round"/><path d="M86 42 Q90 16 72 30 Z" fill="hsl(45 59% 62%)" stroke="hsl(45 69% 42%)" stroke-width="3" stroke-linejoin="round"/>
+  <ellipse cx="50" cy="115" rx="7.5" ry="6" fill="hsl(45 59% 62%)" stroke="hsl(45 69% 42%)" stroke-width="2.6" stroke-linejoin="round"/><ellipse cx="70" cy="115" rx="7.5" ry="6" fill="hsl(45 59% 62%)" stroke="hsl(45 69% 42%)" stroke-width="2.6" stroke-linejoin="round"/><ellipse cx="33" cy="92" rx="6" ry="11" fill="hsl(45 59% 62%)" stroke="hsl(45 69% 42%)" stroke-width="2.6" stroke-linejoin="round" transform="rotate(14 33 92)"/><ellipse cx="87" cy="92" rx="6" ry="11" fill="hsl(45 59% 62%)" stroke="hsl(45 69% 42%)" stroke-width="2.6" stroke-linejoin="round" transform="rotate(-14 87 92)"/><ellipse cx="60" cy="94" rx="20" ry="22" fill="url(#g-luma-idle)" stroke="hsl(45 69% 42%)" stroke-width="2.6" stroke-linejoin="round"/>
+  <circle cx="60" cy="50" r="34" fill="url(#g-luma-idle)" stroke="hsl(45 69% 42%)" stroke-width="5" filter="url(#sh-g-luma-idle)"/>
+  <circle cx="60" cy="50" r="34" fill="url(#ao-g-luma-idle)"/><circle cx="60" cy="50" r="34" fill="url(#gl-g-luma-idle)"/>
+  </g>
+  <circle cx="60" cy="74" r="3.2" fill="hsl(45 69% 42%)"/><path d="M60 77 Q56 82 52 80 M60 77 Q64 82 68 80" stroke="hsl(45 69% 42%)" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+  <circle cx="40" cy="64" r="5" fill="#ff9aa2" opacity="0.5"/>
+  <circle cx="80" cy="64" r="5" fill="#ff9aa2" opacity="0.5"/>
+  <g class="luma-blink"><circle cx="49" cy="58" r="6.5" fill="#3a2d12"/><circle cx="71" cy="58" r="6.5" fill="#3a2d12"/><circle cx="51" cy="56" r="2" fill="#fff"/><circle cx="73" cy="56" r="2" fill="#fff"/></g><path d="M55 68 Q60 73 65 68" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+</svg></div></div><p>Luma · cachorro-corajoso</p></div><div class="card"><div class="pair"><div><div class="lbl">vetorial</div><svg width="120" height="120" viewBox="0 0 120 120" role="img" aria-label="Momo, bot-coração">
+  <defs><radialGradient id="g-momo-idle" cx="42%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="hsl(134 12% 80%)"/><stop offset="100%" stop-color="hsl(134 12% 62%)"/>
+    
+  </radialGradient></defs>
+  <ellipse cx="60" cy="116" rx="26" ry="5" fill="#000" opacity="0.18"/>
+  <g opacity="1">
+  <line x1="60" y1="34" x2="60" y2="20" stroke="hsl(134 22% 42%)" stroke-width="2.5"/><circle cx="60" cy="17" r="4" fill="hsl(134 12% 62%)" stroke="hsl(134 22% 42%)" stroke-width="3" stroke-linejoin="round"/>
+  <ellipse cx="50" cy="115" rx="7.5" ry="6" fill="hsl(134 12% 62%)" stroke="hsl(134 22% 42%)" stroke-width="2.6" stroke-linejoin="round"/><ellipse cx="70" cy="115" rx="7.5" ry="6" fill="hsl(134 12% 62%)" stroke="hsl(134 22% 42%)" stroke-width="2.6" stroke-linejoin="round"/><ellipse cx="33" cy="92" rx="6" ry="11" fill="hsl(134 12% 62%)" stroke="hsl(134 22% 42%)" stroke-width="2.6" stroke-linejoin="round" transform="rotate(14 33 92)"/><ellipse cx="87" cy="92" rx="6" ry="11" fill="hsl(134 12% 62%)" stroke="hsl(134 22% 42%)" stroke-width="2.6" stroke-linejoin="round" transform="rotate(-14 87 92)"/><ellipse cx="60" cy="94" rx="20" ry="22" fill="url(#g-momo-idle)" stroke="hsl(134 22% 42%)" stroke-width="2.6" stroke-linejoin="round"/>
+  <circle cx="60" cy="50" r="34" fill="url(#g-momo-idle)" stroke="hsl(134 22% 42%)" stroke-width="3"/>
+  
+  </g>
+  <circle cx="36" cy="40" r="2.4" fill="hsl(134 22% 42%)"/><circle cx="84" cy="40" r="2.4" fill="hsl(134 22% 42%)"/><circle cx="36" cy="96" r="2.4" fill="hsl(134 22% 42%)"/><circle cx="84" cy="96" r="2.4" fill="hsl(134 22% 42%)"/><rect x="50" y="84" width="20" height="8" rx="2" fill="hsl(134 22% 42%)" opacity=".25"/>
+  <circle cx="40" cy="64" r="5" fill="#ff9aa2" opacity="0.5"/>
+  <circle cx="80" cy="64" r="5" fill="#ff9aa2" opacity="0.5"/>
+  <g class="luma-blink"><circle cx="49" cy="58" r="6.5" fill="#3a2d12"/><circle cx="71" cy="58" r="6.5" fill="#3a2d12"/><circle cx="51" cy="56" r="2" fill="#fff"/><circle cx="73" cy="56" r="2" fill="#fff"/></g><path d="M55 68 Q60 73 65 68" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+</svg></div><div><div class="lbl">rico (IA)</div><svg width="120" height="120" viewBox="0 0 120 120" role="img" aria-label="Momo, bot-coração">
+  <defs><radialGradient id="g-momo-idle" cx="42%" cy="26%" r="78%">
+    <stop offset="0%" stop-color="hsl(134 12% 80%)"/><stop offset="70%" stop-color="hsl(134 12% 62%)"/>
+    <stop offset="100%" stop-color="hsl(134 22% 42%)"/>
+  </radialGradient><radialGradient id="gl-g-momo-idle" cx="36%" cy="24%" r="55%">
+         <stop offset="0%" stop-color="#fff" stop-opacity="0.85"/>
+         <stop offset="35%" stop-color="#fff" stop-opacity="0.25"/>
+         <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
+       </radialGradient>
+       <radialGradient id="ao-g-momo-idle" cx="50%" cy="92%" r="55%">
+         <stop offset="0%" stop-color="#000" stop-opacity="0.35"/>
+         <stop offset="60%" stop-color="#000" stop-opacity="0"/>
+       </radialGradient>
+       <filter id="sh-g-momo-idle" x="-40%" y="-40%" width="180%" height="180%">
+         <feDropShadow dx="0" dy="4" stdDeviation="3" flood-color="#000" flood-opacity="0.40"/>
+       </filter></defs>
+  <ellipse cx="60" cy="116" rx="26" ry="5" fill="#000" opacity="0.18"/>
+  <g opacity="1">
+  <line x1="60" y1="34" x2="60" y2="20" stroke="hsl(134 22% 42%)" stroke-width="2.5"/><circle cx="60" cy="17" r="4" fill="hsl(134 12% 62%)" stroke="hsl(134 22% 42%)" stroke-width="3" stroke-linejoin="round"/>
+  <ellipse cx="50" cy="115" rx="7.5" ry="6" fill="hsl(134 12% 62%)" stroke="hsl(134 22% 42%)" stroke-width="2.6" stroke-linejoin="round"/><ellipse cx="70" cy="115" rx="7.5" ry="6" fill="hsl(134 12% 62%)" stroke="hsl(134 22% 42%)" stroke-width="2.6" stroke-linejoin="round"/><ellipse cx="33" cy="92" rx="6" ry="11" fill="hsl(134 12% 62%)" stroke="hsl(134 22% 42%)" stroke-width="2.6" stroke-linejoin="round" transform="rotate(14 33 92)"/><ellipse cx="87" cy="92" rx="6" ry="11" fill="hsl(134 12% 62%)" stroke="hsl(134 22% 42%)" stroke-width="2.6" stroke-linejoin="round" transform="rotate(-14 87 92)"/><ellipse cx="60" cy="94" rx="20" ry="22" fill="url(#g-momo-idle)" stroke="hsl(134 22% 42%)" stroke-width="2.6" stroke-linejoin="round"/>
+  <circle cx="60" cy="50" r="34" fill="url(#g-momo-idle)" stroke="hsl(134 22% 42%)" stroke-width="5" filter="url(#sh-g-momo-idle)"/>
+  <circle cx="60" cy="50" r="34" fill="url(#ao-g-momo-idle)"/><circle cx="60" cy="50" r="34" fill="url(#gl-g-momo-idle)"/>
+  </g>
+  <circle cx="36" cy="40" r="2.4" fill="hsl(134 22% 42%)"/><circle cx="84" cy="40" r="2.4" fill="hsl(134 22% 42%)"/><circle cx="36" cy="96" r="2.4" fill="hsl(134 22% 42%)"/><circle cx="84" cy="96" r="2.4" fill="hsl(134 22% 42%)"/><rect x="50" y="84" width="20" height="8" rx="2" fill="hsl(134 22% 42%)" opacity=".25"/>
+  <circle cx="40" cy="64" r="5" fill="#ff9aa2" opacity="0.5"/>
+  <circle cx="80" cy="64" r="5" fill="#ff9aa2" opacity="0.5"/>
+  <g class="luma-blink"><circle cx="49" cy="58" r="6.5" fill="#3a2d12"/><circle cx="71" cy="58" r="6.5" fill="#3a2d12"/><circle cx="51" cy="56" r="2" fill="#fff"/><circle cx="73" cy="56" r="2" fill="#fff"/></g><path d="M55 68 Q60 73 65 68" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+</svg></div></div><p>Momo · bot-coração</p></div><div class="card"><div class="pair"><div><div class="lbl">vetorial</div><svg width="120" height="120" viewBox="0 0 120 120" role="img" aria-label="Sprout, samambaia-dança">
+  <defs><radialGradient id="g-sprout-idle" cx="42%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="hsl(79 33% 68%)"/><stop offset="100%" stop-color="hsl(79 33% 50%)"/>
+    
+  </radialGradient></defs>
+  <ellipse cx="60" cy="116" rx="26" ry="5" fill="#000" opacity="0.18"/>
+  <g opacity="1">
+  <path d="M60 36 Q60 14 74 12 Q72 28 60 34 Z" fill="#7cc46a" stroke="hsl(79 43% 30%)" stroke-width="3" stroke-linejoin="round"/><path d="M60 36 Q60 18 48 14 Q50 28 60 34 Z" fill="#8fd676" stroke="hsl(79 43% 30%)" stroke-width="3" stroke-linejoin="round"/>
+  <ellipse cx="50" cy="115" rx="7.5" ry="6" fill="hsl(79 33% 50%)" stroke="hsl(79 43% 30%)" stroke-width="2.6" stroke-linejoin="round"/><ellipse cx="70" cy="115" rx="7.5" ry="6" fill="hsl(79 33% 50%)" stroke="hsl(79 43% 30%)" stroke-width="2.6" stroke-linejoin="round"/><ellipse cx="33" cy="92" rx="6" ry="11" fill="hsl(79 33% 50%)" stroke="hsl(79 43% 30%)" stroke-width="2.6" stroke-linejoin="round" transform="rotate(14 33 92)"/><ellipse cx="87" cy="92" rx="6" ry="11" fill="hsl(79 33% 50%)" stroke="hsl(79 43% 30%)" stroke-width="2.6" stroke-linejoin="round" transform="rotate(-14 87 92)"/><ellipse cx="60" cy="94" rx="20" ry="22" fill="url(#g-sprout-idle)" stroke="hsl(79 43% 30%)" stroke-width="2.6" stroke-linejoin="round"/>
+  <circle cx="60" cy="50" r="34" fill="url(#g-sprout-idle)" stroke="hsl(79 43% 30%)" stroke-width="3"/>
+  
+  </g>
+  
+  <circle cx="40" cy="64" r="5" fill="#ff9aa2" opacity="0.5"/>
+  <circle cx="80" cy="64" r="5" fill="#ff9aa2" opacity="0.5"/>
+  <g class="luma-blink"><circle cx="49" cy="58" r="6.5" fill="#3a2d12"/><circle cx="71" cy="58" r="6.5" fill="#3a2d12"/><circle cx="51" cy="56" r="2" fill="#fff"/><circle cx="73" cy="56" r="2" fill="#fff"/></g><path d="M55 68 Q60 73 65 68" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+</svg></div><div><div class="lbl">rico (IA)</div><svg width="120" height="120" viewBox="0 0 120 120" role="img" aria-label="Sprout, samambaia-dança">
+  <defs><radialGradient id="g-sprout-idle" cx="42%" cy="26%" r="78%">
+    <stop offset="0%" stop-color="hsl(79 33% 68%)"/><stop offset="70%" stop-color="hsl(79 33% 50%)"/>
+    <stop offset="100%" stop-color="hsl(79 43% 30%)"/>
+  </radialGradient><radialGradient id="gl-g-sprout-idle" cx="36%" cy="24%" r="55%">
+         <stop offset="0%" stop-color="#fff" stop-opacity="0.85"/>
+         <stop offset="35%" stop-color="#fff" stop-opacity="0.25"/>
+         <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
+       </radialGradient>
+       <radialGradient id="ao-g-sprout-idle" cx="50%" cy="92%" r="55%">
+         <stop offset="0%" stop-color="#000" stop-opacity="0.35"/>
+         <stop offset="60%" stop-color="#000" stop-opacity="0"/>
+       </radialGradient>
+       <filter id="sh-g-sprout-idle" x="-40%" y="-40%" width="180%" height="180%">
+         <feDropShadow dx="0" dy="4" stdDeviation="3" flood-color="#000" flood-opacity="0.40"/>
+       </filter></defs>
+  <ellipse cx="60" cy="116" rx="26" ry="5" fill="#000" opacity="0.18"/>
+  <g opacity="1">
+  <path d="M60 36 Q60 14 74 12 Q72 28 60 34 Z" fill="#7cc46a" stroke="hsl(79 43% 30%)" stroke-width="3" stroke-linejoin="round"/><path d="M60 36 Q60 18 48 14 Q50 28 60 34 Z" fill="#8fd676" stroke="hsl(79 43% 30%)" stroke-width="3" stroke-linejoin="round"/>
+  <ellipse cx="50" cy="115" rx="7.5" ry="6" fill="hsl(79 33% 50%)" stroke="hsl(79 43% 30%)" stroke-width="2.6" stroke-linejoin="round"/><ellipse cx="70" cy="115" rx="7.5" ry="6" fill="hsl(79 33% 50%)" stroke="hsl(79 43% 30%)" stroke-width="2.6" stroke-linejoin="round"/><ellipse cx="33" cy="92" rx="6" ry="11" fill="hsl(79 33% 50%)" stroke="hsl(79 43% 30%)" stroke-width="2.6" stroke-linejoin="round" transform="rotate(14 33 92)"/><ellipse cx="87" cy="92" rx="6" ry="11" fill="hsl(79 33% 50%)" stroke="hsl(79 43% 30%)" stroke-width="2.6" stroke-linejoin="round" transform="rotate(-14 87 92)"/><ellipse cx="60" cy="94" rx="20" ry="22" fill="url(#g-sprout-idle)" stroke="hsl(79 43% 30%)" stroke-width="2.6" stroke-linejoin="round"/>
+  <circle cx="60" cy="50" r="34" fill="url(#g-sprout-idle)" stroke="hsl(79 43% 30%)" stroke-width="5" filter="url(#sh-g-sprout-idle)"/>
+  <circle cx="60" cy="50" r="34" fill="url(#ao-g-sprout-idle)"/><circle cx="60" cy="50" r="34" fill="url(#gl-g-sprout-idle)"/>
+  </g>
+  
+  <circle cx="40" cy="64" r="5" fill="#ff9aa2" opacity="0.5"/>
+  <circle cx="80" cy="64" r="5" fill="#ff9aa2" opacity="0.5"/>
+  <g class="luma-blink"><circle cx="49" cy="58" r="6.5" fill="#3a2d12"/><circle cx="71" cy="58" r="6.5" fill="#3a2d12"/><circle cx="51" cy="56" r="2" fill="#fff"/><circle cx="73" cy="56" r="2" fill="#fff"/></g><path d="M55 68 Q60 73 65 68" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+</svg></div></div><p>Sprout · samambaia-dança</p></div><div class="card"><div class="pair"><div><div class="lbl">vetorial</div><svg width="120" height="120" viewBox="0 0 120 120" role="img" aria-label="Orbit, serpente-relâmpago">
+  <defs><radialGradient id="g-orbit-idle" cx="42%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="hsl(318 71% 78%)"/><stop offset="100%" stop-color="hsl(318 71% 60%)"/>
+    
+  </radialGradient></defs>
+  <ellipse cx="60" cy="116" rx="26" ry="5" fill="#000" opacity="0.18"/>
+  <g opacity="1">
+  <path d="M34 40 L24 22 L42 34 Z" fill="hsl(318 71% 60%)" stroke="hsl(318 81% 40%)" stroke-width="3" stroke-linejoin="round"/><path d="M86 40 L96 22 L78 34 Z" fill="hsl(318 71% 60%)" stroke="hsl(318 81% 40%)" stroke-width="3" stroke-linejoin="round"/><path d="M30 70 Q4 58 10 86 Q22 78 34 84 Z" fill="hsl(318 71% 60%)" stroke="hsl(318 81% 40%)" stroke-width="3" stroke-linejoin="round"/><path d="M90 70 Q116 58 110 86 Q98 78 86 84 Z" fill="hsl(318 71% 60%)" stroke="hsl(318 81% 40%)" stroke-width="3" stroke-linejoin="round"/><path d="M92 96 Q112 98 110 112 Q100 108 94 102 Z" fill="hsl(318 71% 60%)" stroke="hsl(318 81% 40%)" stroke-width="3" stroke-linejoin="round"/>
+  <ellipse cx="50" cy="115" rx="7.5" ry="6" fill="hsl(318 71% 60%)" stroke="hsl(318 81% 40%)" stroke-width="2.6" stroke-linejoin="round"/><ellipse cx="70" cy="115" rx="7.5" ry="6" fill="hsl(318 71% 60%)" stroke="hsl(318 81% 40%)" stroke-width="2.6" stroke-linejoin="round"/><ellipse cx="33" cy="92" rx="6" ry="11" fill="hsl(318 71% 60%)" stroke="hsl(318 81% 40%)" stroke-width="2.6" stroke-linejoin="round" transform="rotate(14 33 92)"/><ellipse cx="87" cy="92" rx="6" ry="11" fill="hsl(318 71% 60%)" stroke="hsl(318 81% 40%)" stroke-width="2.6" stroke-linejoin="round" transform="rotate(-14 87 92)"/><ellipse cx="60" cy="94" rx="20" ry="22" fill="url(#g-orbit-idle)" stroke="hsl(318 81% 40%)" stroke-width="2.6" stroke-linejoin="round"/>
+  <circle cx="60" cy="50" r="34" fill="url(#g-orbit-idle)" stroke="hsl(318 81% 40%)" stroke-width="3"/>
+  
+  </g>
+  <path d="M44 96 Q60 108 76 96 Q60 104 44 96 Z" fill="hsl(318 71% 78%)" opacity=".85"/><path d="M52 96 L56 100 L60 96 L64 100 L68 96" stroke="hsl(318 81% 40%)" stroke-width="1.6" fill="none"/>
+  <circle cx="40" cy="64" r="5" fill="#ff9aa2" opacity="0.5"/>
+  <circle cx="80" cy="64" r="5" fill="#ff9aa2" opacity="0.5"/>
+  <g class="luma-blink"><circle cx="49" cy="58" r="6.5" fill="#3a2d12"/><circle cx="71" cy="58" r="6.5" fill="#3a2d12"/><circle cx="51" cy="56" r="2" fill="#fff"/><circle cx="73" cy="56" r="2" fill="#fff"/></g><path d="M55 68 Q60 73 65 68" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+</svg></div><div><div class="lbl">rico (IA)</div><svg width="120" height="120" viewBox="0 0 120 120" role="img" aria-label="Orbit, serpente-relâmpago">
+  <defs><radialGradient id="g-orbit-idle" cx="42%" cy="26%" r="78%">
+    <stop offset="0%" stop-color="hsl(318 71% 78%)"/><stop offset="70%" stop-color="hsl(318 71% 60%)"/>
+    <stop offset="100%" stop-color="hsl(318 81% 40%)"/>
+  </radialGradient><radialGradient id="gl-g-orbit-idle" cx="36%" cy="24%" r="55%">
+         <stop offset="0%" stop-color="#fff" stop-opacity="0.85"/>
+         <stop offset="35%" stop-color="#fff" stop-opacity="0.25"/>
+         <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
+       </radialGradient>
+       <radialGradient id="ao-g-orbit-idle" cx="50%" cy="92%" r="55%">
+         <stop offset="0%" stop-color="#000" stop-opacity="0.35"/>
+         <stop offset="60%" stop-color="#000" stop-opacity="0"/>
+       </radialGradient>
+       <filter id="sh-g-orbit-idle" x="-40%" y="-40%" width="180%" height="180%">
+         <feDropShadow dx="0" dy="4" stdDeviation="3" flood-color="#000" flood-opacity="0.40"/>
+       </filter></defs>
+  <ellipse cx="60" cy="116" rx="26" ry="5" fill="#000" opacity="0.18"/>
+  <g opacity="1">
+  <path d="M34 40 L24 22 L42 34 Z" fill="hsl(318 71% 60%)" stroke="hsl(318 81% 40%)" stroke-width="3" stroke-linejoin="round"/><path d="M86 40 L96 22 L78 34 Z" fill="hsl(318 71% 60%)" stroke="hsl(318 81% 40%)" stroke-width="3" stroke-linejoin="round"/><path d="M30 70 Q4 58 10 86 Q22 78 34 84 Z" fill="hsl(318 71% 60%)" stroke="hsl(318 81% 40%)" stroke-width="3" stroke-linejoin="round"/><path d="M90 70 Q116 58 110 86 Q98 78 86 84 Z" fill="hsl(318 71% 60%)" stroke="hsl(318 81% 40%)" stroke-width="3" stroke-linejoin="round"/><path d="M92 96 Q112 98 110 112 Q100 108 94 102 Z" fill="hsl(318 71% 60%)" stroke="hsl(318 81% 40%)" stroke-width="3" stroke-linejoin="round"/>
+  <ellipse cx="50" cy="115" rx="7.5" ry="6" fill="hsl(318 71% 60%)" stroke="hsl(318 81% 40%)" stroke-width="2.6" stroke-linejoin="round"/><ellipse cx="70" cy="115" rx="7.5" ry="6" fill="hsl(318 71% 60%)" stroke="hsl(318 81% 40%)" stroke-width="2.6" stroke-linejoin="round"/><ellipse cx="33" cy="92" rx="6" ry="11" fill="hsl(318 71% 60%)" stroke="hsl(318 81% 40%)" stroke-width="2.6" stroke-linejoin="round" transform="rotate(14 33 92)"/><ellipse cx="87" cy="92" rx="6" ry="11" fill="hsl(318 71% 60%)" stroke="hsl(318 81% 40%)" stroke-width="2.6" stroke-linejoin="round" transform="rotate(-14 87 92)"/><ellipse cx="60" cy="94" rx="20" ry="22" fill="url(#g-orbit-idle)" stroke="hsl(318 81% 40%)" stroke-width="2.6" stroke-linejoin="round"/>
+  <circle cx="60" cy="50" r="34" fill="url(#g-orbit-idle)" stroke="hsl(318 81% 40%)" stroke-width="5" filter="url(#sh-g-orbit-idle)"/>
+  <circle cx="60" cy="50" r="34" fill="url(#ao-g-orbit-idle)"/><circle cx="60" cy="50" r="34" fill="url(#gl-g-orbit-idle)"/>
+  </g>
+  <path d="M44 96 Q60 108 76 96 Q60 104 44 96 Z" fill="hsl(318 71% 78%)" opacity=".85"/><path d="M52 96 L56 100 L60 96 L64 100 L68 96" stroke="hsl(318 81% 40%)" stroke-width="1.6" fill="none"/>
+  <circle cx="40" cy="64" r="5" fill="#ff9aa2" opacity="0.5"/>
+  <circle cx="80" cy="64" r="5" fill="#ff9aa2" opacity="0.5"/>
+  <g class="luma-blink"><circle cx="49" cy="58" r="6.5" fill="#3a2d12"/><circle cx="71" cy="58" r="6.5" fill="#3a2d12"/><circle cx="51" cy="56" r="2" fill="#fff"/><circle cx="73" cy="56" r="2" fill="#fff"/></g><path d="M55 68 Q60 73 65 68" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+</svg></div></div><p>Orbit · serpente-relâmpago</p></div><div class="card"><div class="pair"><div><div class="lbl">vetorial</div><svg width="120" height="120" viewBox="0 0 120 120" role="img" aria-label="Pip, ogro-mini">
+  <defs><radialGradient id="g-pip-idle" cx="42%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="hsl(124 65% 76%)"/><stop offset="100%" stop-color="hsl(124 65% 58%)"/>
+    
+  </radialGradient></defs>
+  <ellipse cx="60" cy="116" rx="26" ry="5" fill="#000" opacity="0.18"/>
+  <g opacity="1">
+  <path d="M36 38 L30 20 L48 32 Z" fill="hsl(124 65% 58%)" stroke="hsl(124 75% 38%)" stroke-width="3" stroke-linejoin="round"/><path d="M84 38 L90 20 L72 32 Z" fill="hsl(124 65% 58%)" stroke="hsl(124 75% 38%)" stroke-width="3" stroke-linejoin="round"/>
+  <ellipse cx="50" cy="115" rx="7.5" ry="6" fill="hsl(124 65% 58%)" stroke="hsl(124 75% 38%)" stroke-width="2.6" stroke-linejoin="round"/><ellipse cx="70" cy="115" rx="7.5" ry="6" fill="hsl(124 65% 58%)" stroke="hsl(124 75% 38%)" stroke-width="2.6" stroke-linejoin="round"/><ellipse cx="33" cy="92" rx="6" ry="11" fill="hsl(124 65% 58%)" stroke="hsl(124 75% 38%)" stroke-width="2.6" stroke-linejoin="round" transform="rotate(14 33 92)"/><ellipse cx="87" cy="92" rx="6" ry="11" fill="hsl(124 65% 58%)" stroke="hsl(124 75% 38%)" stroke-width="2.6" stroke-linejoin="round" transform="rotate(-14 87 92)"/><ellipse cx="60" cy="94" rx="20" ry="22" fill="url(#g-pip-idle)" stroke="hsl(124 75% 38%)" stroke-width="2.6" stroke-linejoin="round"/>
+  <circle cx="60" cy="50" r="34" fill="url(#g-pip-idle)" stroke="hsl(124 75% 38%)" stroke-width="3"/>
+  
+  </g>
+  <path d="M48 92 L52 98 L56 92 L60 98 L64 92 L68 98 L72 92" stroke="#fff" stroke-width="2.2" fill="none"/>
+  <circle cx="40" cy="64" r="5" fill="#ff9aa2" opacity="0.5"/>
+  <circle cx="80" cy="64" r="5" fill="#ff9aa2" opacity="0.5"/>
+  <g class="luma-blink"><circle cx="49" cy="58" r="6.5" fill="#3a2d12"/><circle cx="71" cy="58" r="6.5" fill="#3a2d12"/><circle cx="51" cy="56" r="2" fill="#fff"/><circle cx="73" cy="56" r="2" fill="#fff"/></g><path d="M55 68 Q60 73 65 68" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+</svg></div><div><div class="lbl">rico (IA)</div><svg width="120" height="120" viewBox="0 0 120 120" role="img" aria-label="Pip, ogro-mini">
+  <defs><radialGradient id="g-pip-idle" cx="42%" cy="26%" r="78%">
+    <stop offset="0%" stop-color="hsl(124 65% 76%)"/><stop offset="70%" stop-color="hsl(124 65% 58%)"/>
+    <stop offset="100%" stop-color="hsl(124 75% 38%)"/>
+  </radialGradient><radialGradient id="gl-g-pip-idle" cx="36%" cy="24%" r="55%">
+         <stop offset="0%" stop-color="#fff" stop-opacity="0.85"/>
+         <stop offset="35%" stop-color="#fff" stop-opacity="0.25"/>
+         <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
+       </radialGradient>
+       <radialGradient id="ao-g-pip-idle" cx="50%" cy="92%" r="55%">
+         <stop offset="0%" stop-color="#000" stop-opacity="0.35"/>
+         <stop offset="60%" stop-color="#000" stop-opacity="0"/>
+       </radialGradient>
+       <filter id="sh-g-pip-idle" x="-40%" y="-40%" width="180%" height="180%">
+         <feDropShadow dx="0" dy="4" stdDeviation="3" flood-color="#000" flood-opacity="0.40"/>
+       </filter></defs>
+  <ellipse cx="60" cy="116" rx="26" ry="5" fill="#000" opacity="0.18"/>
+  <g opacity="1">
+  <path d="M36 38 L30 20 L48 32 Z" fill="hsl(124 65% 58%)" stroke="hsl(124 75% 38%)" stroke-width="3" stroke-linejoin="round"/><path d="M84 38 L90 20 L72 32 Z" fill="hsl(124 65% 58%)" stroke="hsl(124 75% 38%)" stroke-width="3" stroke-linejoin="round"/>
+  <ellipse cx="50" cy="115" rx="7.5" ry="6" fill="hsl(124 65% 58%)" stroke="hsl(124 75% 38%)" stroke-width="2.6" stroke-linejoin="round"/><ellipse cx="70" cy="115" rx="7.5" ry="6" fill="hsl(124 65% 58%)" stroke="hsl(124 75% 38%)" stroke-width="2.6" stroke-linejoin="round"/><ellipse cx="33" cy="92" rx="6" ry="11" fill="hsl(124 65% 58%)" stroke="hsl(124 75% 38%)" stroke-width="2.6" stroke-linejoin="round" transform="rotate(14 33 92)"/><ellipse cx="87" cy="92" rx="6" ry="11" fill="hsl(124 65% 58%)" stroke="hsl(124 75% 38%)" stroke-width="2.6" stroke-linejoin="round" transform="rotate(-14 87 92)"/><ellipse cx="60" cy="94" rx="20" ry="22" fill="url(#g-pip-idle)" stroke="hsl(124 75% 38%)" stroke-width="2.6" stroke-linejoin="round"/>
+  <circle cx="60" cy="50" r="34" fill="url(#g-pip-idle)" stroke="hsl(124 75% 38%)" stroke-width="5" filter="url(#sh-g-pip-idle)"/>
+  <circle cx="60" cy="50" r="34" fill="url(#ao-g-pip-idle)"/><circle cx="60" cy="50" r="34" fill="url(#gl-g-pip-idle)"/>
+  </g>
+  <path d="M48 92 L52 98 L56 92 L60 98 L64 92 L68 98 L72 92" stroke="#fff" stroke-width="2.2" fill="none"/>
+  <circle cx="40" cy="64" r="5" fill="#ff9aa2" opacity="0.5"/>
+  <circle cx="80" cy="64" r="5" fill="#ff9aa2" opacity="0.5"/>
+  <g class="luma-blink"><circle cx="49" cy="58" r="6.5" fill="#3a2d12"/><circle cx="71" cy="58" r="6.5" fill="#3a2d12"/><circle cx="51" cy="56" r="2" fill="#fff"/><circle cx="73" cy="56" r="2" fill="#fff"/></g><path d="M55 68 Q60 73 65 68" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+</svg></div></div><p>Pip · ogro-mini</p></div><div class="card"><div class="pair"><div><div class="lbl">vetorial</div><svg width="120" height="120" viewBox="0 0 120 120" role="img" aria-label="Koko, constelação-mini">
+  <defs><radialGradient id="g-koko-idle" cx="42%" cy="40%" r="65%">
+    <stop offset="0%" stop-color="hsl(43.5 89% 76%)"/><stop offset="100%" stop-color="hsl(43.5 89% 58%)"/>
+    
+  </radialGradient></defs>
+  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="0.18"/>
+  
+  <path d="M60 14 L74 46 L108 50 L82 73 L90 107 L60 88 L30 107 L38 73 L12 50 L46 46 Z" fill="url(#g-koko-idle)" stroke="hsl(43.5 99% 38%)" stroke-width="3" stroke-linejoin="round" opacity="1"/>
+  
+  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="0.55"/>
+  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="0.55"/>
+  
+  <g class="luma-blink"><circle cx="49" cy="58" r="6.5" fill="#3a2d12"/><circle cx="71" cy="58" r="6.5" fill="#3a2d12"/><circle cx="51" cy="56" r="2" fill="#fff"/><circle cx="73" cy="56" r="2" fill="#fff"/></g><path d="M55 68 Q60 73 65 68" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+</svg></div><div><div class="lbl">rico (IA)</div><svg width="120" height="120" viewBox="0 0 120 120" role="img" aria-label="Koko, constelação-mini">
+  <defs><radialGradient id="g-koko-idle" cx="42%" cy="26%" r="78%">
+    <stop offset="0%" stop-color="hsl(43.5 89% 76%)"/><stop offset="70%" stop-color="hsl(43.5 89% 58%)"/>
+    <stop offset="100%" stop-color="hsl(43.5 99% 38%)"/>
+  </radialGradient><radialGradient id="gl-g-koko-idle" cx="36%" cy="24%" r="55%">
+         <stop offset="0%" stop-color="#fff" stop-opacity="0.85"/>
+         <stop offset="35%" stop-color="#fff" stop-opacity="0.25"/>
+         <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
+       </radialGradient>
+       <radialGradient id="ao-g-koko-idle" cx="50%" cy="92%" r="55%">
+         <stop offset="0%" stop-color="#000" stop-opacity="0.35"/>
+         <stop offset="60%" stop-color="#000" stop-opacity="0"/>
+       </radialGradient>
+       <filter id="sh-g-koko-idle" x="-40%" y="-40%" width="180%" height="180%">
+         <feDropShadow dx="0" dy="4" stdDeviation="3" flood-color="#000" flood-opacity="0.40"/>
+       </filter></defs>
+  <ellipse cx="60" cy="113" rx="30" ry="6" fill="#000" opacity="0.28"/>
+  
+  <path d="M60 14 L74 46 L108 50 L82 73 L90 107 L60 88 L30 107 L38 73 L12 50 L46 46 Z" fill="url(#g-koko-idle)" stroke="hsl(43.5 99% 38%)" stroke-width="5" stroke-linejoin="round" opacity="1" filter="url(#sh-g-koko-idle)"/>
+  <path d="M60 14 L74 46 L108 50 L82 73 L90 107 L60 88 L30 107 L38 73 L12 50 L46 46 Z" fill="url(#ao-g-koko-idle)"/><path d="M60 14 L74 46 L108 50 L82 73 L90 107 L60 88 L30 107 L38 73 L12 50 L46 46 Z" fill="url(#gl-g-koko-idle)"/>
+  <circle cx="42" cy="68" r="6" fill="#ff9aa2" opacity="0.7"/>
+  <circle cx="78" cy="68" r="6" fill="#ff9aa2" opacity="0.7"/>
+  
+  <g class="luma-blink"><circle cx="49" cy="58" r="6.5" fill="#3a2d12"/><circle cx="71" cy="58" r="6.5" fill="#3a2d12"/><circle cx="51" cy="56" r="2" fill="#fff"/><circle cx="73" cy="56" r="2" fill="#fff"/></g><path d="M55 68 Q60 73 65 68" stroke="#3a2d12" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+</svg></div></div><p>Koko · constelação-mini</p></div></div>

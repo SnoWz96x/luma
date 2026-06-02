@@ -273,6 +273,8 @@ export interface RenderOptions {
   stage?: LifeStage;
   /** ramo de evolução — adiciona um detalhe ao adulto (criativo, aventureiro...) */
   branch?: EvolutionBranch;
+  /** estilo "rico": sombreamento, brilho/gloss e profundidade extras (mesma arte SVG) */
+  rich?: boolean;
 }
 
 /** SVG do OVO (estágio inicial). Casca com manchinhas, sem rosto ainda. */
@@ -388,19 +390,49 @@ export function renderPetSVG(def: CharacterDef, opts: RenderOptions = {}): strin
   const decor = showBranch ? branchDecor(opts.branch, light) : "";
 
   const head = `<g opacity="${op}">`;
+  const rich = opts.rich === true;
+  // Estilo "rico" = visual de ADESIVO/sticker: contorno grosso branco-escuro,
+  // gradiente profundo, gloss forte no topo, sombra inferior dentro do corpo e
+  // sombra projetada no chão. Bem distinto do vetorial chapado.
+  const richDefs = rich
+    ? `<radialGradient id="gl-${gid}" cx="36%" cy="24%" r="55%">
+         <stop offset="0%" stop-color="#fff" stop-opacity="0.85"/>
+         <stop offset="35%" stop-color="#fff" stop-opacity="0.25"/>
+         <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
+       </radialGradient>
+       <radialGradient id="ao-${gid}" cx="50%" cy="92%" r="55%">
+         <stop offset="0%" stop-color="#000" stop-opacity="0.35"/>
+         <stop offset="60%" stop-color="#000" stop-opacity="0"/>
+       </radialGradient>
+       <filter id="sh-${gid}" x="-40%" y="-40%" width="180%" height="180%">
+         <feDropShadow dx="0" dy="4" stdDeviation="3" flood-color="#000" flood-opacity="0.40"/>
+       </filter>`
+    : "";
+  // contorno bem mais grosso no modo rico (cara de sticker)
+  const sw = rich ? 5 : 3;
   const svgOpen = `<svg width="${size}" height="${size}" viewBox="0 0 120 120" role="img" aria-label="${def.name}, ${def.species}">
-  <defs><radialGradient id="${gid}" cx="50%" cy="40%" r="65%">
-    <stop offset="0%" stop-color="${c0}"/><stop offset="100%" stop-color="${c1}"/>
-  </radialGradient></defs>`;
+  <defs><radialGradient id="${gid}" cx="42%" cy="${rich ? 26 : 40}%" r="${rich ? 78 : 65}%">
+    <stop offset="0%" stop-color="${c0}"/><stop offset="${rich ? 70 : 100}%" stop-color="${c1}"/>
+    ${rich ? `<stop offset="100%" stop-color="${stroke}"/>` : ""}
+  </radialGradient>${richDefs}</defs>`;
+
+  // gloss (brilho de luz por cima do corpo) só no modo rico
+  const bodyFilter = rich ? ` filter="url(#sh-${gid})"` : "";
 
   // BLOB: forma única (sem membros) — como os amorfos.
   if (BLOB_CATEGORIES.has(def.category)) {
+    const blobPath = bodyPath(def.category);
+    const gloss = rich
+      ? `<path d="${blobPath}" fill="url(#gl-${gid})"/>`
+      : "";
+    const ao = rich ? `<path d="${blobPath}" fill="url(#ao-${gid})"/>` : "";
     return `${svgOpen}
-  <ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity="${0.18 * light}"/>
+  <ellipse cx="60" cy="${rich ? 113 : 112}" rx="${rich ? 30 : 28}" ry="${rich ? 6 : 5}" fill="#000" opacity="${(rich ? 0.28 : 0.18) * light}"/>
   ${features.behind}
-  <path d="${bodyPath(def.category)}" fill="url(#${gid})" stroke="${stroke}" stroke-width="3" stroke-linejoin="round" opacity="${op}"/>
-  <circle cx="42" cy="68" r="5" fill="#ff9aa2" opacity="${0.55 * light}"/>
-  <circle cx="78" cy="68" r="5" fill="#ff9aa2" opacity="${0.55 * light}"/>
+  <path d="${blobPath}" fill="url(#${gid})" stroke="${stroke}" stroke-width="${sw}" stroke-linejoin="round" opacity="${op}"${bodyFilter}/>
+  ${ao}${gloss}
+  <circle cx="42" cy="68" r="${rich ? 6 : 5}" fill="#ff9aa2" opacity="${(rich ? 0.7 : 0.55) * light}"/>
+  <circle cx="78" cy="68" r="${rich ? 6 : 5}" fill="#ff9aa2" opacity="${(rich ? 0.7 : 0.55) * light}"/>
   ${features.front}
   ${eyes}${face.mouth}${face.extra}${decor}
 </svg>`;
@@ -411,8 +443,13 @@ export function renderPetSVG(def: CharacterDef, opts: RenderOptions = {}): strin
   // antenas) já ficam na região da cabeça; barriga/dentes/manchas no tronco.
   const headShape =
     def.category === "alien"
-      ? `<ellipse cx="60" cy="50" rx="36" ry="33" fill="url(#${gid})" stroke="${stroke}" stroke-width="3"/>`
-      : `<circle cx="60" cy="50" r="34" fill="url(#${gid})" stroke="${stroke}" stroke-width="3"/>`;
+      ? `<ellipse cx="60" cy="50" rx="36" ry="33" fill="url(#${gid})" stroke="${stroke}" stroke-width="${sw}"${bodyFilter}/>`
+      : `<circle cx="60" cy="50" r="34" fill="url(#${gid})" stroke="${stroke}" stroke-width="${sw}"${bodyFilter}/>`;
+  const headGloss = rich
+    ? def.category === "alien"
+      ? `<ellipse cx="60" cy="50" rx="36" ry="33" fill="url(#ao-${gid})"/><ellipse cx="60" cy="50" rx="36" ry="33" fill="url(#gl-${gid})"/>`
+      : `<circle cx="60" cy="50" r="34" fill="url(#ao-${gid})"/><circle cx="60" cy="50" r="34" fill="url(#gl-${gid})"/>`
+    : "";
 
   return `${svgOpen}
   <ellipse cx="60" cy="116" rx="26" ry="5" fill="#000" opacity="${0.18 * light}"/>
@@ -420,6 +457,7 @@ export function renderPetSVG(def: CharacterDef, opts: RenderOptions = {}): strin
   ${features.behind}
   ${chibiBody(c1, stroke, gid)}
   ${headShape}
+  ${headGloss}
   </g>
   ${features.front}
   <circle cx="40" cy="64" r="5" fill="#ff9aa2" opacity="${0.5 * light}"/>
@@ -434,6 +472,7 @@ export interface FromSignalsOptions {
   skinColors?: [string, string];
   stage?: LifeStage;
   branch?: EvolutionBranch;
+  rich?: boolean;
 }
 
 export function renderFromSignals(
@@ -449,5 +488,6 @@ export function renderFromSignals(
     ...(o.skinColors !== undefined ? { skinColors: o.skinColors } : {}),
     ...(o.stage !== undefined ? { stage: o.stage } : {}),
     ...(o.branch !== undefined ? { branch: o.branch } : {}),
+    ...(o.rich !== undefined ? { rich: o.rich } : {}),
   });
 }
