@@ -7,9 +7,12 @@ title LUMA - site (nao feche enquanto navegar)
 cd /d "%~dp0apps\web"
 
 echo.
-echo   Iniciando o site do LUMA em http://localhost:3000 ...
+echo   Limpando cache e iniciando o site do LUMA em http://localhost:3000 ...
 echo   Quando aparecer "Ready", abra esse endereco no navegador.
 echo.
+
+REM limpa o cache .next para evitar erro de chunk corrompido
+if exist ".next" rmdir /s /q ".next"
 
 call pnpm dev
 

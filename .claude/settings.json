@@ -86,7 +86,9 @@
       "Bash(ls -la capabilities/)",
       "Bash(cat capabilities/*.json)",
       "Bash(ls ../../../node_modules/@tauri-apps/api)",
-      "Bash(cmd.exe /c start \"LUMA\" /b cmd /c \"set \\\\\"PATH=%USERPROFILE%\\\\.cargo\\\\bin;%PATH%\\\\\" && pnpm tauri dev > \\\\\"%TEMP%\\\\luma_live.log\\\\\" 2>&1\")"
+      "Bash(cmd.exe /c start \"LUMA\" /b cmd /c \"set \\\\\"PATH=%USERPROFILE%\\\\.cargo\\\\bin;%PATH%\\\\\" && pnpm tauri dev > \\\\\"%TEMP%\\\\luma_live.log\\\\\" 2>&1\")",
+      "Bash(curl -s http://localhost:3000/)",
+      "Bash(echo \"exit_tc=$?\")"
     ]
   }
 }
