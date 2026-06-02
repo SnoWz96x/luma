@@ -21,6 +21,9 @@ export function SiteNav() {
         <Link href="/apoio" className="hidden hover:text-luma-ink sm:inline">
           Apoio
         </Link>
+        <Link href="/download" className="hidden hover:text-luma-ink sm:inline">
+          Baixar
+        </Link>
         <a
           href={REPO}
           className="rounded-full bg-gradient-to-r from-luma-accent to-luma-accent2 px-4 py-2 font-bold text-luma-bg0 transition hover:brightness-110"

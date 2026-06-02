@@ -4,7 +4,8 @@
 
 export type Category =
   | "star" | "animal" | "dragon" | "alien" | "robot" | "monster"
-  | "plant" | "mushroom" | "slime" | "cloud" | "ghost" | "magical";
+  | "plant" | "mushroom" | "slime" | "cloud" | "ghost" | "magical"
+  | "pixel-mascot" | "minimal-mascot";
 
 function hash(s: string): number {
   let h = 2166136261;
@@ -28,6 +29,8 @@ const HSL: Record<Category, { h: number; s: number; l: number; range: number }> 
   cloud: { h: 222, s: 55, l: 85, range: 30 },
   ghost: { h: 260, s: 50, l: 86, range: 40 },
   magical: { h: 285, s: 65, l: 75, range: 60 },
+  "pixel-mascot": { h: 45, s: 90, l: 65, range: 200 },
+  "minimal-mascot": { h: 222, s: 10, l: 84, range: 200 },
 };
 
 function colors(cat: Category, seed: string): [string, string, string] {

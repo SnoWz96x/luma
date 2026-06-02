@@ -72,7 +72,14 @@
       "PowerShell(Start-Process \"http://localhost:3000/\")",
       "PowerShell(\"Site LUMA aberto no navegador\")",
       "Bash(xargs echo \"artefatos rastreados \\(deve ser 0\\):\")",
-      "Bash(curl -s http://localhost:3000/personagens)"
+      "Bash(curl -s http://localhost:3000/personagens)",
+      "PowerShell(Start-Process \"http://localhost:3000/como-funciona\")",
+      "PowerShell(Start-Process \"http://localhost:3000/faq\")",
+      "PowerShell(\"abri /como-funciona e /faq\")",
+      "Bash(ls -la packages/characters/data/characters.json)",
+      "Bash(node -e \"const c=require\\('./packages/characters/data/characters.json'\\); console.log\\('total:',c.length,'| campos:',Object.keys\\(c[0]\\).join\\(','\\)\\)\")",
+      "Bash(node -e \"const c=require\\('./packages/characters/data/characters.json'\\); const cats=[...new Set\\(c.map\\(x=>x.category\\)\\)]; console.log\\('categorias:',cats.join\\(', '\\)\\);\")",
+      "Bash(mkdir -p apps/web/data)"
     ]
   }
 }
