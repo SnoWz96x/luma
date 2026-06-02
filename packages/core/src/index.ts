@@ -25,3 +25,4 @@ export * from "./motivator/motivator.js";
 export * from "./events/events.js";
 export * from "./narrative/narrative.js";
 export * from "./plugin/plugin.js";
+export * from "./sync/sync.js";

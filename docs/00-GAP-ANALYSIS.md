@@ -8,9 +8,11 @@
 |---------------|--------|--------|
 | Desktop Pet (Tauri) | ✅ | — |
 | Engines puras reutilizáveis | ✅ | — |
-| Website sincronizado | ❌ | `apps/web` (Next.js) não existe |
-| Backend API + Sync | ❌ | `apps/api` não existe |
-| Plugin Engine | ❌ | nenhum sistema de plugins ainda |
+| Website (landing) | ✅ | `apps/web` (Next.js, 6 páginas) |
+| Sync Engine (lógica) | ✅ | `core/sync` (LWW + outbox), testado |
+| Backend API + transporte sync | 🟡 | falta `apps/api` (PostgreSQL + HTTP) — ver [16-SYNC-ENGINE](16-SYNC-ENGINE.md) |
+| Website sincronizado (espelho real) | ❌ | depende do `apps/api` |
+| Plugin Engine | ✅ | `core/plugin` (manifestos + sprites) |
 
 ## IA
 | Capacidade V3 | Estado | Lacuna |
