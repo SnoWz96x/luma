@@ -5,6 +5,8 @@ import { stageLabel, describeModels, pickBestModel } from "@luma/core";
 import { useSupportStore } from "../stores/supportStore";
 import { useProgressStore } from "../stores/progressStore";
 import { useAiStore } from "../stores/aiStore";
+import { useSyncStore } from "../stores/syncStore";
+import type { SyncMode } from "@luma/shared";
 import { downloadBackup, importBackup, eraseAllData } from "../lib/dataPrivacy";
 
 const COUNTRIES = [
@@ -89,6 +91,9 @@ export function SettingsPanel() {
 
       {/* IA */}
       <AiSection />
+
+      {/* Sincronização */}
+      <SyncSection />
 
       {/* privacidade */}
       <section>
@@ -300,6 +305,83 @@ function AiSection() {
         <p className="mt-1.5 px-1 text-[11px] text-luma-muted">
           Respostas acolhedoras pré-definidas. Sem servidor, funciona sempre.
         </p>
+      )}
+    </section>
+  );
+}
+
+const SYNC_MODES: { id: SyncMode; label: string; desc: string }[] = [
+  { id: "local", label: "🔒 Local", desc: "100% offline. Nada sai do seu PC (padrão)." },
+  { id: "hybrid", label: "🔁 Híbrido", desc: "Local é a verdade; nuvem é backup." },
+  { id: "cloud", label: "☁️ Nuvem", desc: "Espelha tudo no servidor de sync." },
+];
+
+const SYNC_STATUS: Record<string, string> = {
+  idle: "text-luma-muted",
+  syncing: "text-amber-200",
+  ok: "text-emerald-300",
+  offline: "text-orange-200",
+  error: "text-red-300",
+};
+
+function SyncSection() {
+  const { mode, baseUrl, status, message, lastSyncAt, setMode, setBaseUrl, syncNow } =
+    useSyncStore();
+
+  return (
+    <section>
+      <h3 className="mb-1.5 px-1 text-xs font-semibold text-luma-ink">
+        Sincronização (opcional)
+      </h3>
+
+      <div className="flex flex-col gap-1.5">
+        {SYNC_MODES.map((m) => (
+          <label
+            key={m.id}
+            className="flex cursor-pointer items-start gap-2 rounded-xl border border-white/10 bg-white/[0.04] p-2.5 text-[12px]"
+          >
+            <input
+              type="radio"
+              name="syncmode"
+              checked={mode === m.id}
+              onChange={() => setMode(m.id)}
+              className="mt-0.5 accent-pink-400"
+            />
+            <span>
+              <b className="text-luma-ink">{m.label}</b>
+              <span className="block text-[11px] text-luma-muted">{m.desc}</span>
+            </span>
+          </label>
+        ))}
+      </div>
+
+      {mode !== "local" && (
+        <div className="mt-2 flex flex-col gap-2 rounded-xl border border-white/10 bg-white/[0.04] p-3">
+          <label className="text-[10px] text-luma-muted">Servidor de sync</label>
+          <input
+            value={baseUrl}
+            onChange={(e) => setBaseUrl(e.target.value)}
+            placeholder="http://localhost:4000"
+            className="rounded-lg bg-white/[0.06] px-2.5 py-1.5 text-sm text-luma-ink outline-none"
+          />
+          <div className="flex items-center justify-between">
+            <span className={`text-[11px] ${SYNC_STATUS[status] ?? "text-luma-muted"}`}>
+              {message || (lastSyncAt ? `Última: ${new Date(lastSyncAt).toLocaleString("pt-BR")}` : "—")}
+            </span>
+            <button
+              type="button"
+              onClick={() => void syncNow()}
+              disabled={status === "syncing"}
+              className="rounded-lg bg-gradient-to-r from-luma-accent to-luma-accent2 px-3 py-1 text-[11px] font-bold text-luma-bg0 transition hover:brightness-110 disabled:opacity-50"
+            >
+              Sincronizar agora
+            </button>
+          </div>
+          <p className="text-[10px] text-luma-muted/70">
+            Rode o servidor com <code>LUMA-api.bat</code>. Conversas e diário só
+            sincronizam se você escolher — nunca por padrão.
+          </p>
+        </div>
       )}
     </section>
   );
