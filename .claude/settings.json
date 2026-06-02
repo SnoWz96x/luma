@@ -98,7 +98,12 @@
       "Bash(curl -s \"http://localhost:4000/sync/pull?entity=memories&since=2\")",
       "Bash(node -e \"const d=JSON.parse\\(require\\('fs'\\).readFileSync\\(0\\)\\);console.log\\('cursor:',d.cursor\\);d.records.forEach\\(r=>console.log\\('-',r.id,'| v'+r.syncVersion,'| deleted:',!!r.deletedAt,'|',r.content\\)\\)\")",
       "PowerShell(Invoke-Item \"c:\\\\Users\\\\allan\\\\OneDrive\\\\Área de Trabalho\\\\Programação\\\\SISTEMAS\\\\tamago\\\\docs\\\\art\\\\style-compare.html\"; \"comparacao vetorial vs rico aberta\")",
-      "PowerShell(Invoke-Item \"c:\\\\Users\\\\allan\\\\OneDrive\\\\Área de Trabalho\\\\Programação\\\\SISTEMAS\\\\tamago\\\\docs\\\\art\\\\style-compare.html\"; \"comparacao atualizada \\(rico mais forte\\) aberta\")"
+      "PowerShell(Invoke-Item \"c:\\\\Users\\\\allan\\\\OneDrive\\\\Área de Trabalho\\\\Programação\\\\SISTEMAS\\\\tamago\\\\docs\\\\art\\\\style-compare.html\"; \"comparacao atualizada \\(rico mais forte\\) aberta\")",
+      "Bash(xargs echo \"typechecks rodados:\")",
+      "Bash(xargs echo \"erros de tipo:\")",
+      "Bash(echo \"desktop=$?\")",
+      "Bash(rm -rf apps/web/.next)",
+      "Bash(echo \"web=$?\")"
     ]
   }
 }

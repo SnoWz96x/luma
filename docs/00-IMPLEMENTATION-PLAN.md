@@ -4,6 +4,12 @@
 > uma fatia vertical testável. Princípio: **adaptar e integrar**, não recriar.
 > Tudo respeita: offline-first, sem barras, sem clínica, Safety Layer no núcleo.
 
+> **STATUS (2026-06-02): Sprints A–E CONCLUÍDOS ✅** — 214 testes, builds limpos.
+> A — Emoção+Memória · B — Motivator/Narrative/Events · C — AI Orchestrator/Model
+> Manager · D — Plugin Engine+minigame · E — Sync (core+backend+cliente, validado
+> end-to-end). Pós-V3 (menor): `PostgresSyncStore`, site espelhar o pull, arte por
+> IA via sprite-pack, providers de IA cloud, V2 (família/mobile).
+
 ## Sprint A — Inteligência emocional & memória (core, alto valor)
 1. **Emotional Context Engine** (`core/emotion`)
    - Infere sinais 0..1: stress, energy, motivation, positivity, social_need, confidence.

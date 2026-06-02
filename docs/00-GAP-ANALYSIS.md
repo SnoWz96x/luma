@@ -10,8 +10,8 @@
 | Engines puras reutilizáveis | ✅ | — |
 | Website (landing) | ✅ | `apps/web` (Next.js, 6 páginas) |
 | Sync Engine (lógica) | ✅ | `core/sync` (LWW + outbox), testado |
-| Backend API + transporte sync | 🟡 | falta `apps/api` (PostgreSQL + HTTP) — ver [16-SYNC-ENGINE](16-SYNC-ENGINE.md) |
-| Website sincronizado (espelho real) | ❌ | depende do `apps/api` |
+| Backend API + transporte sync | ✅ | `apps/api` (HTTP push/pull) + cliente desktop, validado end-to-end |
+| Website sincronizado (espelho real) | 🟡 | API + cliente prontos; falta o site consumir o pull + `PostgresSyncStore` |
 | Plugin Engine | ✅ | `core/plugin` (manifestos + sprites) |
 
 ## IA
@@ -19,8 +19,8 @@
 |---------------|--------|--------|
 | AIProvider / Mock / Ollama | ✅ | — |
 | OpenAIProvider / Anthropic / Gemini (opcionais) | ❌ | só Mock+Ollama implementados |
-| Model Manager (instalar modelos, RAM/tamanho/qualidade) | ❌ | UI só aponta endpoint/modelo manual |
-| AI Orchestrator (escolher modelo automático) | 🟡 | há fallback Mock↔Ollama; falta seleção por hardware |
+| Model Manager (RAM/tamanho/qualidade) | ✅ | Sprint C — lista modelos do Ollama + recomenda por RAM (Ajustes) |
+| AI Orchestrator (escolher modelo) | ✅ | Sprint C — `core/ai/orchestrator` (catálogo + `pickBestModel`) |
 
 ## Inteligência emocional & memória
 | Capacidade V3 | Estado | Lacuna |
@@ -56,11 +56,17 @@
 🟡 docs 01-07 existem mas precisam refletir o estado **atual** (growth, achievement,
 economy, world, help/support, persistência SQLite, IA Ollama). Atualização pendente.
 
-## Resumo das maiores lacunas (priorizadas)
-1. **Emotional Context Engine** — inferência de sinais (sem clínica). Alto valor, baixo custo.
-2. **Memory tiers + resumo** (inspiração MemGPT/Letta) — o coração do produto.
-3. **System Motivator + Narrative + Event Engine** — "pet vivo" com sonhos e eventos.
-4. **Model Manager / AI Orchestrator** — UX da IA local.
-5. **Web + API + Sync** — fase 4, maior esforço.
-6. **Mais minigames + Plugin Engine** — extensibilidade.
-7. **Atualizar docs 01-07.**
+## Resumo — Sprints A–E CONCLUÍDOS ✅
+1. ~~Emotional Context Engine~~ ✅ Sprint A
+2. ~~Memory tiers + resumo~~ ✅ Sprint A
+3. ~~System Motivator + Narrative + Event Engine~~ ✅ Sprint B
+4. ~~Model Manager / AI Orchestrator~~ ✅ Sprint C
+5. ~~Plugin Engine + minigames~~ ✅ Sprint D
+6. ~~Sync (core + backend + cliente)~~ ✅ Sprint E (validado end-to-end)
+
+### Lacunas restantes (pós-V3, menores)
+- `PostgresSyncStore` (store de sync hoje é em memória — ok p/ dev).
+- Site consumir o pull (espelho real do pet na web).
+- Providers de IA cloud opt-in (OpenAI/Anthropic/Gemini).
+- Arte por IA real via sprite-pack (toggle já pronto).
+- V2: família do pet, mobile, criptografia local.
