@@ -1,21 +1,29 @@
 // Barra de título custom (janela Tauri sem bordas). Arrastável + botões.
-// No browser (dev) os botões de janela ficam ocultos.
+// Usa a API GLOBAL do Tauri (window.__TAURI__), exposta por withGlobalTauri:true —
+// mais robusta que import dinâmico (que o Vite externaliza e o webview não resolve).
 import { isTauri } from "../repositories";
 
-async function win() {
-  // import dinâmico: API só existe no contexto Tauri
-  const pkg = ["@tauri-apps", "api/window"].join("/");
-  const mod = (await import(/* @vite-ignore */ pkg)) as {
-    getCurrentWindow: () => {
-      minimize(): Promise<void>;
-      close(): Promise<void>;
-    };
+interface TauriWin {
+  minimize(): Promise<void>;
+  close(): Promise<void>;
+  toggleMaximize(): Promise<void>;
+}
+
+function getWin(): TauriWin | null {
+  const g = window as unknown as {
+    __TAURI__?: { window?: { getCurrentWindow?: () => TauriWin } };
   };
-  return mod.getCurrentWindow();
+  return g.__TAURI__?.window?.getCurrentWindow?.() ?? null;
 }
 
 export function TitleBar({ title }: { title: string }) {
   const tauri = isTauri();
+
+  const act = (fn: (w: TauriWin) => Promise<void>) => () => {
+    const w = getWin();
+    if (w) void fn(w);
+  };
+
   return (
     <div
       data-tauri-drag-region
@@ -31,17 +39,28 @@ export function TitleBar({ title }: { title: string }) {
         <div className="flex items-center gap-1">
           <button
             type="button"
-            onClick={() => void win().then((w) => w.minimize())}
-            className="grid h-6 w-6 place-items-center rounded-lg text-luma-muted transition hover:bg-white/10"
+            onClick={act((w) => w.minimize())}
+            className="grid h-7 w-7 place-items-center rounded-lg text-luma-muted transition hover:bg-white/10"
             aria-label="Minimizar"
+            title="Minimizar"
           >
             –
           </button>
           <button
             type="button"
-            onClick={() => void win().then((w) => w.close())}
-            className="grid h-6 w-6 place-items-center rounded-lg text-luma-muted transition hover:bg-red-400/30 hover:text-white"
+            onClick={act((w) => w.toggleMaximize())}
+            className="grid h-7 w-7 place-items-center rounded-lg text-luma-muted transition hover:bg-white/10"
+            aria-label="Maximizar"
+            title="Maximizar / restaurar"
+          >
+            ▢
+          </button>
+          <button
+            type="button"
+            onClick={act((w) => w.close())}
+            className="grid h-7 w-7 place-items-center rounded-lg text-luma-muted transition hover:bg-red-400/40 hover:text-white"
             aria-label="Fechar"
+            title="Fechar"
           >
             ×
           </button>
