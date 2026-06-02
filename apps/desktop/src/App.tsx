@@ -140,7 +140,11 @@ function Home() {
       </div>
 
       {/* abas */}
-      <div className="flex gap-1.5 overflow-x-auto px-4 pb-3">
+      <div
+        role="tablist"
+        aria-label="Seções do LUMA"
+        className="flex gap-1.5 overflow-x-auto px-4 pb-3"
+      >
         {TABS.map((t) => (
           <TabButton key={t.id} active={tab === t.id} onClick={() => setTab(t.id)}>
             {t.label}
@@ -261,8 +265,10 @@ function TabButton({
   return (
     <button
       type="button"
+      role="tab"
+      aria-selected={active}
       onClick={onClick}
-      className={`shrink-0 rounded-2xl px-3 py-2 text-sm font-semibold transition ${
+      className={`shrink-0 rounded-2xl px-3 py-2 text-sm font-semibold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-luma-accent ${
         active
           ? "bg-gradient-to-r from-luma-accent to-luma-accent2 text-luma-bg0 shadow-glow"
           : "border border-white/10 bg-white/[0.05] text-luma-muted hover:bg-white/[0.1]"

@@ -91,7 +91,12 @@
       "Bash(echo \"exit_tc=$?\")",
       "Bash(pnpm --filter @luma/api test)",
       "Bash(pnpm --filter @luma/api typecheck)",
-      "Bash(xargs echo \"workspaces ok:\")"
+      "Bash(xargs echo \"workspaces ok:\")",
+      "Bash(curl -s -X POST http://localhost:4000/sync/push -H \"Content-Type: application/json\" -d '{\"entity\":\"memories\",\"changes\":[{\"entity\":\"memories\",\"op\":\"upsert\",\"createdAt\":\"2026-06-02T06:00:00Z\",\"payload\":{\"id\":\"m1\",\"content\":\"Adoro desenhar\",\"updatedAt\":\"2026-06-02T06:00:00Z\",\"syncVersion\":0}},{\"entity\":\"memories\",\"op\":\"upsert\",\"createdAt\":\"2026-06-02T06:01:00Z\",\"payload\":{\"id\":\"m2\",\"content\":\"Passei na prova\",\"updatedAt\":\"2026-06-02T06:01:00Z\",\"syncVersion\":0}}]}')",
+      "Bash(curl -s \"http://localhost:4000/sync/pull?entity=memories&since=0\")",
+      "Bash(curl -s -X POST http://localhost:4000/sync/push -H \"Content-Type: application/json\" -d '{\"entity\":\"memories\",\"changes\":[{\"entity\":\"memories\",\"op\":\"upsert\",\"createdAt\":\"2026-06-02T07:00:00Z\",\"payload\":{\"id\":\"m1\",\"content\":\"Adoro desenhar a noite\",\"updatedAt\":\"2026-06-02T07:00:00Z\",\"syncVersion\":0}},{\"entity\":\"memories\",\"op\":\"delete\",\"createdAt\":\"2026-06-02T07:00:00Z\",\"payload\":{\"id\":\"m2\",\"content\":\"Passei na prova\",\"updatedAt\":\"2026-06-02T07:00:00Z\",\"syncVersion\":0,\"deletedAt\":\"2026-06-02T07:00:00Z\"}}]}')",
+      "Bash(curl -s \"http://localhost:4000/sync/pull?entity=memories&since=2\")",
+      "Bash(node -e \"const d=JSON.parse\\(require\\('fs'\\).readFileSync\\(0\\)\\);console.log\\('cursor:',d.cursor\\);d.records.forEach\\(r=>console.log\\('-',r.id,'| v'+r.syncVersion,'| deleted:',!!r.deletedAt,'|',r.content\\)\\)\")"
     ]
   }
 }
