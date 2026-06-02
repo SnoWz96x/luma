@@ -6,6 +6,7 @@ import { useSupportStore } from "../stores/supportStore";
 import { useProgressStore } from "../stores/progressStore";
 import { useAiStore } from "../stores/aiStore";
 import { useSyncStore } from "../stores/syncStore";
+import { useArtStore } from "../stores/artStore";
 import type { SyncMode } from "@luma/shared";
 import { downloadBackup, importBackup, eraseAllData } from "../lib/dataPrivacy";
 
@@ -88,6 +89,9 @@ export function SettingsPanel() {
           </button>
         </div>
       </section>
+
+      {/* Estilo de arte */}
+      <ArtSection />
 
       {/* IA */}
       <AiSection />
@@ -306,6 +310,46 @@ function AiSection() {
           Respostas acolhedoras pré-definidas. Sem servidor, funciona sempre.
         </p>
       )}
+    </section>
+  );
+}
+
+function ArtSection() {
+  const style = useArtStore((s) => s.style);
+  const setStyle = useArtStore((s) => s.setStyle);
+
+  const opts: { id: "vector" | "ai"; label: string; desc: string }[] = [
+    { id: "vector", label: "✏️ Vetorial", desc: "Desenho fofo por código. Leve, sempre disponível (padrão)." },
+    { id: "ai", label: "🎨 Arte rica (IA)", desc: "Usa sprites/ilustração quando o personagem tiver. Cai no vetorial se não houver." },
+  ];
+
+  return (
+    <section>
+      <h3 className="mb-1.5 px-1 text-xs font-semibold text-luma-ink">
+        Estilo dos personagens
+      </h3>
+      <div className="flex gap-2">
+        {opts.map((o) => (
+          <button
+            key={o.id}
+            type="button"
+            onClick={() => setStyle(o.id)}
+            aria-pressed={style === o.id}
+            className={`flex-1 rounded-xl border px-3 py-2 text-left text-sm transition ${
+              style === o.id
+                ? "border-luma-accent bg-luma-accent/15 text-luma-ink"
+                : "border-white/10 bg-white/[0.05] text-luma-muted hover:bg-white/[0.1]"
+            }`}
+          >
+            <b className="block">{o.label}</b>
+            <span className="text-[10px] text-luma-muted">{o.desc}</span>
+          </button>
+        ))}
+      </div>
+      <p className="mt-1.5 px-1 text-[10px] text-luma-muted/70">
+        Troque a qualquer momento — os dois estilos ficam disponíveis. Arte rica
+        chega via packs (Plugin Engine); ver CONTRIBUTING.
+      </p>
     </section>
   );
 }

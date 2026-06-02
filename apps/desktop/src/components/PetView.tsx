@@ -7,6 +7,7 @@ import {
   PET_ANIMATION_CSS,
 } from "@luma/characters";
 import { pluginRegistry } from "@luma/core";
+import { useArtStore } from "../stores/artStore";
 import type {
   CharacterDef,
   SensorySignals,
@@ -42,13 +43,17 @@ interface PetViewProps {
 
 export function PetView({ character, signals, size = 200, scale = 1, skinColors, stage, branch, onPet }: PetViewProps) {
   usePetAnimationCSS();
+  const artStyle = useArtStore((s) => s.style);
   const animClass = ANIMATION_CLASS[signals.animation];
   const px = Math.round(size * scale);
 
-  // Arte híbrida (camada 2): se um sprite-pack fornecer arte para este pet e o
-  // estágio já nasceu, usa o sprite; senão, cai no renderizador vetorial.
+  // Arte híbrida: no estilo "ai", se um sprite-pack fornecer arte para este pet
+  // (e já nasceu), usa o sprite; caso contrário (ou estilo "vector"), cai no
+  // renderizador vetorial — que sempre funciona. Alterna com um clique nos Ajustes.
   const sprite =
-    stage !== "egg" ? pluginRegistry.spriteFrame(character.id, signals.animation) : undefined;
+    artStyle === "ai" && stage !== "egg"
+      ? pluginRegistry.spriteFrame(character.id, signals.animation)
+      : undefined;
 
   const inner = sprite ? (
     <img
